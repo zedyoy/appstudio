@@ -1,0 +1,203 @@
+/* Stile di base */
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #24272c;
+    color: #333;
+}
+
+/* Contenitore principale */
+.quiz-container {
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+}
+.label {
+    color: #ffffff;
+}
+/* Stile del titolo */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* Scheda domanda */
+.question-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+}
+
+/* Testo della domanda */
+.question-text {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Stile della lista delle risposte */
+.answer-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Singola risposta */
+.answer-list li {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    margin: 8px 0;
+    padding: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.answer-list li:hover {
+    background-color: #d1d8e0;
+}
+
+.answer-list li.selected.correct {
+    background-color: #38c172; /* Verde per risposta corretta */
+    color: #fff;
+    font-weight: bold;
+}
+
+.answer-list li.selected.wrong {
+    background-color: #e3342f; /* Rosso per risposta errata */
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Testo del risultato */
+.result-text {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Bottone successivo */
+.next-btn {
+    background-color: #3490dc;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    position: center;
+}
+
+.next-btn:hover {
+    background-color: #2779bd;
+}
+
+.save-btn {
+    background-color: #3490dc;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    position: center;
+
+}
+
+.save-btn:hover{
+    background-color: #2779bd;
+}
+
+.remove-btn {
+    background-color: #8a0b0b;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    position: center;
+}
+
+.remove.btn:hover {
+    background-color: #e3342f;
+}
+
+.startsaved-btn{
+    background-color: #1c6b08;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    position: center;
+}
+
+.startsaved-btn:hover {
+    background-color: #48dd23;
+}
+
+.clear-saved-questions {
+    background-color: #8a0b0b;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    position: center;
+}
+
+.clear-saved-questions:hover {
+    background-color: #e3342f;
+}
+
+label {
+    color:#fff;
+}
+
+.start-btn {
+    background-color: #43ee18;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+    position: center;
+}
+/* Stile reattivo per dispositivi mobili */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 20px;
+    }
+    .question-text {
+        font-size: 16px;
+    }
+    .next-btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}
