@@ -4,40 +4,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Università</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <script src="/static/quiz.js" defer></script>
+
+    <div style="margin-left:auto; display:flex; gap:8px; align-items:center;">
+        <select id="dbSelect" class="btn ghost" style="min-height: 36px; padding: 6px 10px;">
+            <option value="Architettura dei Calcolatori">architettura_calcolatori.db</option>
+            <option value="Programmazione 2">programmazione_2.db</option>
+        </select>
+    </div>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='quiz.js') }}" defer></script>
 </head>
 <body>
-    <div class="quiz-container">
-        <h1>Quiz Università</h1>
-        
-        <div class="start-question">
-            <label for="startingQuestion">Inizia da domanda numero:</label>
-            <input type="number" id="startingQuestion" min="1" value="1">
-            <button id="startButton" class="start-btn">Inizia</button>
-        </div>
-        
-        <div id="score">
-            <p id="correctCount" style="color: green;">Corrette: 0</p>
-            <p id="incorrectCount" style="color: red;">Sbagliate: 0</p>
-        </div>
-        
-        <div class="question-card">
-            <p id="domanda-id" id="question-id"></p>
-            <p id="domanda" class="question-text"></p>
-            <ul id="risposte" class="answer-list"></ul>
-            <p id="result" class="result-text"></p>
-            <button id="nextBtn" class="next-btn" onclick="prevQuestion()">Domanda Precedente</button>
-            <button id="nextBtn" class="next-btn" onclick="nextQuestion()">Prossima Domanda</button>
-            <button id="saveBtn" class="save-btn" onclick="saveQuestion()">Salva per dopo</button>
-            <button id="removeBtn" class="remove-btn" onclick="removeSavedQuestion()">Rimuovi domanda salvata</button>
-            
+    <div class="quiz-wrapper">
+        <!-- HEADER CENTRATO + TEMA -->
+        <header class="quiz-header">
+            <div class="header-top">
+                <h1>Quiz Università</h1>
 
-        </div>
-                
-        <button id="startSavedButton" class="startsaved-btn" onclick="startSavedQuiz()">Inizia con domande salvate</button>
-        <button id="clearSavedQuestions" class="clear-saved-questions" onclick="clearSavedQuestions()">Cancella domande salvate</button>
-        <div><span id="savedCount" style="font-weight: bold; color:white">Salvate: 0</span></div>
+            </div>
+
+
+            <div class="score-board">
+                <div class="score-pill correct-pill">
+                    <span class="label">Corrette</span>
+                    <span id="correctCount" class="value">0</span>
+                </div>
+                <div class="score-pill wrong-pill">
+                    <span class="label">Sbagliate</span>
+                    <span id="incorrectCount" class="value">0</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- STATISTICHE SESSIONE -->
+        <section class="session-bar">
+            <div class="session-item">
+                <span class="session-label">Domande risposte</span>
+                <span id="answeredCount" class="session-value">0</span>
+            </div>
+            <div class="session-item">
+                <span class="session-label">Accuratezza</span>
+                <span id="accuracy" class="session-value">0%</span>
+            </div>
+            <div class="session-item session-performance">
+                <span class="session-label">Valutazione</span>
+                <span id="performanceLabel" class="session-value">-</span>
+            </div>
+            <button id="resetSessionBtn" class="btn small-btn ghost">
+                Reset sessione
+            </button>
+        </section>
+
+        <!-- MODALITÀ A TAB -->
+        <section class="mode-section">
+            <span class="mode-label">Modalità</span>
+
+            <div class="mode-tabs">
+                <button class="mode-tab active" data-mode="training">Allenamento</button>
+                <button class="mode-tab" data-mode="exam">Simulazione</button>
+            </div>
+        </section>
+
+        <!-- SEZIONI IMPOSTAZIONI MODALITÀ -->
+        <section class="mode-settings">
+            <!-- Allenamento -->
+            <div id="trainingSettings" class="settings-block">
+                <div class="settings-row">
+                    <label for="startingQuestion">Inizia dalla domanda numero</label>
+                    <input type="number" id="startingQuestion" min="1" value="1">
+                </div>
+            </div>
+
+
+            <!-- Simulazione -->
+            <div id="examSettings" class="settings-block" style="display:none;">
+                <div class="settings-row">
+                    <label for="examQuestionCount">Numero domande simulazione</label>
+                    <input type="number" id="examQuestionCount" min="1" max="500" value="30">
+                </div>
+                <div class="settings-row">
+                    <label class="inline">
+                        <input type="checkbox" id="examTimerEnabled">
+                        Attiva timer simulazione
+                    </label>
+                    <div class="timer-input-group">
+                        <label for="examTimerMinutes">Minuti</label>
+                        <input type="number" id="examTimerMinutes" min="1" max="180" value="30">
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-actions">
+                <button id="startButton" class="btn primary">Inizia</button>
+            </div>
+        </section>
+
+        <!-- LAYOUT PRINCIPALE: SIDEBAR + CONTENUTO -->
+        <main class="layout-main">
+            <!-- SIDEBAR SIMULAZIONE -->
+            <aside class="sidebar" id="examSidebar" style="display:none;">
+                <div class="sidebar-title">Domande</div>
+                <div id="examQuestionList" class="sidebar-list">
+                    <!-- numeri domande simulazione -->
+                </div>
+            </aside>
+
+            <!-- CONTENUTO QUIZ -->
+            <section class="quiz-main">
+                <!-- CARD DOMANDA -->
+                <section class="question-card">
+                    <div class="question-meta">
+                        <span id="domanda-id" class="question-id">ID Domanda: -</span>
+                        <span id="timerDisplay" class="timer-display" style="display:none;">00:00</span>
+                        <span id="savedCount" class="saved-badge">Salvate: 0</span>
+                    </div>
+
+                    <!-- progress bar (soprattutto per simulazione) -->
+                    <div id="progressBarWrapper" class="progress-wrapper" style="display:none;">
+                        <div class="progress-info">
+                            <span id="progressLabel">Domanda 0/0</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div id="progressFill" class="progress-fill"></div>
+                        </div>
+                    </div>
+
+                    <div id="domanda" class="question-text">
+                        <!-- domanda via JS -->
+                    </div>
+
+                    <ul id="risposte" class="answer-list">
+                        <!-- risposte via JS -->
+                    </ul>
+
+                    <p id="result" class="result-text"></p>
+
+                    <div class="question-footer">
+                        <div class="nav-buttons">
+                            <button id="nextBtn" class="btn primary" onclick="nextQuestion()">
+                                Prossima domanda
+                            </button>
+                            <button id="prevBtn" class="btn ghost" onclick="prevQuestion()">
+                                Domanda precedente
+                            </button>
+                        </div>
+                        <div class="save-buttons">
+                            <button id="saveBtn" class="btn secondary" onclick="saveQuestion()">
+                                Salva per dopo
+                            </button>
+                            <button id="removeBtn" class="btn danger-outline" onclick="removeSavedQuestion()">
+                                Rimuovi domanda salvata
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SEZIONE DOMANDE SALVATE -->
+                <section class="saved-section">
+                    <div class="saved-actions">
+                        <button id="startSavedButton" class="btn success" onclick="startSavedQuiz()">
+                            Inizia quiz con domande salvate
+                        </button>
+                        <button id="clearSavedQuestions" class="btn danger-outline" onclick="clearSavedQuestions()">
+                            Cancella tutte le domande salvate
+                        </button>
+                    </div>
+
+                </section>
+
+                <!-- RIEPILOGO FINALE SIMULAZIONE -->
+                <section id="examSummary" class="exam-summary" style="display: none;">
+                    <!-- popolato da JS -->
+                </section>
+            </section>
+        </main>
     </div>
 </body>
 </html>
