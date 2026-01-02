@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz Università</title>
-
-    <div style="margin-left:auto; display:flex; gap:8px; align-items:center;">
-        <select id="dbSelect" class="btn ghost" style="min-height: 36px; padding: 6px 10px;">
-            <option value="Architettura dei Calcolatori">architettura_calcolatori.db</option>
-            <option value="Programmazione 2">programmazione_2.db</option>
-        </select>
-    </div>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="{{ url_for('static', filename='quiz.js') }}" defer></script>
 </head>
+
 <body>
     <div class="quiz-wrapper">
         <!-- HEADER CENTRATO + TEMA -->
@@ -22,8 +16,14 @@
             <div class="header-top">
                 <h1>Quiz Università</h1>
 
+                <!-- selettore materia (rimane nella riga del titolo, a destra) -->
+                <div style="margin-left:auto; display:flex; gap:8px; align-items:center;">
+                    <select id="dbSelect" class="btn ghost" style="min-height: 36px; padding: 6px 10px;">
+                        <option value="" selected disabled>Seleziona una materia</option>
+                        <!-- opzioni popolate via JS -->
+                    </select>
+                </div>
             </div>
-
 
             <div class="score-board">
                 <div class="score-pill correct-pill">
@@ -75,7 +75,6 @@
                     <input type="number" id="startingQuestion" min="1" value="1">
                 </div>
             </div>
-
 
             <!-- Simulazione -->
             <div id="examSettings" class="settings-block" style="display:none;">
@@ -132,6 +131,7 @@
 
                     <div id="domanda" class="question-text">
                         <!-- domanda via JS -->
+                        Seleziona una materia, poi scegli la modalità e premi Inizia.
                     </div>
 
                     <ul id="risposte" class="answer-list">
@@ -170,11 +170,10 @@
                             Cancella tutte le domande salvate
                         </button>
                     </div>
-
                 </section>
 
                 <!-- RIEPILOGO FINALE SIMULAZIONE -->
-                <section id="examSummary" class="exam-summary" style="display: none;">
+                <section id="examSummary" class="exam-summary" style="display:none;">
                     <!-- popolato da JS -->
                 </section>
             </section>
