@@ -4,40 +4,83 @@ import sqlite3
 import os
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY", "dev-secret-change-me")  # necessario per sessione
+app.secret_key = os.environ.get("SECRET_KEY", "dev-secret-change-me")
 
-AVAILABLE_DBS = {
-    "Architettura dei Calcolatori": "architettura_calcolatori.db",
-    "Programmazione 2": "programmazione_2.db",
-}
+# Cerco i DB qui:
+# - ./data (consigliato)
+
+DB_DIRS = [
+    os.path.join(app.root_path, "data"),
+    app.root_path,
+]
+for d in DB_DIRS:
+    os.makedirs(d, exist_ok=True)
+
+IGNORE_DBS = {"dashboard.db"}
+
+
+def _title_from_filename(filename: str) -> str:
+    name = os.path.splitext(os.path.basename(filename))[0]
+    name = name.replace("-", " ").replace("_", " ").strip()
+    # rimuove suffissi comuni
+    for suffix in (" quiz", " db"):
+        if name.lower().endswith(suffix):
+            name = name[: -len(suffix)].strip()
+    return name.title() if name else "Materia"
+
+
+def get_subject_label(db_path: str) -> str:
+    """Legge il nome materia da meta.subject, fallback sul filename."""
+    fallback = _title_from_filename(db_path)
+    try:
+        conn = sqlite3.connect(db_path)
+        cur = conn.cursor()
+        cur.execute("SELECT value FROM meta WHERE key='subject' LIMIT 1")
+        row = cur.fetchone()
+        conn.close()
+        if row and row[0]:
+            return str(row[0]).strip()
+    except Exception:
+        pass
+    return fallback
+
+
+def scan_databases():
+    """Ritorna: {db_key: {path, label}}. db_key = path relativo alla root."""
+    dbs = {}
+    for base in DB_DIRS:
+        if not os.path.isdir(base):
+            continue
+        for fname in os.listdir(base):
+            if not fname.lower().endswith(".db"):
+                continue
+            if fname in IGNORE_DBS:
+                continue
+            full = os.path.join(base, fname)
+            if not os.path.isfile(full):
+                continue
+            key = os.path.relpath(full, app.root_path).replace("\\", "/")
+            dbs[key] = {"path": full, "label": get_subject_label(full)}
+    return dbs
+
 
 def get_db_path():
-    db_key = session.get("db_key", "quiz")  # default
-    if db_key not in AVAILABLE_DBS:
-        db_key = "quiz"
-        session["db_key"] = db_key
-    return os.path.join(app.root_path, AVAILABLE_DBS[db_key])
+    dbs = scan_databases()
+    active = session.get("db_key")
+    if not active or active not in dbs:
+        return None
+    return dbs[active]["path"]
 
 
 def get_connection():
-    conn = sqlite3.connect(get_db_path())
-    return conn
-
+    db_path = get_db_path()
+    if not db_path:
+        raise RuntimeError("Nessun database selezionato")
+    return sqlite3.connect(db_path)
 
 
 def build_question_payload(cursor, question_id, include_images=True):
-    """
-    Restituisce un dizionario con:
-    - id
-    - testo
-    - immagine (base64 o None)
-    - risposte: lista di {id, testo, immagine}
-    - corretta: id della risposta corretta
-    """
-    cursor.execute(
-        "SELECT id, testo, immagine FROM questions WHERE id = ?",
-        (question_id,),
-    )
+    cursor.execute("SELECT id, testo, immagine FROM questions WHERE id = ?", (question_id,))
     row = cursor.fetchone()
     if row is None:
         return None
@@ -62,54 +105,60 @@ def build_question_payload(cursor, question_id, include_images=True):
             if ans_blob is not None and include_images
             else None
         )
-        answers.append(
-            {
-                "id": ans_id,
-                "testo": ans_text,
-                "immagine": ans_img_b64,
-            }
-        )
+        answers.append({"id": ans_id, "testo": ans_text, "immagine": ans_img_b64})
         if corretta:
             correct_id = ans_id
 
-    return {
-        "id": q_id,
-        "testo": testo,
-        "immagine": image_b64,
-        "risposte": answers,
-        "corretta": correct_id,
-    }
+    return {"id": q_id, "testo": testo, "immagine": image_b64, "risposte": answers, "corretta": correct_id}
 
+
+def require_db_selected():
+    if not get_db_path():
+        return jsonify({"error": "Seleziona prima una materia"}), 400
+    return None
+
+
+# ------------------------
+#   API: Materie
+# ------------------------
 
 @app.route("/api/databases", methods=["GET"])
 def list_databases():
-    # restituisco anche quale è attivo
-    active = session.get("db_key", "quiz")
-    return jsonify({
-        "active": active,
-        "options": [{"key": k, "label": AVAILABLE_DBS[k]} for k in AVAILABLE_DBS]
-    })
+    dbs = scan_databases()
+    active = session.get("db_key")
+    if active not in dbs:
+        active = None
+
+    options = [{"key": k, "label": v["label"]} for k, v in dbs.items()]
+    options.sort(key=lambda x: x["label"].lower())
+    return jsonify({"active": active, "options": options})
+
 
 @app.route("/api/set_database", methods=["POST"])
 def set_database():
+    dbs = scan_databases()
     data = request.get_json(silent=True) or {}
     db_key = data.get("db_key")
 
-    if db_key not in AVAILABLE_DBS:
-        return jsonify({"error": "Database non valido"}), 400
+    if not db_key or db_key not in dbs:
+        return jsonify({"error": "Materia/Database non valido"}), 400
 
     session["db_key"] = db_key
-    return jsonify({"message": "Database impostato", "active": db_key})
+    return jsonify({"message": "Materia impostata", "active": db_key})
 
 
-# --------- API DOMANDA SINGOLA (allenamento) ---------
-
+# ------------------------
+#   API: Quiz
+# ------------------------
 
 @app.route("/api/question/<int:id>", methods=["GET"])
 def get_question_by_id(id):
+    guard = require_db_selected()
+    if guard:
+        return guard
+
     conn = get_connection()
     cursor = conn.cursor()
-
     payload = build_question_payload(cursor, id, include_images=True)
     conn.close()
 
@@ -119,14 +168,14 @@ def get_question_by_id(id):
     return jsonify(payload)
 
 
-# --------- API SALVATAGGIO DOMANDE ---------
-
-
 @app.route("/api/save_question/<int:id>", methods=["POST"])
 def save_question(id):
+    guard = require_db_selected()
+    if guard:
+        return guard
+
     conn = get_connection()
     cursor = conn.cursor()
-
     cursor.execute("UPDATE questions SET is_saved = 1 WHERE id = ?", (id,))
     conn.commit()
     conn.close()
@@ -136,12 +185,14 @@ def save_question(id):
 
 @app.route("/api/saved_questions", methods=["GET"])
 def get_saved_questions():
+    guard = require_db_selected()
+    if guard:
+        return guard
+
     conn = get_connection()
     cursor = conn.cursor()
 
-    cursor.execute(
-        "SELECT id FROM questions WHERE is_saved = 1 ORDER BY id"
-    )
+    cursor.execute("SELECT id FROM questions WHERE is_saved = 1 ORDER BY id")
     rows = cursor.fetchall()
 
     questions = []
@@ -156,9 +207,12 @@ def get_saved_questions():
 
 @app.route("/api/remove_saved_question/<int:id>", methods=["DELETE"])
 def remove_saved_question(id):
+    guard = require_db_selected()
+    if guard:
+        return guard
+
     conn = get_connection()
     cursor = conn.cursor()
-
     cursor.execute("UPDATE questions SET is_saved = 0 WHERE id = ?", (id,))
     conn.commit()
     conn.close()
@@ -168,9 +222,12 @@ def remove_saved_question(id):
 
 @app.route("/api/clear_saved_questions", methods=["DELETE"])
 def clear_saved_questions():
+    guard = require_db_selected()
+    if guard:
+        return guard
+
     conn = get_connection()
     cursor = conn.cursor()
-
     cursor.execute("UPDATE questions SET is_saved = 0")
     conn.commit()
     conn.close()
@@ -178,27 +235,19 @@ def clear_saved_questions():
     return jsonify({"message": "Tutte le domande salvate sono state rimosse"})
 
 
-# --------- NUOVA API: DOMANDE CASUALI (SIMULAZIONE) ---------
-
-
 @app.route("/api/random_questions", methods=["GET"])
 def random_questions():
-    """
-    Restituisce un elenco di domande casuali
-    con la stessa struttura di /api/question/<id>.
-    Parametro opzionale: ?limit=30
-    """
+    guard = require_db_selected()
+    if guard:
+        return guard
+
     limit = request.args.get("limit", default=30, type=int)
     if limit <= 0:
         limit = 30
 
     conn = get_connection()
     cursor = conn.cursor()
-
-    cursor.execute(
-        "SELECT id FROM questions ORDER BY RANDOM() LIMIT ?",
-        (limit,),
-    )
+    cursor.execute("SELECT id FROM questions ORDER BY RANDOM() LIMIT ?", (limit,))
     rows = cursor.fetchall()
 
     questions = []
@@ -209,9 +258,6 @@ def random_questions():
 
     conn.close()
     return jsonify(questions)
-
-
-# --------- PAGINA HTML ---------
 
 
 @app.route("/")
