@@ -17,14 +17,26 @@ async function loadDbOptions() {
     const data = await res.json();
 
     sel.innerHTML = "";
-    data.options.forEach(opt => {
+
+    // placeholder
+    const ph = document.createElement("option");
+    ph.value = "";
+    ph.textContent = "Seleziona una materia";
+    ph.disabled = true;
+    ph.selected = true;
+    sel.appendChild(ph);
+
+    (data.options || []).forEach((opt) => {
         const o = document.createElement("option");
-        o.value = opt.key;
-        o.textContent = opt.label;
+        o.value = opt.key;       // db_key (relpath)
+        o.textContent = opt.label; // nome materia
         sel.appendChild(o);
     });
 
-    sel.value = data.active || "quiz";
+    // se c'è una materia già attiva, selezionala
+    if (data.active) {
+        sel.value = data.active;
+    }
 }
 
 async function setDatabase(dbKey) {
@@ -777,6 +789,12 @@ async function removeSavedQuestion() {
 // --------- AVVIO E UI ---------
 
 function startQuiz() {
+    const dbSelect = document.getElementById("dbSelect");
+    if (dbSelect && !dbSelect.value) {
+        alert("Seleziona una materia prima di iniziare.");
+        return;
+    }
+
     if (mode === "exam") {
         startExamMode();
     } else {
@@ -831,6 +849,7 @@ window.addEventListener("DOMContentLoaded", async () => {
     const dbSelect = document.getElementById("dbSelect");
     if (dbSelect) {
         dbSelect.addEventListener("change", async () => {
+            if (!dbSelect.value) return;
             await setDatabase(dbSelect.value);
         });
     }
