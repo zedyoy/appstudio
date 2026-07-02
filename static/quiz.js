@@ -37,6 +37,7 @@ let tutorialSaveTimer = null;
 let architecturePractice = null;
 let activeArchitectureExercise = null;
 let selectedArchitectureOption = "";
+let activeVoiceSession = null;
 
 let examQuestions = [];
 let examIndex = 0;
@@ -2153,8 +2154,9 @@ async function checkAnswerTraining(selectedLi, selectedId, correctId) {
     showNavButtons();
 
     try {
-        const errorReason = isCorrect ? null : await askErrorReason();
-        await recordAttempt(questionAtAnswer.id, selectedId, correctId, currentAttemptMode(), false, errorReason);
+        const attemptMode = currentAttemptMode();
+        const errorReason = !isCorrect && attemptMode === "training" ? await askErrorReason() : null;
+        await recordAttempt(questionAtAnswer.id, selectedId, correctId, attemptMode, false, errorReason);
         if (!isCorrect) {
             scheduleRecoveryQuestion(questionAtAnswer);
         }
@@ -2171,6 +2173,7 @@ function showConfidencePanel() {
 }
 
 function hideStudyPanel() {
+    stopActiveVoiceSession();
     const panel = document.getElementById("studyPanel");
     const confidence = document.getElementById("confidencePanel");
     if (panel) {
@@ -2283,6 +2286,133 @@ function appendPythonLab(parent, lab) {
     parent.appendChild(wrap);
 }
 
+function getSpeechRecognitionConstructor() {
+    if (typeof window === "undefined") return null;
+    return window.SpeechRecognition || window.webkitSpeechRecognition || null;
+}
+
+function stopActiveVoiceSession() {
+    if (!activeVoiceSession) return;
+    activeVoiceSession.manualStop = true;
+    try {
+        activeVoiceSession.recognition.stop();
+    } catch (err) {
+        console.warn(err);
+    }
+}
+
+function startVoiceDictation(textarea, button, status) {
+    const SpeechRecognition = getSpeechRecognitionConstructor();
+    if (!SpeechRecognition) {
+        if (status) status.textContent = "Dettatura non supportata da questo browser.";
+        if (button) button.disabled = true;
+        return;
+    }
+
+    if (activeVoiceSession?.button === button) {
+        stopActiveVoiceSession();
+        return;
+    }
+
+    stopActiveVoiceSession();
+
+    const recognition = new SpeechRecognition();
+    const initialValue = textarea.value.trim();
+    let finalTranscript = "";
+
+    recognition.lang = "it-IT";
+    recognition.continuous = true;
+    recognition.interimResults = true;
+
+    const updateTextarea = (interimTranscript = "") => {
+        const nextValue = [initialValue, finalTranscript, interimTranscript]
+            .map((part) => part.trim())
+            .filter(Boolean)
+            .join(" ")
+            .replace(/\s+/g, " ");
+        textarea.value = nextValue;
+        textarea.dispatchEvent(new Event("input", { bubbles: true }));
+        textarea.focus();
+    };
+
+    activeVoiceSession = {
+        recognition,
+        button,
+        status,
+        manualStop: false
+    };
+
+    button.classList.add("listening");
+    button.textContent = "Stop";
+    if (status) status.textContent = "Sto ascoltando...";
+
+    recognition.onresult = (event) => {
+        let interimTranscript = "";
+        for (let i = event.resultIndex; i < event.results.length; i += 1) {
+            const transcript = event.results[i][0].transcript;
+            if (event.results[i].isFinal) {
+                finalTranscript = `${finalTranscript} ${transcript}`.trim();
+            } else {
+                interimTranscript += transcript;
+            }
+        }
+        updateTextarea(interimTranscript);
+    };
+
+    recognition.onerror = (event) => {
+        if (status) {
+            status.textContent = event.error === "not-allowed"
+                ? "Permesso microfono negato."
+                : "Dettatura interrotta. Riprova.";
+        }
+    };
+
+    recognition.onend = () => {
+        if (activeVoiceSession?.recognition === recognition) {
+            activeVoiceSession = null;
+        }
+        button.classList.remove("listening");
+        button.textContent = "Detta";
+        if (status && !status.textContent.includes("negato")) {
+            status.textContent = textarea.value.trim()
+                ? "Trascrizione inserita."
+                : "Premi Detta e parla.";
+        }
+    };
+
+    try {
+        recognition.start();
+    } catch (err) {
+        activeVoiceSession = null;
+        button.classList.remove("listening");
+        button.textContent = "Detta";
+        if (status) status.textContent = "Microfono non avviato. Riprova.";
+    }
+}
+
+function appendVoiceDictationControl(parent, textarea) {
+    const wrap = document.createElement("div");
+    wrap.className = "voice-dictation";
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "btn small-btn ghost voice-dictation-btn";
+    button.textContent = "Detta";
+    const status = document.createElement("small");
+    status.className = "voice-dictation-status";
+
+    if (!getSpeechRecognitionConstructor()) {
+        button.disabled = true;
+        status.textContent = "Dettatura non supportata da questo browser.";
+    } else {
+        status.textContent = "Premi Detta e parla.";
+        button.addEventListener("click", () => startVoiceDictation(textarea, button, status));
+    }
+
+    wrap.appendChild(button);
+    wrap.appendChild(status);
+    parent.appendChild(wrap);
+}
+
 function appendActiveExplanationPrompt(parent) {
     const wrap = document.createElement("section");
     wrap.className = "active-explanation";
@@ -2290,7 +2420,7 @@ function appendActiveExplanationPrompt(parent) {
     const title = document.createElement("strong");
     title.textContent = "Richiamo attivo";
     const text = document.createElement("p");
-    text.textContent = "Scrivi in una frase perche la risposta e giusta. Non viene valutata: serve a fissarla.";
+    text.textContent = "Spiegala in una frase con parole tue. Puoi scriverla o dettarla dal microfono.";
     const textarea = document.createElement("textarea");
     textarea.rows = 2;
     textarea.placeholder = "Es. perche la parola chiave della domanda indica...";
@@ -2302,12 +2432,13 @@ function appendActiveExplanationPrompt(parent) {
     button.addEventListener("click", () => {
         feedback.textContent = textarea.value.trim()
             ? "Bene: spiegata con parole tue."
-            : "Ok, ma la prossima volta prova a scriverla: resta molto di piu.";
+            : "Ok, ma la prossima volta prova a dirla o scriverla: resta molto di piu.";
     });
 
     wrap.appendChild(title);
     wrap.appendChild(text);
     wrap.appendChild(textarea);
+    appendVoiceDictationControl(wrap, textarea);
     wrap.appendChild(button);
     wrap.appendChild(feedback);
     parent.appendChild(wrap);
@@ -2316,6 +2447,7 @@ function appendActiveExplanationPrompt(parent) {
 async function loadStudyNote(questionId, selectedAnswerId = null) {
     const panel = document.getElementById("studyPanel");
     if (!panel) return;
+    stopActiveVoiceSession();
 
     const params = new URLSearchParams();
     if (selectedAnswerId) params.set("selected_answer_id", selectedAnswerId);

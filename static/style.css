@@ -2509,6 +2509,23 @@ body.light-theme .study-panel .study-hint {
     resize: vertical;
 }
 
+.voice-dictation {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.voice-dictation-btn.listening {
+    background: rgba(14, 165, 233, 0.22);
+    border-color: rgba(56, 189, 248, 0.9);
+    color: #e0f2fe;
+}
+
+.active-explanation .voice-dictation-status {
+    color: #bfdbfe;
+}
+
 body.light-theme .active-explanation {
     background: #eff6ff;
     border-color: rgba(37, 99, 235, 0.25);
@@ -2527,6 +2544,16 @@ body.light-theme .active-explanation textarea {
     background: #f8fafc;
     color: #0f172a;
     border-color: #cbd5e1;
+}
+
+body.light-theme .voice-dictation-btn.listening {
+    background: #dbeafe;
+    border-color: #2563eb;
+    color: #1e3a8a;
+}
+
+body.light-theme .active-explanation .voice-dictation-status {
+    color: #1d4ed8;
 }
 
 .source-notes {
