@@ -1863,6 +1863,7 @@ function appendFormattedText(parent, value, paragraphTag = "p") {
     const introLines = [];
     const codeLines = [];
     let inCode = false;
+    let expectCodeAfterIntro = false;
 
     lines.forEach((line) => {
         const rawLine = line.replace(/\t/g, "    ");
@@ -1873,11 +1874,15 @@ function appendFormattedText(parent, value, paragraphTag = "p") {
         if (splitLine.code) {
             if (splitLine.intro) introLines.push(splitLine.intro);
             inCode = true;
+            expectCodeAfterIntro = false;
             codeLines.push(rawLine.startsWith(cleaned) ? splitLine.code : rawLine.replace(cleaned, splitLine.code));
-        } else if (inCode && !isEndingText && /[:=(){}\[\];]/.test(cleaned)) {
+        } else if ((inCode || expectCodeAfterIntro) && !isEndingText && (/[:=(){}\[\];]/.test(cleaned) || looksLikeCodeLine(cleaned))) {
+            inCode = true;
+            expectCodeAfterIntro = false;
             codeLines.push(rawLine);
         } else {
             inCode = false;
+            expectCodeAfterIntro = /^(il codice|codice|dato il codice|considera il codice|nel codice|programma|frammento)/i.test(cleaned);
             introLines.push(splitLine.intro || cleaned);
         }
     });
@@ -2065,7 +2070,6 @@ async function recordAttempt(questionId, selectedId, correctId, attemptMode, sil
     if (!silent && activeQuestion && activeQuestion.id === questionId) {
         activeQuestion.progress = data.progress;
         updateQuestionProgressBadge(data.progress);
-        showConfidencePanel();
         if (attemptMode === "tutor" || !data.is_correct) {
             await loadStudyNote(questionId, selectedId);
         }

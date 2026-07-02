@@ -2101,7 +2101,21 @@ body.light-theme .playlist-pill.active {
     color: #f9fafb;
 }
 
+.question-card .question-text,
+.question-card .question-text p,
+.question-card .question-text span,
+.question-card .question-text pre,
+.question-card .question-text code {
+    color: #f8fafc;
+}
+
 body.light-theme .question-text {
+    color: #0f172a;
+}
+
+body.light-theme .question-card .question-text,
+body.light-theme .question-card .question-text p,
+body.light-theme .question-card .question-text span {
     color: #0f172a;
 }
 
@@ -2122,6 +2136,7 @@ body.light-theme .question-text {
     color: #f8fafc !important;
     overflow-x: auto;
     white-space: pre;
+    text-shadow: none;
 }
 
 .code-question code {
@@ -2815,23 +2830,27 @@ body.light-theme .btn.ghost:hover {
 
 /* FOOTER DOMANDA – separato dalle risposte */
 .question-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
     gap: 8px;
-    margin-top: 17px;
+    margin-top: 12px;
     padding-top: 10px;
-    border-top: 3px solid rgba(148, 163, 184, 0.35);
-    flex-wrap: wrap;
+    border-top: 1px solid rgba(148, 163, 184, 0.35);
 }
 
 .nav-buttons,
 .save-buttons {
     display: flex;
-    flex-direction: column;  /* Prossima sopra, centrati */
-    align-items: center;
-    gap: 10px;
+    align-items: stretch;
+    gap: 8px;
     width: 100%;
+}
+
+.nav-buttons .btn,
+.save-buttons .btn {
+    flex: 1 1 0;
+    justify-content: center;
 }
 
 /* SEZIONE DOMANDE SALVATE */
@@ -3228,11 +3247,12 @@ body.light-theme .login-form input {
     }
 
     .question-footer {
-        flex-direction: column;
+        grid-template-columns: 1fr;
     }
 
     .nav-buttons,
     .save-buttons {
+        flex-direction: column;
         width: 100%;
     }
 
