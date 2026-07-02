@@ -2296,36 +2296,6 @@ function appendPythonLab(parent, lab) {
     parent.appendChild(wrap);
 }
 
-function appendActiveExplanationPrompt(parent) {
-    const wrap = document.createElement("section");
-    wrap.className = "active-explanation";
-
-    const title = document.createElement("strong");
-    title.textContent = "Richiamo attivo";
-    const text = document.createElement("p");
-    text.textContent = "Spiegala in una frase con parole tue. Non viene valutata: serve a fissarla.";
-    const textarea = document.createElement("textarea");
-    textarea.rows = 2;
-    textarea.placeholder = "Es. perche la parola chiave della domanda indica...";
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "btn small-btn ghost";
-    button.textContent = "Ho fissato il concetto";
-    const feedback = document.createElement("small");
-    button.addEventListener("click", () => {
-        feedback.textContent = textarea.value.trim()
-            ? "Bene: spiegata con parole tue."
-            : "Ok, ma la prossima volta prova a scriverla: resta molto di piu.";
-    });
-
-    wrap.appendChild(title);
-    wrap.appendChild(text);
-    wrap.appendChild(textarea);
-    wrap.appendChild(button);
-    wrap.appendChild(feedback);
-    parent.appendChild(wrap);
-}
-
 function sourcePageLabel(source) {
     if (!source) return "";
     if (source.page_start && source.page_end && source.page_start !== source.page_end) {
@@ -2421,7 +2391,6 @@ async function loadStudyNote(questionId, selectedAnswerId = null) {
     });
 
     appendPythonLab(panel, note.python_lab);
-    appendActiveExplanationPrompt(panel);
 
     if (note.source_notes && note.source_notes.length) {
         const source = note.source_notes[0];

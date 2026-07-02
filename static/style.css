@@ -2487,59 +2487,6 @@ body.light-theme .study-panel .study-hint {
     color: #1d4ed8;
 }
 
-.active-explanation {
-    display: grid;
-    gap: 7px;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid rgba(56, 189, 248, 0.38);
-    background: rgba(2, 6, 23, 0.32);
-}
-
-.active-explanation strong {
-    color: #bfdbfe;
-}
-
-.active-explanation p,
-.active-explanation small {
-    margin: 0;
-    color: #cbd5e1;
-    font-size: 0.82rem;
-    line-height: 1.4;
-}
-
-.active-explanation textarea {
-    width: 100%;
-    min-height: 58px;
-    padding: 8px;
-    border-radius: 8px;
-    border: 1px solid rgba(148, 163, 184, 0.45);
-    background: #020617;
-    color: #f8fafc;
-    resize: vertical;
-}
-
-body.light-theme .active-explanation {
-    background: #eff6ff;
-    border-color: rgba(37, 99, 235, 0.25);
-}
-
-body.light-theme .active-explanation strong {
-    color: #1d4ed8;
-}
-
-body.light-theme .active-explanation p,
-body.light-theme .active-explanation small {
-    color: #334155;
-}
-
-body.light-theme .active-explanation textarea {
-    background: #f8fafc;
-    color: #0f172a;
-    border-color: #cbd5e1;
-}
-
 .source-notes {
     margin: 10px 0;
     display: grid;
