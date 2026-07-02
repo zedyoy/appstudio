@@ -3014,6 +3014,11 @@ async function saveQuestion() {
 }
 
 async function startSavedQuiz() {
+    if (mode !== "training") {
+        alert("Le domande salvate si usano solo in Allenamento.");
+        return;
+    }
+
     if (mode === "exam" && isExamMode) {
         alert("Non puoi usare le domande salvate durante la simulazione.");
         return;
@@ -3047,6 +3052,11 @@ function loadSavedQuestion() {
 }
 
 async function clearSavedQuestions() {
+    if (mode !== "training") {
+        alert("Puoi cancellare le domande salvate solo in Allenamento.");
+        return;
+    }
+
     await fetchJson("/api/clear_saved_questions", { method: "DELETE" });
     savedQuestions = [];
     updateSavedCount();
@@ -3732,11 +3742,17 @@ async function startQuiz() {
     else startTrainingMode();
 }
 
+function updateSavedSectionVisibility(activeMode = mode) {
+    const savedSection = document.getElementById("savedSection");
+    if (savedSection) savedSection.hidden = activeMode !== "training";
+}
+
 function setMode(newMode) {
     newMode = resolveModeForCurrentSubject(newMode);
     mode = newMode;
     updateModeAvailability();
     updateMobileNav();
+    updateSavedSectionVisibility(newMode);
 
     document.querySelectorAll(".mode-tab").forEach((btn) => {
         btn.classList.toggle("active", btn.dataset.mode === newMode);
@@ -3764,6 +3780,10 @@ function setMode(newMode) {
         renderExamSidebar();
         updateProgress();
         stopExamTimer();
+    }
+
+    if (newMode !== "training") {
+        isSavedQuiz = false;
     }
 
     hideExamSummary();
