@@ -1,0 +1,164 @@
+[
+  {
+    "id": "py-01-hello",
+    "module": "Fondamenta",
+    "title": "1. Primo programma",
+    "level": "base",
+    "goal": "Stampare testo e salvare valori in variabili.",
+    "concept": "Un programma Python esegue le istruzioni dall'alto verso il basso. Con print() mostri un valore, con una variabile gli dai un nome e lo riusi.",
+    "task": "Crea le variabili nome ed eta con i valori indicati, poi stampa un saluto e i due valori.",
+    "starter_code": "# Scrivi qui il codice\n# Crea nome, eta e stampa i valori richiesti\n\n",
+    "hint": "Lascia nome = \"Ada\" ed eta = 20. Assicurati che ci sia una print con Ciao Python.",
+    "success_message": "Hai scritto il primo blocco: variabili piu output.",
+    "checks": [
+      {"type": "variable_equals", "name": "nome", "value": "Ada", "label": "nome contiene Ada"},
+      {"type": "variable_equals", "name": "eta", "value": 20, "label": "eta contiene 20"},
+      {"type": "stdout_contains", "value": "Ciao Python", "label": "stampa il saluto"}
+    ]
+  },
+  {
+    "id": "py-02-numeri",
+    "module": "Fondamenta",
+    "title": "2. Numeri e formule",
+    "level": "base",
+    "goal": "Usare operatori aritmetici e salvare il risultato.",
+    "concept": "Python calcola espressioni come una calcolatrice. Se salvi il risultato in una variabile, puoi controllarlo o stamparlo dopo.",
+    "task": "Calcola il totale di 4 prodotti da 12.5 euro e stampalo nel formato totale = 50.0.",
+    "starter_code": "# Calcola il totale\nprezzo = 12.5\nquantita = 4\n\n# totale = ...\n# print(...)\n",
+    "hint": "La variabile totale deve essere prezzo * quantita.",
+    "success_message": "Bene: hai trasformato una formula in codice.",
+    "checks": [
+      {"type": "variable_equals", "name": "totale", "value": 50.0, "label": "totale vale 50.0"},
+      {"type": "stdout_contains", "value": "totale = 50.0", "label": "stampa il totale"}
+    ]
+  },
+  {
+    "id": "py-03-if",
+    "module": "Controllo",
+    "title": "3. Decisioni con if",
+    "level": "base",
+    "goal": "Scegliere un ramo del programma con if/else.",
+    "concept": "if esegue un blocco solo se la condizione e vera. Ricorda: per confrontare due valori si usa ==, non =.",
+    "task": "Dato voto = 24, assegna a esito la stringa superato se il voto e almeno 18, altrimenti da rifare. Poi stampa esito.",
+    "starter_code": "voto = 24\n\n# Scrivi qui if/else\n# esito = ...\n# print(esito)\n",
+    "hint": "La condizione giusta e voto >= 18.",
+    "success_message": "Ottimo: questo e il cuore delle domande su if/else.",
+    "checks": [
+      {"type": "variable_equals", "name": "esito", "value": "superato", "label": "esito corretto"},
+      {"type": "stdout_contains", "value": "superato", "label": "stampa esito"}
+    ]
+  },
+  {
+    "id": "py-04-for",
+    "module": "Controllo",
+    "title": "4. Ciclo for e accumulatore",
+    "level": "base",
+    "goal": "Ripetere un'operazione e accumulare un risultato.",
+    "concept": "Un accumulatore parte da un valore iniziale, spesso 0, e viene aggiornato dentro un ciclo.",
+    "task": "Somma i numeri da 1 a 5 usando for e range. Alla fine somma deve valere 15 e devi stamparla.",
+    "starter_code": "somma = 0\n\n# Scrivi qui il ciclo for\n# for ...:\n#     ...\n\n# print(...)\n",
+    "hint": "range(1, 6) produce 1, 2, 3, 4, 5.",
+    "success_message": "Hai costruito il pattern contatore/accumulatore.",
+    "checks": [
+      {"type": "variable_equals", "name": "somma", "value": 15, "label": "somma vale 15"},
+      {"type": "stdout_contains", "value": "15", "label": "stampa 15"}
+    ]
+  },
+  {
+    "id": "py-05-while",
+    "module": "Controllo",
+    "title": "5. Ciclo while",
+    "level": "base",
+    "goal": "Ripetere finche una condizione resta vera.",
+    "concept": "while continua a girare mentre la condizione e vera. Serve sempre un aggiornamento che prima o poi la renda falsa.",
+    "task": "Crea un conto alla rovescia da 3 a 1 e poi stampa Via.",
+    "starter_code": "contatore = 3\n\n# Scrivi qui il ciclo while\n# Ricorda di diminuire contatore\n\n# print(\"Via\")\n",
+    "hint": "Dentro il while devi diminuire contatore, altrimenti il ciclo non finisce.",
+    "success_message": "Bene: hai evitato il classico ciclo infinito.",
+    "checks": [
+      {"type": "stdout_contains", "value": "3\n2\n1\nVia", "label": "stampa il conto alla rovescia"},
+      {"type": "variable_equals", "name": "contatore", "value": 0, "label": "contatore arriva a 0"}
+    ]
+  },
+  {
+    "id": "py-06-liste",
+    "module": "Strutture dati",
+    "title": "6. Liste e media",
+    "level": "base",
+    "goal": "Usare una lista per lavorare su piu valori.",
+    "concept": "Una lista contiene piu elementi. Con sum() sommi i valori, con len() conti quanti sono.",
+    "task": "Calcola la media dei voti [18, 24, 30, 21] e salvala nella variabile media.",
+    "starter_code": "voti = [18, 24, 30, 21]\n\n# Calcola media\n# media = ...\n# print(...)\n",
+    "hint": "media deve essere somma dei voti diviso numero dei voti.",
+    "success_message": "Perfetto: questo pattern torna spesso negli esercizi.",
+    "checks": [
+      {"type": "variable_equals", "name": "media", "value": 23.25, "label": "media corretta"},
+      {"type": "stdout_contains", "value": "23.25", "label": "stampa la media"}
+    ]
+  },
+  {
+    "id": "py-07-dizionari",
+    "module": "Strutture dati",
+    "title": "7. Dizionari",
+    "level": "base",
+    "goal": "Associare chiavi e valori.",
+    "concept": "Un dizionario collega una chiave a un valore. E utile quando vuoi cercare un dato per nome.",
+    "task": "Crea una rubrica con Ada e Guido. Ada deve avere 333, Guido deve avere 111. Stampa il numero di Guido.",
+    "starter_code": "# Crea il dizionario rubrica\n# rubrica = {\n#     ...\n# }\n\n# print(...)\n",
+    "hint": "La chiave e il nome, il valore e il numero.",
+    "success_message": "Ora sai leggere una struttura chiave-valore.",
+    "checks": [
+      {"type": "expression_equals", "expression": "rubrica[\"Ada\"]", "value": "333", "label": "Ada ha il numero giusto"},
+      {"type": "expression_equals", "expression": "rubrica[\"Guido\"]", "value": "111", "label": "Guido ha il numero giusto"},
+      {"type": "stdout_contains", "value": "111", "label": "stampa il numero di Guido"}
+    ]
+  },
+  {
+    "id": "py-08-funzioni",
+    "module": "Funzioni",
+    "title": "8. Funzioni con return",
+    "level": "intermedio",
+    "goal": "Scrivere una funzione riutilizzabile.",
+    "concept": "Una funzione prende dati in ingresso, li elabora e puo restituire un risultato con return. print mostra, return consegna un valore al codice.",
+    "task": "Scrivi area_rettangolo(base, altezza) che restituisce base * altezza.",
+    "starter_code": "def area_rettangolo(base, altezza):\n    # completa la funzione\n    pass\n\n# print(area_rettangolo(5, 4))\n",
+    "hint": "Dentro la funzione usa return, non solo print.",
+    "success_message": "Hai scritto una funzione testabile.",
+    "checks": [
+      {"type": "function_equals", "call": "area_rettangolo(5, 4)", "value": 20, "label": "area 5x4"},
+      {"type": "function_equals", "call": "area_rettangolo(3, 7)", "value": 21, "label": "area 3x7"}
+    ]
+  },
+  {
+    "id": "py-09-testo",
+    "module": "Mini progetto",
+    "title": "9. Analizzatore di testo",
+    "level": "intermedio",
+    "goal": "Combinare funzioni, stringhe e dizionari.",
+    "concept": "I piccoli programmi utili spesso prendono un dato, lo trasformano e restituiscono un riepilogo strutturato.",
+    "task": "Scrivi analizza_testo(testo) che restituisce un dizionario con parole e caratteri.",
+    "starter_code": "def analizza_testo(testo):\n    # calcola parole e caratteri\n    # return {...}\n    pass\n\n# print(analizza_testo(\"ciao mondo\"))\n",
+    "hint": "testo.split() divide la frase in parole.",
+    "success_message": "Questo e gia un mini-progetto: input, elaborazione, risultato.",
+    "checks": [
+      {"type": "function_equals", "call": "analizza_testo(\"ciao mondo\")[\"parole\"]", "value": 2, "label": "conta parole"},
+      {"type": "function_equals", "call": "analizza_testo(\"abc\")[\"caratteri\"]", "value": 3, "label": "conta caratteri"}
+    ]
+  },
+  {
+    "id": "py-10-todo",
+    "module": "Progetto medio",
+    "title": "10. Todo list in memoria",
+    "level": "intermedio",
+    "goal": "Costruire funzioni che modificano una lista di dizionari.",
+    "concept": "Un progetto medio nasce mettendo insieme strutture dati e funzioni piccole. Ogni funzione deve fare una cosa chiara.",
+    "task": "Scrivi aggiungi_task(lista, testo) e completa_task(lista, indice). La prima aggiunge un task non completato, la seconda segna completato = True.",
+    "starter_code": "def aggiungi_task(lista, testo):\n    # aggiungi un dizionario task alla lista\n    pass\n\n\ndef completa_task(lista, indice):\n    # segna il task come completato\n    pass\n\n\n# Prova qui sotto il tuo codice\n",
+    "hint": "Ogni task puo essere un dizionario con testo e completato.",
+    "success_message": "Hai costruito il primo mattoncino di un'app vera.",
+    "checks": [
+      {"type": "function_equals", "call": "aggiungi_task([], \"test\")[0][\"completato\"]", "value": false, "label": "nuovo task non completato"},
+      {"type": "expression_equals", "expression": "(lambda l: completa_task(aggiungi_task(l, \"x\"), 0)[0][\"completato\"])([])", "value": true, "label": "completa il task"}
+    ]
+  }
+]

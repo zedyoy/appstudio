@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+instance/
+.env
+.server-pid
+.server-port
+.server-*.log
+.flask-pid
+flask-*.log
+.architecture-transcribe-pid
+architecture-transcribe-*.log
+tmp_transcription_probe*/
+tmp_transcription_probe_turbo*/
+*.db.bak

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accesso - Quiz Universita</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main class="quiz-wrapper login-wrapper">
+        <header class="quiz-header">
+            <h1>Quiz Universita</h1>
+        </header>
+
+        <form class="login-form" method="post">
+            <label for="password">Password personale</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" autofocus required>
+
+            {% if error %}
+            <p class="login-error">{{ error }}</p>
+            {% endif %}
+
+            <button class="btn primary" type="submit">Entra</button>
+        </form>
+    </main>
+</body>
+</html>

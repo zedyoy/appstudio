@@ -1,0 +1,904 @@
+{
+  "status": "complete",
+  "updated_at": "2026-06-29T16:40:45",
+  "lesson_count": 15,
+  "lessons": [
+    {
+      "slug": "01_1lexione",
+      "title": "1lexione",
+      "source_path": "C:\\Users\\Admin\\Videos\\ARCHITETTURA E CALCOLATORI\\1lexione.mp4",
+      "duration_seconds": 3199.8,
+      "raw_json": "data\\architecture_video_transcripts\\raw_json\\01_1lexione.json",
+      "text": "data\\architecture_video_transcripts\\text\\01_1lexione.txt",
+      "markdown": "data\\architecture_video_transcripts\\markdown\\01_1lexione.md",
+      "topics": [
+        {
+          "topic": "porte_logiche",
+          "score": 352,
+          "hits": [
+            "and",
+            "or",
+            "not",
+            "nor",
+            "nand",
+            "sop"
+          ]
+        },
+        {
+          "topic": "conversioni",
+          "score": 29,
+          "hits": [
+            "binario",
+            "conversione",
+            "base",
+            "virgola"
+          ]
+        },
+        {
+          "topic": "memoria_bus",
+          "score": 16,
+          "hits": [
+            "memoria",
+            "bus",
+            "ram"
+          ]
+        },
+        {
+          "topic": "mips_assembly",
+          "score": 14,
+          "hits": [
+            "registro",
+            "sb",
+            "addi"
+          ]
+        },
+        {
+          "topic": "registri_flip_flop",
+          "score": 5,
+          "hits": [
+            "flip flop",
+            "registro"
+          ]
+        }
+      ],
+      "segments": 381,
+      "updated_at": "2026-06-29T14:47:36",
+      "transcription_seconds": 0.02
+    },
+    {
+      "slug": "02_2lezione",
+      "title": "2lezione",
+      "source_path": "C:\\Users\\Admin\\Videos\\ARCHITETTURA E CALCOLATORI\\2lezione.mp4",
+      "duration_seconds": 2994.98,
+      "raw_json": "data\\architecture_video_transcripts\\raw_json\\02_2lezione.json",
+      "text": "data\\architecture_video_transcripts\\text\\02_2lezione.txt",
+      "markdown": "data\\architecture_video_transcripts\\markdown\\02_2lezione.md",
+      "topics": [
+        {
+          "topic": "porte_logiche",
+          "score": 206,
+          "hits": [
+            "and",
+            "or",
+            "not",
+            "nor",
+            "nand"
+          ]
+        },
+        {
+          "topic": "conversioni",
+          "score": 154,
+          "hits": [
+            "binario",
+            "ottale",
+            "esadecimale",
+            "conversione",
+            "base",
+            "virgola"
+          ]
+        },
+        {
+          "topic": "microarchitettura",
+          "score": 9,
+          "hits": [
+            "alu"
+          ]
+        },
+        {
+          "topic": "memoria_bus",
+          "score": 8,
+          "hits": [
+            "ram",
+            "rom"
+          ]
+        }
+      ],
+      "segments": 298,
+      "updated_at": "2026-06-29T14:47:36",
+      "transcription_seconds": 0.01
+    },
+    {
+      "slug": "03_lezione3",
+      "title": "lezione3",
+      "source_path": "C:\\Users\\Admin\\Videos\\ARCHITETTURA E CALCOLATORI\\lezione3.mp4",
+      "duration_seconds": 2767.83,
+      "raw_json": "data\\architecture_video_transcripts\\raw_json\\03_lezione3.json",
+      "text": "data\\architecture_video_transcripts\\text\\03_lezione3.txt",
+      "markdown": "data\\architecture_video_transcripts\\markdown\\03_lezione3.md",
+      "topics": [
+        {
+          "topic": "porte_logiche",
+          "score": 240,
+          "hits": [
+            "and",
+            "or",
+            "not",
+            "nor",
+            "nand",
+            "sop"
+          ]
+        },
+        {
+          "topic": "conversioni",
+          "score": 19,
+          "hits": [
+            "binario",
+            "base"
+          ]
+        },
+        {
+          "topic": "mips_assembly",
+          "score": 10,
+          "hits": [
+            "registri",
+            "sb",
+            "addi"
+          ]
+        },
+        {
+          "topic": "memoria_bus",
+          "score": 3,
+          "hits": [
+            "memoria",
+            "ram"
+          ]
+        },
+        {
+          "topic": "microarchitettura",
+          "score": 2,
+          "hits": [
+            "alu"
+          ]
+        }
+      ],
+      "segments": 272,
+      "updated_at": "2026-06-29T14:47:36",
+      "transcription_seconds": 0.01
+    },
+    {
+      "slug": "04_lezione4",
+      "title": "lezione4",
+      "source_path": "C:\\Users\\Admin\\Videos\\ARCHITETTURA E CALCOLATORI\\lezione4.mp4",
+      "duration_seconds": 2716.57,
+      "raw_json": "data\\architecture_video_transcripts\\raw_json\\04_lezione4.json",
+      "text": "data\\architecture_video_transcripts\\text\\04_lezione4.txt",
+      "markdown": "data\\architecture_video_transcripts\\markdown\\04_lezione4.md",
+      "topics": [
+        {
+          "topic": "porte_logiche",
+          "score": 142,
+          "hits": [
+            "and",
+            "or",
+            "nor",
+            "nand"
+          ]
+        },
+        {
+          "topic": "conversioni",
+          "score": 35,
+          "hits": [
+            "binario",
+            "conversione",
+            "base",
+            "virgola"
+          ]
+        },
+        {
+          "topic": "memoria_bus",
+          "score": 5,
+          "hits": [
+            "ram"
+          ]
+        },
+        {
+          "topic": "microarchitettura",
+          "score": 3,
+          "hits": [
+            "alu"
+          ]
+        }
+      ],
+      "segments": 296,
+      "updated_at": "2026-06-29T14:47:36",
+      "transcription_seconds": 0.01
+    },
+    {
+      "slug": "05_lezione5",
+      "title": "lezione5",
+      "source_path": "C:\\Users\\Admin\\Videos\\ARCHITETTURA E CALCOLATORI\\lezione5.mp4",
+      "duration_seconds": 3483.03,
+      "raw_json": "data\\architecture_video_transcripts\\raw_json\\05_lezione5.json",
+      "text": "data\\architecture_video_transcripts\\text\\05_lezione5.txt",
+      "markdown": "data\\architecture_video_transcripts\\markdown\\05_lezione5.md",
+      "topics": [
+        {
+          "topic": "porte_logiche",
+          "score": 503,
+          "hits": [
+            "and",
+            "or",
+            "not",
+            "nor",
+            "nand",
+            "xor",
+            "boole",
+            "sop"
+          ]
+        },
+        {
+          "topic": "memoria_bus",
+          "score": 16,
+          "hits": [
+            "memoria",
+            "bus",
+            "ram"
+          ]
+        },
+        {
+          "topic": "conversioni",
+          "score": 13,
+          "hits": [
+            "binario",
+            "base"
+          ]
+        },
+        {
+          "topic": "microarchitettura",
+          "score": 8,
+          "hits": [
+            "microarchitettura",
+            "mic",
+            "alu"
+          ]
+        },
+        {
+          "topic": "mips_assembly",
+          "score": 3,
+          "hits": [
+            "registro",
+            "sb",
+            "addi"
+          ]
+        }
+      ],
+      "segments": 363,
+      "updated_at": "2026-06-29T14:47:36",
+      "transcription_seconds": 0.01
+    },
+    {
+      "slug": "07_lezione_7",
+      "title": "lezione 7",
+      "source_path": "C:\\Users\\Admin\\Videos\\ARCHITETTURA E CALCOLATORI\\lezione 7.mp4",
+      "duration_seconds": 3002.08,
+      "raw_json": "data\\architecture_video_transcripts\\raw_json\\07_lezione_7.json",
+      "text": "data\\architecture_video_transcripts\\text\\07_lezione_7.txt",
+      "markdown": "data\\architecture_video_transcripts\\markdown\\07_lezione_7.md",
+      "topics": [
+        {
+          "topic": "porte_logiche",
+          "score": 212,
+          "hits": [
+            "and",
+            "or",
+            "not",
+            "nand",
+            "boole",
+            "mintermini",
+            "sop"
+          ]
+        },
+        {
+          "topic": "microarchitettura",
+          "score": 5,
+          "hits": [
+            "mic",
+            "alu"
+          ]
+        },
+        {
+          "topic": "memoria_bus",
+          "score": 2,
+          "hits": [
+            "ram"
+          ]
+        },
+        {
+          "topic": "mips_assembly",
+          "score": 1,
+          "hits": [
+            "sb"
+          ]
+        },
+        {
+          "topic": "clock_prestazioni",
+          "score": 1,
+          "hits": [
+            "tempo"
+          ]
+        }
+      ],
+      "segments": 349,
+      "updated_at": "2026-06-29T14:47:36",
+      "transcription_seconds": 0.01
+    },
+    {
+      "slug": "08_lezione8",
+      "title": "lezione8",
+      "source_path": "C:\\Users\\Admin\\Videos\\ARCHITETTURA E CALCOLATORI\\lezione8.mp4",
+      "duration_seconds": 2959.87,
+      "raw_json": "data\\architecture_video_transcripts\\raw_json\\08_lezione8.json",
+      "text": "data\\architecture_video_transcripts\\text\\08_lezione8.txt",
+      "markdown": "data\\architecture_video_transcripts\\markdown\\08_lezione8.md",
+      "topics": [
+        {
+          "topic": "porte_logiche",
+          "score": 316,
+          "hits": [
+            "and",
+            "or",
+            "not",
+            "nor",
+            "nand",
+            "xor",
+            "boole",
+            "sop"
+          ]
+        },
+        {
+          "topic": "memoria_bus",
+          "score": 36,
+          "hits": [
+            "memoria",
+            "bus",
+            "indirizzo",
+            "ram",
+            "rom"
+          ]
+        },
+        {
+          "topic": "microarchitettura",
+          "score": 25,
+          "hits": [
+            "alu",
+            "controllo"
+          ]
+        },
+        {
+          "topic": "conversioni",
+          "score": 12,
+          "hits": [
+            "conversione",
+            "base"
+          ]
+        },
+        {
+          "topic": "clock_prestazioni",
+          "score": 3,
+          "hits": [
+            "tempo"
+          ]
+        }
+      ],
+      "segments": 328,
+      "updated_at": "2026-06-29T14:47:36",
+      "transcription_seconds": 0.01
+    },
+    {
+      "slug": "11_lezione_11",
+      "title": "lezione 11",
+      "source_path": "C:\\Users\\Admin\\Videos\\ARCHITETTURA E CALCOLATORI\\lezione 11.mp4",
+      "duration_seconds": 2822.08,
+      "raw_json": "data\\architecture_video_transcripts\\raw_json\\11_lezione_11.json",
+      "text": "data\\architecture_video_transcripts\\text\\11_lezione_11.txt",
+      "markdown": "data\\architecture_video_transcripts\\markdown\\11_lezione_11.md",
+      "topics": [
+        {
+          "topic": "porte_logiche",
+          "score": 260,
+          "hits": [
+            "and",
+            "or",
+            "not",
+            "nor",
+            "nand",
+            "sop"
+          ]
+        },
+        {
+          "topic": "clock_prestazioni",
+          "score": 42,
+          "hits": [
+            "clock",
+            "tempo"
+          ]
+        },
+        {
+          "topic": "memoria_bus",
+          "score": 28,
+          "hits": [
+            "memoria",
+            "temporizzazione",
+            "ram"
+          ]
+        },
+        {
+          "topic": "microarchitettura",
+          "score": 11,
+          "hits": [
+            "mic",
+            "alu",
+            "controllo"
+          ]
+        },
+        {
+          "topic": "registri_flip_flop",
+          "score": 10,
+          "hits": [
+            "flip flop",
+            "latch",
+            "registro",
+            "propagazione"
+          ]
+        }
+      ],
+      "segments": 1034,
+      "updated_at": "2026-06-29T14:47:36",
+      "transcription_seconds": 0.01
+    },
+    {
+      "slug": "12_lezione_12_flip_flop_e_registri",
+      "title": "Lezione 12 - Flip-Flop e Registri",
+      "source_path": "C:\\Users\\Admin\\Videos\\ARCHITETTURA E CALCOLATORI\\Lezione 12 - Flip-Flop e Registri.mp4",
+      "duration_seconds": 2742.93,
+      "raw_json": "data\\architecture_video_transcripts\\raw_json\\12_lezione_12_flip_flop_e_registri.json",
+      "text": "data\\architecture_video_transcripts\\text\\12_lezione_12_flip_flop_e_registri.txt",
+      "markdown": "data\\architecture_video_transcripts\\markdown\\12_lezione_12_flip_flop_e_registri.md",
+      "topics": [
+        {
+          "topic": "porte_logiche",
+          "score": 224,
+          "hits": [
+            "and",
+            "or",
+            "nand",
+            "sop"
+          ]
+        },
+        {
+          "topic": "registri_flip_flop",
+          "score": 46,
+          "hits": [
+            "flip flop",
+            "latch",
+            "registro",
+            "registri",
+            "propagazione"
+          ]
+        },
+        {
+          "topic": "clock_prestazioni",
+          "score": 39,
+          "hits": [
+            "clock",
+            "ciclo",
+            "tempo"
+          ]
+        },
+        {
+          "topic": "mips_assembly",
+          "score": 25,
+          "hits": [
+            "registro",
+            "registri"
+          ]
+        },
+        {
+          "topic": "memoria_bus",
+          "score": 19,
+          "hits": [
+            "memoria",
+            "ram"
+          ]
+        }
+      ],
+      "segments": 299,
+      "updated_at": "2026-06-29T14:47:36",
+      "transcription_seconds": 0.01
+    },
+    {
+      "slug": "13_lezione_13_organizzazione_della_memoria",
+      "title": "Lezione 13 - Organizzazione della memoria",
+      "source_path": "C:\\Users\\Admin\\Videos\\ARCHITETTURA E CALCOLATORI\\Lezione 13 - Organizzazione della memoria.mp4",
+      "duration_seconds": 7404.43,
+      "raw_json": "data\\architecture_video_transcripts\\raw_json\\13_lezione_13_organizzazione_della_memoria.json",
+      "text": "data\\architecture_video_transcripts\\text\\13_lezione_13_organizzazione_della_memoria.txt",
+      "markdown": "data\\architecture_video_transcripts\\markdown\\13_lezione_13_organizzazione_della_memoria.md",
+      "topics": [
+        {
+          "topic": "porte_logiche",
+          "score": 411,
+          "hits": [
+            "and",
+            "or",
+            "nor",
+            "nand",
+            "sop"
+          ]
+        },
+        {
+          "topic": "memoria_bus",
+          "score": 66,
+          "hits": [
+            "memoria",
+            "cache",
+            "indirizzo",
+            "ram"
+          ]
+        },
+        {
+          "topic": "registri_flip_flop",
+          "score": 27,
+          "hits": [
+            "flip flop",
+            "registro",
+            "registri",
+            "propagazione"
+          ]
+        },
+        {
+          "topic": "clock_prestazioni",
+          "score": 14,
+          "hits": [
+            "clock",
+            "tempo"
+          ]
+        },
+        {
+          "topic": "mips_assembly",
+          "score": 11,
+          "hits": [
+            "registro",
+            "registri",
+            "sb"
+          ]
+        }
+      ],
+      "segments": 364,
+      "updated_at": "2026-06-29T15:09:12",
+      "transcription_seconds": 1295.39
+    },
+    {
+      "slug": "14_lezione_14_ampiezza_e_temporizzazione_del_bus",
+      "title": "Lezione 14 - Ampiezza e temporizzazione del BUS",
+      "source_path": "C:\\Users\\Admin\\Videos\\ARCHITETTURA E CALCOLATORI\\Lezione 14 - Ampiezza e temporizzazione del BUS.mp4",
+      "duration_seconds": 8290.55,
+      "raw_json": "data\\architecture_video_transcripts\\raw_json\\14_lezione_14_ampiezza_e_temporizzazione_del_bus.json",
+      "text": "data\\architecture_video_transcripts\\text\\14_lezione_14_ampiezza_e_temporizzazione_del_bus.txt",
+      "markdown": "data\\architecture_video_transcripts\\markdown\\14_lezione_14_ampiezza_e_temporizzazione_del_bus.md",
+      "topics": [
+        {
+          "topic": "porte_logiche",
+          "score": 255,
+          "hits": [
+            "and",
+            "or",
+            "nor",
+            "sop"
+          ]
+        },
+        {
+          "topic": "memoria_bus",
+          "score": 169,
+          "hits": [
+            "memoria",
+            "bus",
+            "indirizzo",
+            "temporizzazione",
+            "ram",
+            "rom"
+          ]
+        },
+        {
+          "topic": "clock_prestazioni",
+          "score": 64,
+          "hits": [
+            "clock",
+            "ciclo",
+            "frequenza",
+            "tempo"
+          ]
+        },
+        {
+          "topic": "conversioni",
+          "score": 4,
+          "hits": [
+            "base"
+          ]
+        },
+        {
+          "topic": "mips_assembly",
+          "score": 3,
+          "hits": [
+            "sb"
+          ]
+        }
+      ],
+      "segments": 450,
+      "updated_at": "2026-06-29T15:49:59",
+      "transcription_seconds": 2446.67
+    },
+    {
+      "slug": "15_lezione_15_il_livello_della_microarchitettura",
+      "title": "Lezione 15 - Il livello della microarchitettura",
+      "source_path": "C:\\Users\\Admin\\Videos\\ARCHITETTURA E CALCOLATORI\\Lezione 15 - Il livello della microarchitettura.mp4",
+      "duration_seconds": 2718.15,
+      "raw_json": "data\\architecture_video_transcripts\\raw_json\\15_lezione_15_il_livello_della_microarchitettura.json",
+      "text": "data\\architecture_video_transcripts\\text\\15_lezione_15_il_livello_della_microarchitettura.txt",
+      "markdown": "data\\architecture_video_transcripts\\markdown\\15_lezione_15_il_livello_della_microarchitettura.md",
+      "topics": [
+        {
+          "topic": "porte_logiche",
+          "score": 198,
+          "hits": [
+            "and",
+            "or",
+            "not",
+            "nand",
+            "sop"
+          ]
+        },
+        {
+          "topic": "memoria_bus",
+          "score": 131,
+          "hits": [
+            "memoria",
+            "bus",
+            "indirizzo",
+            "temporizzazione",
+            "ram",
+            "rom"
+          ]
+        },
+        {
+          "topic": "microarchitettura",
+          "score": 100,
+          "hits": [
+            "microarchitettura",
+            "mic",
+            "alu",
+            "controllo"
+          ]
+        },
+        {
+          "topic": "registri_flip_flop",
+          "score": 67,
+          "hits": [
+            "registro",
+            "registri",
+            "propagazione"
+          ]
+        },
+        {
+          "topic": "mips_assembly",
+          "score": 65,
+          "hits": [
+            "registro",
+            "registri"
+          ]
+        }
+      ],
+      "segments": 258,
+      "updated_at": "2026-06-29T16:05:51",
+      "transcription_seconds": 952.32
+    },
+    {
+      "slug": "16_lezione_16_microistruzioni_e_unita_di_controllo_microprogrammata",
+      "title": "Lezione 16 - Microistruzioni e Unità di controllo microprogrammata",
+      "source_path": "C:\\Users\\Admin\\Videos\\ARCHITETTURA E CALCOLATORI\\Lezione 16 - Microistruzioni e Unità di controllo microprogrammata.mp4",
+      "duration_seconds": 3246.47,
+      "raw_json": "data\\architecture_video_transcripts\\raw_json\\16_lezione_16_microistruzioni_e_unita_di_controllo_microprogrammata.json",
+      "text": "data\\architecture_video_transcripts\\text\\16_lezione_16_microistruzioni_e_unita_di_controllo_microprogrammata.txt",
+      "markdown": "data\\architecture_video_transcripts\\markdown\\16_lezione_16_microistruzioni_e_unita_di_controllo_microprogrammata.md",
+      "topics": [
+        {
+          "topic": "porte_logiche",
+          "score": 202,
+          "hits": [
+            "and",
+            "or",
+            "not",
+            "nor",
+            "nand"
+          ]
+        },
+        {
+          "topic": "microarchitettura",
+          "score": 159,
+          "hits": [
+            "microarchitettura",
+            "microistruzione",
+            "mic",
+            "datapath",
+            "alu",
+            "controllo"
+          ]
+        },
+        {
+          "topic": "memoria_bus",
+          "score": 92,
+          "hits": [
+            "memoria",
+            "bus",
+            "indirizzo",
+            "temporizzazione",
+            "ram",
+            "rom"
+          ]
+        },
+        {
+          "topic": "mips_assembly",
+          "score": 71,
+          "hits": [
+            "registro",
+            "registri",
+            "sb"
+          ]
+        },
+        {
+          "topic": "registri_flip_flop",
+          "score": 66,
+          "hits": [
+            "registro",
+            "registri"
+          ]
+        }
+      ],
+      "segments": 176,
+      "updated_at": "2026-06-29T16:19:44",
+      "transcription_seconds": 832.84
+    },
+    {
+      "slug": "17_lezione_17_implementazione_di_ijvm_con_mic_1",
+      "title": "Lezione 17 - Implementazione di IJVM con Mic-1",
+      "source_path": "C:\\Users\\Admin\\Videos\\ARCHITETTURA E CALCOLATORI\\Lezione 17 - Implementazione di IJVM con Mic-1.mp4",
+      "duration_seconds": 2003.0,
+      "raw_json": "data\\architecture_video_transcripts\\raw_json\\17_lezione_17_implementazione_di_ijvm_con_mic_1.json",
+      "text": "data\\architecture_video_transcripts\\text\\17_lezione_17_implementazione_di_ijvm_con_mic_1.txt",
+      "markdown": "data\\architecture_video_transcripts\\markdown\\17_lezione_17_implementazione_di_ijvm_con_mic_1.md",
+      "topics": [
+        {
+          "topic": "porte_logiche",
+          "score": 104,
+          "hits": [
+            "and",
+            "or",
+            "nand"
+          ]
+        },
+        {
+          "topic": "memoria_bus",
+          "score": 66,
+          "hits": [
+            "memoria",
+            "indirizzo",
+            "ram"
+          ]
+        },
+        {
+          "topic": "microarchitettura",
+          "score": 49,
+          "hits": [
+            "mic",
+            "controllo"
+          ]
+        },
+        {
+          "topic": "clock_prestazioni",
+          "score": 20,
+          "hits": [
+            "ciclo",
+            "frequenza",
+            "prestazioni",
+            "tempo"
+          ]
+        },
+        {
+          "topic": "mips_assembly",
+          "score": 6,
+          "hits": [
+            "registro"
+          ]
+        }
+      ],
+      "segments": 190,
+      "updated_at": "2026-06-29T16:26:27",
+      "transcription_seconds": 402.8
+    },
+    {
+      "slug": "18_lezione_18_riduzione_della_lunghezza_del_percorso_di_esecuzione",
+      "title": "Lezione 18 - Riduzione della lunghezza del percorso di esecuzione",
+      "source_path": "C:\\Users\\Admin\\Videos\\ARCHITETTURA E CALCOLATORI\\Lezione 18 - Riduzione della lunghezza del percorso di esecuzione.mp4",
+      "duration_seconds": 2626.08,
+      "raw_json": "data\\architecture_video_transcripts\\raw_json\\18_lezione_18_riduzione_della_lunghezza_del_percorso_di_esecuzione.json",
+      "text": "data\\architecture_video_transcripts\\text\\18_lezione_18_riduzione_della_lunghezza_del_percorso_di_esecuzione.txt",
+      "markdown": "data\\architecture_video_transcripts\\markdown\\18_lezione_18_riduzione_della_lunghezza_del_percorso_di_esecuzione.md",
+      "topics": [
+        {
+          "topic": "porte_logiche",
+          "score": 135,
+          "hits": [
+            "and",
+            "or",
+            "nand"
+          ]
+        },
+        {
+          "topic": "microarchitettura",
+          "score": 86,
+          "hits": [
+            "microarchitettura",
+            "mic",
+            "alu",
+            "controllo"
+          ]
+        },
+        {
+          "topic": "clock_prestazioni",
+          "score": 58,
+          "hits": [
+            "clock",
+            "ciclo",
+            "frequenza",
+            "prestazioni",
+            "tempo"
+          ]
+        },
+        {
+          "topic": "memoria_bus",
+          "score": 48,
+          "hits": [
+            "memoria",
+            "bus",
+            "indirizzo",
+            "ram",
+            "rom"
+          ]
+        },
+        {
+          "topic": "mips_assembly",
+          "score": 32,
+          "hits": [
+            "registro",
+            "registri",
+            "sb"
+          ]
+        }
+      ],
+      "segments": 245,
+      "updated_at": "2026-06-29T16:40:45",
+      "transcription_seconds": 858.35
+    }
+  ],
+  "model": "small"
+}

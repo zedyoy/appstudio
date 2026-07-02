@@ -22,6 +22,11 @@
                         <option value="" selected disabled>Seleziona una materia</option>
                         <!-- opzioni popolate via JS -->
                     </select>
+                    {% if session.get("authenticated") %}
+                    <form method="post" action="{{ url_for('logout') }}">
+                        <button class="btn small-btn ghost" type="submit">Esci</button>
+                    </form>
+                    {% endif %}
                 </div>
             </div>
 
@@ -51,18 +56,172 @@
                 <span class="session-label">Valutazione</span>
                 <span id="performanceLabel" class="session-value">-</span>
             </div>
+            <div class="session-item session-xp">
+                <span class="session-label">XP studio</span>
+                <span id="sessionXp" class="session-value">0</span>
+            </div>
+            <div class="session-item session-combo">
+                <span class="session-label">Combo</span>
+                <span id="comboCount" class="session-value">0</span>
+            </div>
             <button id="resetSessionBtn" class="btn small-btn ghost">
                 Reset sessione
             </button>
         </section>
 
+        <section class="save-strip">
+            <span id="sessionSaveStatus">Salvataggio automatico</span>
+            <button id="saveSessionBtn" class="btn small-btn ghost" type="button">
+                Salva ora
+            </button>
+        </section>
+
         <!-- MODALITÀ A TAB -->
-        <section class="mode-section">
-            <span class="mode-label">Modalità</span>
+        <section id="todayDashboard" class="today-dashboard" hidden>
+            <div class="today-layout">
+                <div class="today-main">
+            <div class="today-head">
+                <div>
+                    <span class="mode-label">Oggi</span>
+                    <h2 id="todayTitle">Piano di studio</h2>
+                    <p id="todaySubtitle">Scegli una materia per vedere la sessione consigliata.</p>
+                </div>
+                <div class="today-streak">
+                    <strong id="todayStreak">0</strong>
+                    <span>giorni streak</span>
+                </div>
+            </div>
+                    <div class="today-primary-action">
+                        <button id="recommendedSessionBtn" class="btn primary" type="button">Sessione consigliata</button>
+                        <span id="focusTimer" class="focus-timer" hidden>15:00</span>
+                    </div>
+            <div class="today-actions">
+                <button id="learnNewBtn" class="btn secondary" type="button">Impara nuove</button>
+                <button id="quickTenBtn" class="btn ghost" type="button">10 tocchi</button>
+                <button id="focusSessionBtn" class="btn secondary" type="button">Focus 15 minuti</button>
+            </div>
+            <div class="today-energy">
+                <span id="todayEnergyText">Energia studio: 0%</span>
+                <div class="energy-track"><div id="todayEnergyFill"></div></div>
+                <small id="todayRecovered">0 errori recuperati oggi</small>
+            </div>
+                </div>
+                <div class="today-side">
+                    <div class="today-metrics">
+                        <div><small>Nuove</small><strong id="todayNew">0</strong></div>
+                        <div><small>Ripasso</small><strong id="todayReview">0</strong></div>
+                        <div><small>Errori</small><strong id="todayErrors">0</strong></div>
+                        <div><small>Tempo</small><strong id="todayTime">0 min</strong></div>
+                        <div><small>Giorni</small><strong id="todayDays">-</strong></div>
+                        <div><small>Al giorno</small><strong id="todayDailyLoad">-</strong></div>
+                        <div><small>Voto previsto</small><strong id="todayGrade">-/30</strong></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="analysisEntry" class="analysis-entry" hidden>
+            <button id="analysisToggleBtn" class="btn ghost" type="button">Apri Analisi</button>
+        </section>
+
+        <section id="analysisPanel" class="analysis-panel" hidden>
+            <div class="analysis-head">
+                <div>
+                    <span class="mode-label">Analisi</span>
+                    <h2>Progressi e punti deboli</h2>
+                </div>
+                <button id="closeAnalysisBtn" class="btn small-btn ghost" type="button">Chiudi</button>
+            </div>
+
+            <section class="progress-dashboard">
+                <div class="progress-tile">
+                    <span class="progress-label">Viste</span>
+                    <strong id="progressTotal">0/0</strong>
+                    <small id="progressSeenPct">0%</small>
+                </div>
+                <div class="progress-tile">
+                    <span class="progress-label">Nuove</span>
+                    <strong id="progressNew">0</strong>
+                </div>
+                <div class="progress-tile urgent">
+                    <span class="progress-label">Da ripassare</span>
+                    <strong id="progressDue">0</strong>
+                </div>
+                <div class="progress-tile weak">
+                    <span class="progress-label">Deboli/incerte</span>
+                    <strong id="progressWeak">0</strong>
+                </div>
+                <div class="progress-tile">
+                    <span class="progress-label">Padroneggiate</span>
+                    <strong id="progressMastered">0</strong>
+                </div>
+                <div class="progress-tile">
+                    <span class="progress-label">Accuratezza</span>
+                    <strong id="progressAccuracy">0%</strong>
+                </div>
+                <div class="progress-tile">
+                    <span class="progress-label">Oggi</span>
+                    <strong id="progressToday">0</strong>
+                </div>
+            </section>
+
+            <section id="studyDiary" class="study-diary" hidden>
+                <div class="study-diary-head">
+                    <strong>Diario errori</strong>
+                    <button id="diaryRecoverBtn" class="btn small-btn ghost" type="button">Recupera</button>
+                </div>
+                <div id="studyDiaryList" class="study-diary-list"></div>
+            </section>
+
+            <section id="subjectMap" class="subject-map" hidden>
+                <div class="subject-map-head">
+                    <span class="mode-label">Mappa materia</span>
+                    <strong>Argomenti da controllare</strong>
+                </div>
+                <div id="subjectMapList" class="subject-map-list"></div>
+            </section>
+        </section>
+
+        <section id="subjectOnboarding" class="subject-onboarding" hidden>
+            <div class="onboarding-copy">
+                <span class="mode-label">Nuova materia</span>
+                <h2>Configura <span id="onboardingSubjectName">questa materia</span></h2>
+                <p>Mi servono tre dati per preparare il piano: data esame, tempo realistico al giorno e voto obiettivo.</p>
+            </div>
+            <div class="onboarding-fields">
+                <label for="onboardingExamDate">Data esame</label>
+                <input type="date" id="onboardingExamDate">
+                <label for="onboardingStudyMinutes">Minuti al giorno</label>
+                <input type="number" id="onboardingStudyMinutes" min="10" max="240" value="45">
+                <label for="onboardingTargetGrade">Voto obiettivo</label>
+                <input type="number" id="onboardingTargetGrade" min="18" max="30" value="24">
+                <button id="saveSubjectProfileBtn" class="btn primary" type="button">Prepara piano</button>
+            </div>
+        </section>
+
+        <section class="mode-section study-control-section">
+            <div class="section-heading">
+                <div>
+                    <span class="mode-label">Controllo manuale</span>
+                    <strong>Scegli modalita</strong>
+                </div>
+                <small>Tutte le opzioni restano qui quando vuoi guidare tu la sessione.</small>
+            </div>
 
             <div class="mode-tabs">
                 <button class="mode-tab active" data-mode="training">Allenamento</button>
+                <button class="mode-tab" data-mode="review">Ripasso</button>
+                <button class="mode-tab" data-mode="plan">Piano</button>
                 <button class="mode-tab" data-mode="exam">Simulazione</button>
+            </div>
+        </section>
+
+        <section id="subjectToolsSection" class="mode-section subject-tools-section" hidden>
+            <span class="mode-label">Strumenti della materia</span>
+
+            <div class="mode-tabs subject-tools-tabs">
+                <button class="mode-tab" data-mode="tutorial" data-subject-scope="programmazione_2">Scrittura Python</button>
+                <button class="mode-tab" data-mode="architecture" data-subject-scope="architettura_calcolatori">Palestra Architettura</button>
             </div>
         </section>
 
@@ -74,6 +233,93 @@
                     <label for="startingQuestion">Inizia dalla domanda numero</label>
                     <input type="number" id="startingQuestion" min="1" value="1">
                 </div>
+            </div>
+
+            <!-- Piano giornaliero -->
+            <div id="planSettings" class="settings-block" style="display:none;">
+                <div class="settings-row">
+                    <label for="examDate">Data esame</label>
+                    <input type="date" id="examDate">
+                    <label for="studyMinutes">Minuti oggi</label>
+                    <input type="number" id="studyMinutes" min="10" max="240" value="45">
+                    <label for="targetGrade">Voto obiettivo</label>
+                    <input type="number" id="targetGrade" min="18" max="30" value="24">
+                    <button id="refreshPlanBtn" class="btn small-btn ghost" type="button">
+                        Ricalcola
+                    </button>
+                </div>
+                <div id="planPreview" class="plan-preview">
+                    Seleziona una materia per preparare il piano di oggi.
+                </div>
+            </div>
+
+            <!-- Ripasso intelligente -->
+            <div id="reviewSettings" class="settings-block" style="display:none;">
+                <div class="settings-row">
+                    <span class="settings-field">
+                        <label for="reviewFlow">Percorso</label>
+                        <select id="reviewFlow" class="field-select">
+                            <option value="smart">Ripasso intelligente</option>
+                            <option value="learn_new">Impara nuove</option>
+                            <option value="new">Nuove domande</option>
+                            <option value="tutor">Casuali con spiegazione</option>
+                            <option value="sprint_quick">Sprint rapido</option>
+                            <option value="sprint_recover">Recupera errori</option>
+                            <option value="sprint_boss">Boss finale</option>
+                            <option value="sprint_combo">Combo challenge</option>
+                        </select>
+                    </span>
+                    <span id="reviewPresetGroup" class="settings-field">
+                        <label for="reviewPreset">Focus</label>
+                        <select id="reviewPreset" class="field-select">
+                            <option value="mixed">Misto intelligente</option>
+                            <option value="weak">Deboli e incerte</option>
+                            <option value="due">Scadute oggi</option>
+                            <option value="easy">Facili / warm-up</option>
+                            <option value="mastered">Padroneggiate</option>
+                            <option value="new">Solo nuove</option>
+                            <option value="random">Casuali</option>
+                        </select>
+                    </span>
+                    <span class="settings-field compact-field">
+                        <label for="reviewQuestionCount">Domande</label>
+                        <input type="number" id="reviewQuestionCount" min="1" max="300" value="40">
+                    </span>
+                </div>
+                <span id="reviewModeHint" class="settings-copy review-mode-hint">Scegli cosa ripassare: errori, nuove, sprint o domande casuali con spiegazione.</span>
+            </div>
+
+            <!-- Tutorial Python -->
+            <div id="tutorialSettings" class="settings-block" style="display:none;">
+                <div class="settings-row">
+                    <span class="settings-copy">Solo Python: esercizi guidati con codice, output e verifica automatica.</span>
+                    <button id="resetTutorialBtn" class="btn small-btn danger-outline" type="button">
+                        Reset tutorial
+                    </button>
+                </div>
+            </div>
+
+            <!-- Palestra Architettura -->
+            <div id="architectureSettings" class="settings-block" style="display:none;">
+                <div class="settings-row">
+                    <label for="architectureTopic">Argomento</label>
+                    <select id="architectureTopic" class="field-select">
+                        <option value="mixed">Misto esame</option>
+                        <option value="conversions">Conversioni basi</option>
+                        <option value="binary_arithmetic">Somme/sottrazioni binarie</option>
+                        <option value="twos">Complemento a 2</option>
+                        <option value="ieee754">IEEE 754</option>
+                        <option value="logic">Porte logiche e Boole</option>
+                        <option value="core">Fondamenti e registri</option>
+                        <option value="mips">MIPS / Assembly</option>
+                        <option value="memory_bus">Memoria e bus</option>
+                        <option value="microarchitecture">Microarchitettura / IJVM</option>
+                        <option value="clock">Clock e prestazioni</option>
+                        <option value="video_review">Dai video</option>
+                    </select>
+                    <span id="architectureStatsMini" class="settings-copy">Solo Architettura dei Calcolatori: esercizi guidati dagli appunti.</span>
+                </div>
+                <div id="architectureTopicChips" class="architecture-topic-chips"></div>
             </div>
 
             <!-- Simulazione -->
@@ -99,8 +345,103 @@
             </div>
         </section>
 
+        <section id="tutorialShell" class="tutorial-shell" style="display:none;">
+            <aside class="tutorial-sidebar">
+                <div class="tutorial-sidebar-head">
+                    <span class="progress-label">Percorso Python</span>
+                    <strong id="tutorialProgressText">0/0</strong>
+                    <div class="tutorial-progress-bar">
+                        <div id="tutorialProgressFill"></div>
+                    </div>
+                </div>
+                <div id="tutorialLessonList" class="tutorial-lesson-list"></div>
+            </aside>
+
+            <article class="tutorial-workspace">
+                <div class="tutorial-head">
+                    <span id="tutorialModule" class="tutorial-module">Python</span>
+                    <h2 id="tutorialTitle">Tutorial Python</h2>
+                    <p id="tutorialGoal">Apri una lezione per iniziare.</p>
+                </div>
+
+                <div class="tutorial-grid">
+                    <section class="tutorial-card">
+                        <h3>Concetto</h3>
+                        <p id="tutorialConcept"></p>
+                    </section>
+                    <section class="tutorial-card">
+                        <h3>Obiettivo</h3>
+                        <p id="tutorialTask"></p>
+                        <p id="tutorialHint" class="study-hint"></p>
+                    </section>
+                </div>
+
+                <section class="tutorial-editor-panel">
+                    <div class="tutorial-editor-head">
+                        <h3>Codice</h3>
+                        <span id="tutorialRunStatus">Pronto</span>
+                    </div>
+                    <textarea id="tutorialEditor" class="tutorial-editor" spellcheck="false" placeholder="Scrivi qui il codice. Se ti blocchi, scrivi aiuto."></textarea>
+                    <div class="tutorial-actions">
+                        <button id="runTutorialBtn" class="btn primary" type="button">
+                            Esegui e verifica
+                        </button>
+                        <button id="resetTutorialCodeBtn" class="btn ghost" type="button">
+                            Ripristina codice
+                        </button>
+                        <button id="nextTutorialLessonBtn" class="btn secondary" type="button" disabled>
+                            Prossima lezione
+                        </button>
+                    </div>
+                </section>
+
+                <section id="tutorialOutputPanel" class="tutorial-output-panel" style="display:none;">
+                    <h3>Risultato</h3>
+                    <pre id="tutorialOutput"></pre>
+                    <div id="tutorialChecks" class="tutorial-checks"></div>
+                </section>
+            </article>
+        </section>
+
+        <section id="architectureShell" class="architecture-shell" style="display:none;">
+            <aside class="architecture-side">
+                <span class="progress-label">Solo Architettura dei Calcolatori</span>
+                <strong id="architectureAccuracy">0%</strong>
+                <p id="architectureAttempts">0 esercizi svolti</p>
+                <div id="architectureTopicStats" class="architecture-topic-stats"></div>
+                <div id="architectureSourcesMini" class="architecture-sources-mini"></div>
+            </aside>
+
+            <article class="architecture-workspace">
+                <div class="architecture-head">
+                    <span id="architectureTopicLabel" class="tutorial-module">Misto esame</span>
+                    <h2 id="architectureTitle">Genera un esercizio</h2>
+                    <p id="architectureHint">Scegli un argomento e premi Genera esercizio.</p>
+                </div>
+
+                <section class="architecture-exercise">
+                    <div id="architecturePrompt" class="architecture-prompt"></div>
+                    <div id="architectureGuide" class="architecture-guide"></div>
+                    <div id="architectureExample" class="architecture-example"></div>
+                    <div id="architectureOptions" class="architecture-options"></div>
+                    <div id="architectureSelectionStatus" class="architecture-selection-status"></div>
+                    <input id="architectureAnswer" class="architecture-answer" type="text" autocomplete="off" placeholder="Scrivi la risposta">
+                    <div class="architecture-actions">
+                        <button id="checkArchitectureBtn" class="btn primary" type="button">
+                            Verifica
+                        </button>
+                        <button id="newArchitectureExerciseBtn" class="btn ghost" type="button">
+                            Nuovo esercizio
+                        </button>
+                    </div>
+                </section>
+
+                <section id="architectureResult" class="architecture-result" style="display:none;"></section>
+            </article>
+        </section>
+
         <!-- LAYOUT PRINCIPALE: SIDEBAR + CONTENUTO -->
-        <main class="layout-main">
+        <main id="quizContent" class="layout-main">
             <!-- SIDEBAR SIMULAZIONE -->
             <aside class="sidebar" id="examSidebar" style="display:none;">
                 <div class="sidebar-title">Domande</div>
@@ -116,6 +457,7 @@
                     <div class="question-meta">
                         <span id="domanda-id" class="question-id">ID Domanda: -</span>
                         <span id="timerDisplay" class="timer-display" style="display:none;">00:00</span>
+                        <span id="questionProgress" class="progress-badge">Stato: -</span>
                         <span id="savedCount" class="saved-badge">Salvate: 0</span>
                     </div>
 
@@ -129,16 +471,39 @@
                         </div>
                     </div>
 
+                    <section id="playlistPanel" class="playlist-panel" style="display:none;">
+                        <div>
+                            <span id="playlistPhase" class="playlist-phase">Sessione</span>
+                            <strong id="playlistDetail">Pronto per studiare</strong>
+                        </div>
+                        <div id="playlistPills" class="playlist-pills"></div>
+                    </section>
+
                     <div id="domanda" class="question-text">
                         <!-- domanda via JS -->
                         Seleziona una materia, poi scegli la modalità e premi Inizia.
                     </div>
+
+                    <section id="recallGate" class="recall-gate" style="display:none;">
+                        <strong id="recallGateTitle">Studio guidato</strong>
+                        <p id="recallGateText">Leggi il punto chiave, poi passa subito alla domanda.</p>
+                        <button id="showOptionsBtn" class="btn small-btn primary" type="button">Mostra opzioni</button>
+                    </section>
 
                     <ul id="risposte" class="answer-list">
                         <!-- risposte via JS -->
                     </ul>
 
                     <p id="result" class="result-text"></p>
+
+                    <div id="confidencePanel" class="confidence-panel" style="display:none;">
+                        <span>Com'e andata davvero?</span>
+                        <button class="btn small-btn ghost" data-confidence="know">La so</button>
+                        <button class="btn small-btn ghost" data-confidence="unsure">Incerta</button>
+                        <button class="btn small-btn danger-outline" data-confidence="dont_know">Non la so</button>
+                    </div>
+
+                    <div id="studyPanel" class="study-panel" style="display:none;"></div>
 
                     <div class="question-footer">
                         <div class="nav-buttons">
@@ -179,5 +544,11 @@
             </section>
         </main>
     </div>
+    <nav class="mobile-bottom-nav" aria-label="Navigazione rapida mobile">
+        <button type="button" data-mobile-target="todayDashboard">Oggi</button>
+        <button type="button" data-mobile-mode="training">Quiz</button>
+        <button type="button" data-mobile-mode="review">Ripasso</button>
+        <button type="button" data-mobile-target="analysisPanel">Analisi</button>
+    </nav>
 </body>
 </html>

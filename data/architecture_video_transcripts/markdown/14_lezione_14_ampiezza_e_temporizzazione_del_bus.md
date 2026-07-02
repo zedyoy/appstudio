@@ -1,0 +1,465 @@
+# Lezione 14 - Ampiezza e temporizzazione del BUS
+
+- File: `C:\Users\Admin\Videos\ARCHITETTURA E CALCOLATORI\Lezione 14 - Ampiezza e temporizzazione del BUS.mp4`
+- Durata: 02:18:10
+- Trascrizione: `14_lezione_14_ampiezza_e_temporizzazione_del_bus.json`
+
+## Argomenti probabili
+- porte_logiche (255): and, or, nor, sop
+- memoria_bus (169): memoria, bus, indirizzo, temporizzazione, ram, rom
+- clock_prestazioni (64): clock, ciclo, frequenza, tempo
+- conversioni (4): base
+- mips_assembly (3): sb
+
+## Trascrizione
+
+[00:00:00 - 00:00:02] Sottotitoli a cura di QTSS.
+[00:00:30 - 00:00:32] Sottotitoli a cura di QTSS.
+[00:01:00 - 00:01:02] Sottotitoli a cura di QTSS.
+[00:01:30 - 00:01:32] Sottotitoli a cura di QTSS.
+[00:02:00 - 00:02:02] Sottotitoli a cura di QTSS.
+[00:02:30 - 00:02:32] Sottotitoli a cura di QTSS.
+[00:03:00 - 00:03:02] Sottotitoli a cura di QTSS.
+[00:03:30 - 00:03:32] Sottotitoli a cura di QTSS.
+[00:04:00 - 00:04:02] Sottotitoli a cura di QTSS.
+[00:04:30 - 00:04:52] Buon pomeriggio.
+[00:04:52 - 00:05:04] Buon pomeriggio.
+[00:05:04 - 00:05:30] Buon pomeriggio.
+[00:05:34 - 00:05:42] Buon pomeriggio.
+[00:05:42 - 00:05:48] Allora, in questa lezione vediamo qualcosa su I bus.
+[00:05:48 - 00:05:56] Vediamo la differenza tra bus sincroni e bus asincroni.
+[00:05:56 - 00:06:12] Abbiamo già parlato dei bus, forse quando abbiamo parlato delle linee di indirizzamento, un tipico bus, bus degli indivizi.
+[00:06:12 - 00:06:28] Quando si parla di ampiazza del bus si intente quanti fili deve essere del largo, quanta linea deve essere in grado di portare quanti bit.
+[00:06:28 - 00:06:44] Per lo specifico, se parliamo di un bus di indirizzi, un bull sarà a largo il bus, più l'informazione, quindi la capacità di indirizzamento sarà maggiore.
+[00:06:44 - 00:07:00] Per il bus dati sarà un dato con più bit, in generale più e ampio il bus, più il numero di fili di bit che si portano nella singola trasmissione elevato.
+[00:07:00 - 00:07:16] E, ad esempio, l'ampiezza del bus degli indivizi impatta sul quante locazione di memoria è possibile indirizzare.
+[00:07:16 - 00:07:38] Quindi, questo vuol dire che quando si compra della memoria, si amplia la memoria a disposizione, bisogna sempre guardare la memoria supportata dal basso indirizzo.
+[00:07:38 - 00:08:00] Perché, diciamo, le locazioni che è in grado di indirizzare una C più, che sarà veramente due alla N, dove N è il numero di linee degli indirizi, ovviamente è limitato a quello che è inutile aggiungere ulteriore memoria se quella indivizzabile è già stata aggiunta, diciamo.
+[00:08:01 - 00:08:10] Per ampliare lo spazio di memoria bisogna incrementare le linee di indirizzo del bus.
+[00:08:10 - 00:08:33] E' una cosa che ha guidato, diciamo, l'evoluzione dei bus nell'evoluzione dei computer, che, man mano, diciamo, sono stati introdotti i computer con bus sempre maggiori, sempre più ampi, proprio per far fronte alla domanda sempre maggiore di memoria delle applicazioni.
+[00:08:34 - 00:08:57] E quindi, sopportare, cioè creare un computer, un calcolatore con maggior memoria di sistema, quindi con maggior capacità di memoria e quindi di indirizzamento in tale memoria, ha richiesto questo sempre più spazio dedicato al bus nel sistema.
+[00:08:57 - 00:09:15] Quindi maggior superficie, effettivamente, diciamo, effettivamente, sono a scheda madre assegnata, diciamo, al bus, cioè proprio l'ingombro fisico del bus è cresciuto nel tempo, proprio per offrire sempre più memoria di sistema.
+[00:09:15 - 00:09:42] Ad esempio, se pensiamo al primo PC IBM 888 aveva un bus in dirizzo a 20 bit, quantificamente al sistema troviamo varie tipologie di dati, oltre a quelle del dirizzo, cioè, varie tipologie di bus, scusate, e immaginiamo che, quindi, nel 888, il bus, nel 1988, aveva un bus in dirizzo a 20 bit.
+[00:09:45 - 00:10:10] C'era questo bus a 20 bit per indirizzi e poteva indivizzare e definire un megabyte di memoria. L'evoluzione successiva, che è stata l'8286, venne incrementato lo spazio di indirizzamento a 24 bit.
+[00:10:10 - 00:10:39] Non sappiamo però che incrementare lo spazio da 20 a 24, non è stato fatto comunque, non si fa semplicemente, non è stato fatto, diciamo, storicamente, costruendo direttamente, diciamo, un bus più grande, ma aggiungendo, vedete, delle linee separate per raggiungere la quantità desiderata, cioè, invece di avere un minore,
+[00:10:40 - 00:11:09] nel 8286, si è fatto un unico bus a 24 bit, ma si è aggiunto un secondo bus a 4 bit a quello persistente. Questo, come potete immaginare, come, diciamo, venne menzionato nella slide, è stato fatto per ragioni di retrocompatibilità, in modo che, diciamo, le periferie prodotte,
+[00:11:10 - 00:11:22] nel primo sistema, che erano abituate a lavorare con il bus a 20 bit, potessero essere ancora utilizzate.
+[00:11:23 - 00:11:41] E questo è un concetto che torna spesso nell'evoluzione dei calcolatori dei sistemi, il fatto che, diciamo, per mantenere, diciamo, per avere successo di un sistema, ovviamente questo sistema deve essere adottato dal mercato.
+[00:11:42 - 00:12:03] Bisogna che, diciamo, i produttori di periferie che sposino la nostra architettura iniziano a implementare, a sviluppare e implementare delle periferie, delle soluzioni utilizzabili nel nostro sistema, e quindi, quando poi si va a introdurre un aggiornamento, un'evoluzione del sistema intero,
+[00:12:04 - 00:12:27] bisogna sempre scegliere cosa si può cambiare, puntando alla massima evoluzione, oppure se è il caso di avere una soluzione di compromesso che non raggiunglie, diciamo, le migliori performance utilizzabili al momento, sia tecnologicamente che come progettazione in sé,
+[00:12:28 - 00:12:55] e spesso ci si ritrova, diciamo, a scegliere dei subortimi, delle soluzioni non proprio ottimali, per appunto, per eservare, ad esempio, l'antiprocompatibilità, fare in modo che il mercato che si dovrebbe attirare per il nostro sistema e che in qualche modo ne ha facilitato la diffusione, che ne ha garantito o comunque ha supportato il successo del nostro sistema,
+[00:12:55 - 00:13:18] non andiamo a distruggere il mercato, proponendo una soluzione ex novo, completamente incompatibile, perché corriamo il risco dal lato, che non vengono adottate nel nostro nuovo sistema, nel nostro nuovo sistema, e diciamo, il vecchio sistema continua a andare avanti e avere vita proprio rispetto a quello nuovo che stiamo progettando e commercializzando,
+[00:13:19 - 00:13:45] oppure può essere banalmente bocciato, cioè viene preferita una soluzione concorrente di un altro competitor, che invece ha previsto qualcosa di maggiormente compatibile con ciò che esiste e che è quello che va a cercare l'utente, quindi bisogna in qualche modo bilanciare le esigenze tecnologiche con quelle del mercato.
+[00:13:45 - 00:14:13] Questo per dire che in genere nell'informatica, ma in tutto il settore tecnologico, il successo di un prodotto, di una piattaforma, non è dovuto soltanto alle performance che offre sulla carta, ma poi effettivamente dall'adozione del mercato.
+[00:14:16 - 00:14:42] Ulteriorevoluzione 8386, di nuovo, si cresce ulteriormente lo spazio di indizzamento, basse indirizzi che aggiunge 32 linee complessive, ma anche in questo caso non un bus ex novo, ma ci si porta ancora appresso il bus, diciamo, le tecnologie progettate nel 888,
+[00:14:42 - 00:15:00] che vengono semplicemente replicate andando ad aggiungere ulteriori linee, ulteriori indirizzamento e di controllo per gestire uno spazio di indirizzamento totale di 32 linee per gli indirizi.
+[00:15:01 - 00:15:06] Posso fare una domanda?
+[00:15:06 - 00:15:07] Sì.
+[00:15:08 - 00:15:20] Dopo l'8088, c'è anche l'8086, quello di si era 16-bit, se non mi sbaglio.
+[00:15:23 - 00:15:27] Si disorti come spazio di indirizzamento, diciamo.
+[00:15:27 - 00:15:35] Sì, c'è l'avano ridotto, mi sa, o erano rimasti evidenti, perché se ce n'è tanto non me lo ricordo.
+[00:15:36 - 00:15:52] La memoria è introsa, mi sembra il primo capito, una tabella che fa vedere l'evoluzione dei vari processori con le specifiche delle varie famiglie, forse l'ha indicata o la differenza da questo punto di vista.
+[00:15:53 - 00:16:01] In qualche modo le varie famiglie che sono state introdotte hanno aggiunto dei miglioramenti.
+[00:16:01 - 00:16:19] Qua ci stiamo concentrando sul bus, però quello che voglio farvi capire è questo fatto che l'esigenza da un lato di avere un bus diverso, progettato diversamente per garantire maggiore memoria e maggiori performance
+[00:16:19 - 00:16:31] è scontrato con il fatto che si è scelto invece di sopravvivere aggiungendo pezzetti a quello che c'era per preservare la compatibilità del bus,
+[00:16:32 - 00:16:47] che aveva 20 bits come indirizzamento, quindi diciamo che era nato per un discorso solo costo.
+[00:16:47 - 00:17:15] Ovviamente come potete immaginare aggiungere queste linee di bus al sistema comportano solo un aumento dello spazio,
+[00:17:15 - 00:17:35] ma anche ovviamente aumenti di coste di produzione, però se scelto questo aggiornamento incrementale proprio per cercare di andare incontro alla domanda di sistemi sempre più potenti
+[00:17:35 - 00:17:42] per preservare in qualche modo la retrocompatibilità.
+[00:17:42 - 00:17:55] Altra cosa è che di cui tenere il conto è che quando vengono progettati questi sistemi si fa da un lato il progettista vorrebbe aggiungere sempre più cose,
+[00:17:55 - 00:18:05] cercare di essere lungimirante perché farne un bus a 32 quando poi già so che mi servirà tra un paio d'anni a 64 o faccio direttamente a 64,
+[00:18:05 - 00:18:20] il problema è che ovviamente c'è il credoff tra il commerciale e il progettista, ovviamente aggiungere linee e pezzi comporta dei costi.
+[00:18:21 - 00:18:40] Allora come si può aumentare la bassa di un bus, invece qua adesso parliamo di velocità di o meglio, come trasmettere più gli aspecti.
+[00:18:40 - 00:18:50] Quindi la banda dei dati non più basso di indirizamento, quindi immaginiamo il basso dati dove vengono indiate e scambiate i dati
+[00:18:50 - 00:19:05] per aumentare la velocità dell'esperimento noi possiamo po' semplicemente costruire un sistema che è in grado di avere un clock più con una frequenza maggiore,
+[00:19:05 - 00:19:16] spingere sulla frequenza di clock, avere un sistema in grado di fare più velocemente le operazioni e quindi i trasferimenti, in questo caso sul bus.
+[00:19:16 - 00:19:29] Quindi se prima ci mettevo un secondo per fare un trasferimento, se invece ne metto mezzo secondo, banalmente con un secondo trasmetto più dati,
+[00:19:29 - 00:19:42] oppure come per gli indirizi anche per il bus dati posso andare sulla larghezza dei dati, quindi fare un bus più grande che invia informazioni,
+[00:19:42 - 00:19:48] cioè più grandi, più bit, nello stesso periodo, nello stesso intervallo di tempo.
+[00:19:48 - 00:20:10] Un'altra possibilità abbiamo detto, quella di aumentare la velocità, il problema quale è che andare su questo di aumentare la larghezza dei dati,
+[00:20:10 - 00:20:21] cioè quindi aumentare per un bus invece che 32, 64, cioè aumentare il numero di bit che riesco a inviare parallelamente,
+[00:20:21 - 00:20:32] questa è una cosa che però comporta dei problemi, del motivo per cui mentre, diciamo, fino agli anni 90, agli anni 2000 più o meno,
+[00:20:32 - 00:20:44] i bus che vedevamo nei computer bus dati erano bus paralleli, oggi per lo più sono stati sostituiti con bus invece seriali.
+[00:20:45 - 00:20:56] Questo perché il trasferimento di più bit, quindi aumentare la larghezza e aumentare quindi le linee dei dati,
+[00:20:56 - 00:21:09] comporta un problema che ovviamente io quando devo inviare un dato in un bus parallelo metto un bit su ogni filo, lo invio, però qual è il problema?
+[00:21:10 - 00:21:20] E' che i bit non arrivano diciamo contemporaneamente, devo in qualche modo andare poi ad allineare,
+[00:21:20 - 00:21:38] l'ho un aglià a sincronizzare i bit ricevuti, quindi in qualche modo il tempo che guadagno con l'aumento dei figli si va a perdere,
+[00:21:38 - 00:21:52] a gestire il disallineamento che si crea tra le linee e tra i bit che arrivano, quindi andarli poi a sincronizzare e a controllare, diciamo,
+[00:21:52 - 00:22:09] a ricostruire il dato inviato più il bus è veloce, più bit ci sono, più diventa un problema questo del disallineamento tra le linee o disallineamento del bus.
+[00:22:09 - 00:22:27] Questo della retrocompatibilità l'abbiamo citato, che vale ovviamente anche nel caso in cui vado a fare un bus più lento,
+[00:22:27 - 00:22:45] che devo in qualche modo poter funzionare anche con periferiche più lenti, se faccio un bus più veloce devo comunque garantire la retrocompatibilità con periferiche, schede, progettate per invece il bus precedente.
+[00:22:46 - 00:23:11] E quindi da un lato non posso, mi è più facile aggiungere linee di dati come abbiamo visto prima, però c'ho sempre il problema che non posso aggiungere più di tanto perché poi l'aumentare della velocità, l'aumentare delle linee mi scontro con il disallineamento del bus.
+[00:23:11 - 00:23:39] Per aggirare questo problema di bus troppo ampi si può utilizzare un bus multiplexato in cui invece di avere due bus separati, uno per indirizzi e uno per i dati, posso utilizzarli per entrambi le cose,
+[00:23:39 - 00:24:05] ovviamente andando ad utilizzare una volta per una e una volta per l'altro, quindi condividere le linee e andare poi ad aggiungere, diciamo, lavoro al lato mittente e lato destinazione che devo in qualche modo preparare il dato, preparare indirizzi per essere mediati su questo unico bus e poi andarlo a ricostruire.
+[00:24:05 - 00:24:16] Ovviamente questo mi aggiunge un overhead di gestione del dato, gestione delle informazioni che devo inviare che vi rende il sistema più lento.
+[00:24:16 - 00:24:43] Allora vediamo un po' la temporizzazione dei bus, ovviamente come potete immaginare in un bus sincrono abbiamo una linea dedicata che va a sincronizzare le operazioni, il classico clock che invia un segnale periodico
+[00:24:43 - 00:24:55] e tutte le operazioni sul bus sono sincronizzate o sono diciamo in qualche modo derivate dal tempo scandito dal clock.
+[00:24:56 - 00:25:13] Timigamente un clock lo andiamo a rappresentare o comunque composto da un'onda quadra con una frequenza nell'ultimo dei megahertz e diciamo il clock impone dei vincoli temporali alle operazioni,
+[00:25:13 - 00:25:24] nel senso che quando si vanno ad analizzare le operazioni bisogna andare a vedere ogni operazione quanto tempo impiega un ciclo, due cicli,
+[00:25:24 - 00:25:44] due totti cicli del clock che sono misurate in termini di cicli del clock, quindi sapendo, vedendo qual è il tempo garantito per cui debba venire un'operazione, così le operazioni possono essere sincronizzate.
+[00:25:44 - 00:26:12] Queste, un'operazione che può essere ad esempio una lettura o una scrittura dove intendiamo sempre scrittura dei dati dalla CPU alla memoria o lettura dei dati dalla memoria o dalle perifetiche alla CPU,
+[00:26:12 - 00:26:36] queste operazioni quindi andranno ad occupare o andranno a impiegare un tot cicli tetti cicli di bus che sono comunque dei multipli del periodo di clock, quindi un ciclo di bus sarà un periodo di clock e le varie operazioni vengono diciamo misurate e sincronizzate in base a quanti cicli di bus occupano.
+[00:26:36 - 00:26:57] Ad esempio, se per leggere una parola dalla memoria, ricordate la memoria che composta delle righe diciamo, ogni riga contiene una stringa di bit che è l'informazione associata a quella diga, quella si chiama la parola della memoria,
+[00:26:57 - 00:27:23] quindi leggere una parola dalla memoria vuol dire leggere tutti i bit di una cella di memoria e questa operazione, quindi la lettura dalla memoria, il trasferimento alla CPU, se occupa o meglio se richiede tre cicli di bus, vuol dire che impiegherà tre periodi del clock.
+[00:27:24 - 00:27:51] Allora, il clock, abbiamo detto, lo possiamo idealizzare come un'onda quadra, però noi abbiamo detto più volte che nella realtà abbiamo dei tempi non nulli per passare da un livello ad un altro del clock e quindi l'onda quadra teorica, poi nella realtà sarà un'onda traquezzedale, diciamo di questo tipo.
+[00:27:51 - 00:28:03] Dunque abbiamo un tempo non nullo per cambiare dal livello basso a livello alto, abbiamo il fronte di salita e viceversa dal livello alto a livello basso il fronte di discesa.
+[00:28:04 - 00:28:26] Il periodo, ovviamente, è il tempo in cui, diciamo, dopo il segnale di clock si ripete e ovviamente, essendo un segnale periodico, si ripeterà sempre uguale, qui abbiamo per esempio tre periodi di questo clock.
+[00:28:27 - 00:28:50] Allora, assumiamo che il segnale impieghi un nanosecondo per cambiare il valore, un clock di 100 MHz avrà un ciclo di bus di 10 nanosecondi.
+[00:28:51 - 00:29:04] Allora, proviamo a vedere, ad esempio, come può avvenire, diciamo, come viene temporizzata un'operazione di lettura dalla memoria.
+[00:29:04 - 00:29:24] Allora, la lettura dalla memoria comporta che bisogna indicare alla memoria, diciamo, quale è la parola di interesse, cioè quale è l'indirizzo della cella di memoria che vogliamo andare a leggere.
+[00:29:24 - 00:29:40] Abbiamo due bus, bus degli indirizzi e bus dei dati. Sul bus degli indirizzi deve essere messo l'indirizzo della cella di memoria da leggere.
+[00:29:41 - 00:29:55] Una volta che questo indirizzo è, diciamo, disponibile e stabile sul bus degli indirizzi, possiamo avviare l'operazione di lettura.
+[00:29:55 - 00:30:07] L'operazione di lettura consiste nel trasferire il dato che si trova nella cella di memoria indicata dal bus indirizzi, diciamo, al bus dati.
+[00:30:08 - 00:30:28] Quindi il dato viene copiato, ricordatevi l'architettura di dati che abbiamo visto nella lezione precedente, il concetto che l'indirizzo viene decodificato per abilitare una soltanta delle parole di memoria
+[00:30:28 - 00:30:42] e poi l'uscita, l'output dei flip-flop, viene trasferito in uscita dalla memoria e in questo caso deve essere portato sul bus dati.
+[00:30:43 - 00:30:58] Allora, uno specifico, abbiamo detto, sono operazioni sincronizzate, questi sono bus sincrono, quindi quando il fronte, cioè quando il clock va sul fronte di salita,
+[00:30:59 - 00:31:07] comincia l'operazione totale, l'intera operazione, diciamo.
+[00:31:07 - 00:31:19] Questo cosa comporta che quando inizia l'operazione bisogna caricare sul bus degli indirizzi abbiamo detto l'indirizzo della cella di memoria di interesse.
+[00:31:20 - 00:31:38] Come al solito queste sono operazioni che non avvengono in maniera istantanea, ma abbiamo dei piccoli tempi, piccoli ritardi dovuti ai tempi di propagazione e ai tempi di stabilizzazione del segnale sulle linee.
+[00:31:39 - 00:32:00] Quindi avremo ad esempio un ritardo che è indicato con TAD, address delay, che è il tempo che ci mette l'indirizzo, diciamo, a cambiare lo stato del bus indirizzi, a diventare stabile sulla linea degli indirizi.
+[00:32:01 - 00:32:28] Quindi diciamo in questa figura il passaggio dal grigio al bianco è, diciamo, indica proprio il fatto che l'informazione diventa da non utilizzabile, diciamo, a utilizzabile, quindi cambia lo stato del bus indirizzi, diventa valido, lo posso andare a leggere, al tempo, all'inizio di T1 più TAD.
+[00:32:28 - 00:32:32] Quindi bisogna attendere questo piccolo ritardo.
+[00:32:35 - 00:32:44] Dopo questo TAD, quindi, sulle linee di indirizzo è disponibile il dato da leggere, indirizzo di memoria.
+[00:32:45 - 00:33:08] Quando poi il clock, diciamo, torna sul fronte di salita, quindi dopo un periodo, vediamo che il dato non è ancora disponibile,
+[00:33:09 - 00:33:21] al termine di T2 il dato non è ancora disponibile.
+[00:33:21 - 00:33:50] A un certo punto, finalmente, diciamo, il dato viene trasferito dalla memoria sul bus dati e questo lo andiamo a indicare in uovo con l'incrocio delle linee che da grigio diventano bianchi e il dato è disponibile soltanto, diciamo, a metà più o meno del terzo periodo.
+[00:33:52 - 00:34:06] Il dato, però, cioè il bus è sincronizzato, quindi, diciamo, solo sul fronte di salita, andrà eventualmente a essere...
+[00:34:06 - 00:34:32] Si inizia, diciamo, l'operazione, vedete, non comincia in un momento qualunque, ma soltanto può iniziare l'operazione di lettura sui fronti di salita del clock, che appunto scandisce architecturale.
+[00:34:36 - 00:34:52] Quando si arriva alla disponibilità sul bus dati del dato, abbiamo detto che siamo rimasti
+[00:34:52 - 00:35:01] a TAD e l'indirizzo è disponibile. Una vostra che l'indirizzo è disponibile deve
+[00:35:01 - 00:35:12] essere richiesta la lettura. Vi ricordate c'era il segnale di RID che sono negati
+[00:35:12 - 00:35:22] entrambi sia questo memory request che RID. Sono negati quindi si attivano sul livello
+[00:35:22 - 00:35:30] basso, quindi questi sono due segnali che normalmente sono arti. Quando si vanno ad
+[00:35:30 - 00:35:42] abbassare vanno al livello basso, c'è danno il via all'azione, si asseriscono sul livello
+[00:35:42 - 00:35:56] basso. Questo cosa vuole dire che una volta che il bus è disponibile l'indirizzo viene
+[00:35:56 - 00:36:07] richiesta alla memoria di accedere, diciamo alla memoria, come una sorta di chip select
+[00:36:07 - 00:36:14] che abbiamo visto altra oltre, viene effettuata una richiesta di memoria per quale operazione
+[00:36:14 - 00:36:28] la RID. Anche qua abbiamo degli intervalli di tempo, dei ditardi, affinché si abbia l'affettivo
+[00:36:28 - 00:36:43] abbassamento delle linee MREC e RID, in particolare TML è il tempo che viene atteso
+[00:36:43 - 00:36:52] dalla CPU una volta che c'è l'indirizzo sul bus degli indirizzi prima che la CPU manda
+[00:36:52 - 00:37:03] la richiesta alla memoria attende questo TML. La memoria nel frattempo può eventualmente
+[00:37:03 - 00:37:10] iniziare a svolgere delle operazioni di setup, ad esempio a scegliere qual'è il chip di
+[00:37:10 - 00:37:22] interesse con il chip select che abbiamo visto prima e altre operazioni. Poi abbiamo TML e TRL
+[00:37:22 - 00:37:34] invece che sono quanto, diciamo, o meglio, entro quanto tempo scendono e quindi si asseriscono
+[00:37:34 - 00:37:40] questi valori rispetto al fronte di discesa di T1. Queste, diciamo, sono tutti i valori di
+[00:37:40 - 00:37:47] progetto, ma senza che chi progetta il sistema rilascia questi tempi in cui vengono carantiti,
+[00:37:47 - 00:37:55] diciamo, il tempo massimo per fare l'operazione. Ed è tutto ed è in funzione dei fronti del croc.
+[00:37:56 - 00:38:07] E quindi il sistema, diciamo, MREC e RID vengono asseriti e entro TML e TRL dal fronte di discesa
+[00:38:07 - 00:38:25] di T1, questo qui indicato qua al centro, diciamo. Allora, nel momento che arriva l'MREC la memoria,
+[00:38:25 - 00:38:32] ovviamente, può iniziare l'operazione effettiva, quindi andare a prendere il dato, recuperarlo
+[00:38:32 - 00:38:44] e renderlo disponibile. Però, qual è la sincronizzazione? L'ASPU, che, diciamo, è quella che deve leggere
+[00:38:44 - 00:38:53] questo dato dalla memoria, lo va a cercare, va a vedere se è disponibile sul fronte di salita
+[00:38:53 - 00:39:04] del croc. Quindi, poiché abbiamo detto prima che questa operazione in totale ci metterà tre
+[00:39:04 - 00:39:15] periodi per far arrivare il dato, o meglio, guardiamo alla fine di T1, quando c'è il fronte di salita di T2,
+[00:39:16 - 00:39:24] il dato non c'è ancora, arriverà dopo, quindi cosa deve fare la memoria? Deve dire al processore di
+[00:39:24 - 00:39:31] attendere, c'è un segnale, WAIT, che segnala che non è ancora terminato, sta effettuando l'operazione
+[00:39:31 - 00:39:42] richiesta. Qual è l'operazione richiesta? La RID. E di nuovo, qui indicato col negato, quindi
+[00:39:42 - 00:39:55] segnale di WAIT viene asserito mandandolo a zero e quindi questo serve a comunicare al
+[00:39:55 - 00:40:01] processore che se deve fare altre operazioni può farle, poiché questo dato che è stato richiesto
+[00:40:01 - 00:40:06] dalla memoria ci vuole tempo, ovviamente la memoria è più lenta delle operazioni che può fare il
+[00:40:06 - 00:40:14] processore e gli deve semplicemente segnalare quando il dato è pronto, quindi la prima cosa che fa
+[00:40:14 - 00:40:27] mentre lo va a recuperare è asserire questo WAIT negato. De sempre la memoria ci mette 15
+[00:40:27 - 00:40:34] nanosecondi per recuperare il dato, abbiamo detto prima che ogni periodo del clock l'abbiamo
+[00:40:35 - 00:40:40] potizzato essere 10 nanosecondi, quindi a 10 nanosecondi non ha ancora avuto il tempo di
+[00:40:40 - 00:40:50] recuperarlo e quindi assevisce il WAIT. WAIT che resta basso finché appunto non recupera il dato,
+[00:40:50 - 00:41:02] il dato non è disponibile. Il dato sarà disponibile dove? Qua?
+[00:41:02 - 00:41:05] Dopo T2.
+[00:41:22 - 00:41:30] Quindi dopo T2, quindi durante T3 il dato sarà disponibile e quindi sul fronte di salire
+[00:41:30 - 00:41:43] di T3 la memoria inizia a mandare in alto il WAIT perché sa che nel corso di T3 il dato sarà
+[00:41:43 - 00:42:00] disponibile. Ecco qua a metà del livello 8 T3. Durante la prima metà di T3 i dati arrivano
+[00:42:00 - 00:42:08] finalmente sulle linee dati, quindi su basse dati e quindi alla memoria adesso comincia a rimandare
+[00:42:08 - 00:42:15] nello stato diciamo iniziale e segnale. Il WAIT già l'aveva alzato qua. Questi altri due che
+[00:42:15 - 00:42:25] oppure si asseriscono sul negato, quindi vengono mandati sul livello alto e quindi MREC negato
+[00:42:25 - 00:42:34] diventa alto, RID negato diventa alto. Anche qua non è immediato, ci sono degli intervalli di
+[00:42:34 - 00:42:45] tempo in cui viene garantito che l'MREC verrà mandato ad un livello alto entro TMH del fronte
+[00:42:45 - 00:42:58] di discesa del croc e lo stesso modo il RID tornerà alto entro TRH dal fronte di discesa di T3.
+[00:42:58 - 00:43:24] Eccolo qua, sta qua. Anche questo da progetto della memoria viene garantito che i dati saranno
+[00:43:24 - 00:43:43] disponibili sulla linea dati, al massimo entro TDS da T3 o meglio detto diversamente. I dati
+[00:43:43 - 00:43:49] devono essere disponibili perché dobbiamo dare il tempo che i dati si stabilizzano sulle linee,
+[00:43:49 - 00:44:06] almeno TDS prima di T3 in modo che quando il fronte di discesa di T3, in modo che sul
+[00:44:06 - 00:44:12] fronte di discesa di T3 i dati saranno già da TDS sulla linea dati, quindi si saranno stabilizzati
+[00:44:13 - 00:44:23] ormai. Dal fronte di discesa poi dopo si asseriscono o meglio si negano, scusatemi, MREC RD. Quindi,
+[00:44:23 - 00:44:36] quando arriva finalmente il fronte di salita di T4, le operazioni sono terminate e ne puoi
+[00:44:36 - 00:44:59] iniziare una nuova volendo. È questo, diciamo, per la MRE e questi lo segnati. Il tempo che impiegano
+[00:44:59 - 00:45:12] i segnali per essere negati, TDH invece, per quanto tempo la memoria mantiene i dati sul basso
+[00:45:12 - 00:45:20] dopo che RD è stato negato. Abbiamo fatto tutti intervalli definiti da sheet, diciamo, dal foglio di
+[00:45:20 - 00:45:35] progetto della memoria. Intentamente, sono cose che vengono definite da chi progetta robust. Come
+[00:45:35 - 00:45:41] assolvere segnali, posso essere asseriti sul valore alto o basso, in base a come vengono indicati se
+[00:45:41 - 00:45:49] negati o meno, capiamo se vengono asseriti sul valore basso o alto. Questi basso sincroni,
+[00:45:49 - 00:45:58] invece, se basso a sincroni, non c'è un clock che sincronizza le operazioni. Mentre prima abbiamo
+[00:45:58 - 00:46:04] detto ci sono delle operazioni che vengono garantite, diciamo che il cui tempo di esecuzione è
+[00:46:04 - 00:46:13] garantito in base alla discesa di T3, che partono dalla fronte di discesa del clock e partono
+[00:46:13 - 00:46:20] alla fronte di salita del clock, quindi è tutto, diciamo, fatto in base agli istanti di tempo dati
+[00:46:20 - 00:46:31] dal clock. In un basso sincroni, invece, le operazioni si svolgono, diciamo, appena possibile.
+[00:46:31 - 00:46:38] Quente, mentre qui abbiamo dei ritardi introdotti, diciamo, che si introducono,
+[00:46:39 - 00:46:43] perché le operazioni comunque devono attendere il prossimo fronte di salita o di discesa per
+[00:46:44 - 00:46:52] essere effettuate, quindi invece un basso a sincrono avvengono appena possibile,
+[00:46:55 - 00:47:03] il che, diciamo, vuol dire che, tipicamente, riesce a essere più veloce, un basso a sincrono,
+[00:47:04 - 00:47:07] proprio perché si evitano i tempi morti.
+[00:47:11 - 00:47:18] Vediamo il meccanismo, come il meccanismo utilizzato in un basso a sincro, in cui appunto
+[00:47:18 - 00:47:26] non c'è un segnale terzo che sincronizza, ma si dipende tutto da i due sistemi che
+[00:47:26 - 00:47:31] devono comunicare, che devono scambiarsi in informazione, devono fare, quali chiamiamo
+[00:47:31 - 00:47:41] un end shake. Vediamo come funziona questo meccanismo. In un basso a sincrono di questo
+[00:47:41 - 00:47:54] tipo possiamo distinguere tra, diciamo, il master del basso che deve asserire, anche
+[00:47:54 - 00:48:03] qua abbiamo mrec, rd e quello che serve, però abbiamo che il master usa questo segnale,
+[00:48:03 - 00:48:15] master synchronization, mentre chi deve poi scambiare l'informazione, diciamo, avremo
+[00:48:15 - 00:48:29] lo slave che vede questo segnale inviato asserito dal master, il master chiede a un altro dispositivo
+[00:48:29 - 00:48:36] che invece funge da slave di effettuare delle operazioni. Quindi quando lo slave vede questa
+[00:48:36 - 00:48:44] richiesta tramite questo segnale asserito, fa l'operazione quanto più velocemente
+[00:48:44 - 00:48:54] puvu, e quando è terminato asserisceoi lo slave synchronization. Vediamolo graficamente.
+[00:48:57 - 00:49:05] Vediamolo così. Allora, questi diagrammi di temporizzazione, nel caso di basso a sincrono,
+[00:49:05 - 00:49:13] vedete, non abbiamo il clock, ma abbiamo che il master che deve richiedere,
+[00:49:15 - 00:49:20] immaginiamo sempre la C più che chiede alla memoria, di leggere quindi un dato.
+[00:49:21 - 00:49:28] Quindi cosa fa la C più? Mette l'indirizzo della scena di memoria sul basso indirizzo.
+[00:49:28 - 00:49:35] Dopo che l'indirizzo è stabile sul basso indirizzo, cosa fa?
+[00:49:35 - 00:49:47] Avvia asserisceaky mrec e read. Cioè richiede la lettura e richiede l'accesso alla memoria.
+[00:49:47 - 00:49:54] Vedete, dopo un po' che mrec e read sono stati asseriti, quindi sono andati a livello basso,
+[00:49:54 - 00:50:01] il master, cioè la C più. Cosa fa? Asserisce questo segnale di sincronizzazione,
+[00:50:02 - 00:50:08] master synchronization, anche in questo caso è asserito su un livello basso e quindi si abbassa.
+[00:50:09 - 00:50:20] Da questo momento, lo slave, quindi la memoria, può iniziare le sue operazioni,
+[00:50:20 - 00:50:26] le fa più velocemente che può, a un certo punto appena riesce a garantire a mettere
+[00:50:30 - 00:50:35] il dato da leggere sulla linea dati, dopo un certo intervallo di tempo in cui
+[00:50:35 - 00:50:43] il dato si è stabilizzato sul basso dati, cosa fa? Abbassa o meglio asserisce il segnale slave
+[00:50:43 - 00:50:49] sincronizzazione. Quindi il master synchronization dice allo slave by party.
+[00:50:50 - 00:50:53] Lo slave synchronization lo usa allo slave per dire offnito,
+[00:50:55 - 00:51:13] il momento in cui lo slave synchronization viene asserito, il master sa che i dati sono disponibili,
+[00:51:13 - 00:51:20] vi accede e una volta che è letto i dati, quando ha finito diciamo di leggere cosa fa,
+[00:51:20 - 00:51:32] toglie demorec, toglie il rid, che torno asti in questo caso, subito dopo toglie il master
+[00:51:32 - 00:51:41] synchronization. Quindi il master synchronization resta asserito da quando si dice allo slave
+[00:51:41 - 00:51:49] by finché il dato non è stato acquisito. Una volta che il master synchronization viene
+[00:51:49 - 00:51:57] mandato a livello up, quindi non è più asserito, lo slave vuoi capisce che il master ha finito
+[00:51:57 - 00:52:08] di prendere il dato e quindi al sua volta può togliere, cioè mandare a livello up,
+[00:52:08 - 00:52:14] lo slave synchronization che segnala il termine proprio dell'operazione,
+[00:52:14 - 00:52:24] cioè segnala che i dati, i sub-bust dati non sono più consistenti, non sono più utilizzabili.
+[00:52:24 - 00:52:30] Quindi l'operazione di end-check, di trasmissione in questo bust synchrono,
+[00:52:30 - 00:52:35] di nuovo parte quando si asserisceRight il master synchronization,
+[00:52:36 - 00:52:43] e termina quando lo slave synchronization torna a 1.
+[00:52:47 - 00:52:51] Ovviamente non dipende dalla temporizzazione
+[00:52:51 - 00:53:05] ed è diciamo un meccanismo che è legato sia come tempestie, come c'è la trasmissione
+[00:53:05 - 00:53:12] e tutta dipende dalla particolare coppia di master slave che sta comunicando sul bus,
+[00:53:12 - 00:53:17] quindi alcuni master slaves possono essere più veloci rispetto all'altra coppia di master
+[00:53:17 - 00:53:24] slave, mentre se il bus è synchrono, tutte le comunicazioni avvengono con lo stesso tempo
+[00:53:24 - 00:53:26] che quello dettato dal clock.
+[00:53:32 - 00:53:39] Ovviamente quali sono vantaggi o sbantaggi, bus synchroni o meglio,
+[00:53:39 - 00:53:44] questi sono i bus asynchroni, eliminano eventuali attese del clock,
+[00:53:45 - 00:53:52] sfruttando al pieno la velocità di comunicazione tra le coppie master slave.
+[00:54:02 - 00:54:10] Ma il problema è un po' complicare la progettazione e la realizzazione dei dispositivi
+[00:54:10 - 00:54:18] delle comunicazioni, questo è il motivo per cui tipicamente in bus invece sono
+[00:54:18 - 00:54:24] synchroni, perché sono più facili da gestire, diciamo.
+[00:54:29 - 00:54:30] Sono domande?
+[00:54:31 - 00:54:31] Tubbi?
+[00:54:31 - 00:54:40] No, ho guardato quella roba, pari che aspetti...
+[00:54:40 - 00:54:42] L'8086?
+[00:54:42 - 00:54:49] Sì, sì, era solo una curiosità, forse l'ho pure chiuso, ma niente.
+[00:54:50 - 00:55:05] In pratica i bus dati erano a 16 bit, quello dell'8086, mentre altro era a 8% nerf.
+[00:55:06 - 00:55:11] Quindi era il mio rava, tipo solamente il trasferimento dati.
+[00:55:13 - 00:55:16] Poi il resto rimane identico, cioè non c'era...
+[00:55:17 - 00:55:25] L'evoluzione è rimasta sull'8086, perché poi c'è avuto il 286 e il 386.
+[00:55:25 - 00:55:36] Sì, per l'8088 era stata una meteora, da quello che si era capito, l'8086 è stato l'8086,
+[00:55:36 - 00:55:40] hanno tenuto l'8086 e l'8086...
+[00:55:41 - 00:55:43] Fino all'8086 poi si è passati a 20, io mi dico.
+[00:55:47 - 00:55:48] Mamma mia.
+[00:55:52 - 00:55:57] Io l'ho sbagliato, il test precedente, io lo dico.
+[00:55:59 - 00:56:03] Quindi mi vuole decavire, faccio anche le minchiate.
+[00:56:04 - 00:56:06] No, bene, le faccio anche io, quindi non ti lo occupare.
+[00:56:07 - 00:56:13] Sì, ma sono arrivato a tre punti su, ho superato i 24 lezioni.
+[00:56:17 - 00:56:18] E' bruciadato anche.
+[00:56:20 - 00:56:23] Infatti io ce ne sono sentire le lezioni.
+[00:56:23 - 00:56:27] Hai deciso di prenderlo poi, perché mi hai detto che ci stavi pensando?
+[00:56:27 - 00:56:31] Sì, sì, sì, mi focalizzo su un altro esame.
+[00:56:31 - 00:56:42] Non è che devo fare, non mi cambia nulla.
+[00:56:42 - 00:56:48] Cioè, più che altro cosa succede, che rischi e rimane indietro di qualcos'altro.
+[00:56:51 - 00:56:55] È un rischio che si può evitare, vai avanti.
+[00:56:55 - 00:57:00] Sì, sì, sì, l'hai registrato o bastano? Pensarci più vai avanti?
+[00:57:00 - 00:57:10] Sì, sì, sì, assolutamente, adesso ci sarà, ci sarà l'orale, quello che
+[00:57:11 - 00:57:17] noi hanno pianificato, che si fa online come quiz di due domande.
+[00:57:19 - 00:57:27] Perché se no, mi sa che voi professori dovrete ci fare mezzo Italia, o voi o chi per voi.
+[00:57:27 - 00:57:34] Stà cambiando, sì, noi vediamo come funzionerà.
+[00:57:34 - 00:57:36] Non l'ho ancora fatto, lo vuoi, sai.
+[00:57:40 - 00:57:44] Io da quello che ho capito dovrebbero esserci due domande.
+[00:57:47 - 00:57:49] Non ho capito se...
+[00:57:52 - 00:57:55] Mi sembra domande, non specifiche sull'insegnamento, insieme.
+[00:57:56 - 00:57:59] Ok, abbastanza generico.
+[00:57:59 - 00:58:09] Sì, tipo sull'esperienza, di quanto l'insegnamento, cosa ti ha portato, cosa ti è stato utile,
+[00:58:09 - 00:58:15] cosa... ma non voglio spoilerare per non dire che sono domande.
+[00:58:15 - 00:58:22] Non domande che può fare anche un docente che non è dell'insegnamento, capito?
+[00:58:22 - 00:58:23] Questo è l'obiettivo.
+[00:58:23 - 00:58:25] Sì, sì, sì.
+[00:58:26 - 00:58:28] Assolutamente.
+[00:58:28 - 00:58:30] Vabbè, la ringrazio.
+[00:58:30 - 00:58:35] E niente, allora vi saluto e alla prossima.
+[00:58:35 - 00:58:37] Buonaserata.
+[00:58:37 - 00:58:39] Buonaserata a tutti.
+[00:58:39 - 00:58:41] Grazie mille, professori. Buonaserata.
+[00:58:55 - 00:58:57] Grazie mille.
+[00:59:25 - 00:59:27] Grazie mille.
+[00:59:55 - 00:59:57] Grazie mille.
+[01:00:25 - 01:00:27] Grazie mille.
+[01:00:55 - 01:00:57] Grazie mille.
+[01:01:25 - 01:01:27] Grazie mille.
+[01:01:55 - 01:01:57] Grazie mille.
+[01:02:25 - 01:02:27] Grazie mille.
+[01:02:55 - 01:02:57] Grazie mille.
+[01:03:25 - 01:03:27] Grazie mille.
+[01:03:55 - 01:03:57] Grazie mille.
+[01:04:25 - 01:04:27] Grazie mille.
+[01:04:55 - 01:04:57] Grazie mille.
+[01:05:25 - 01:05:27] Grazie mille.
+[01:05:55 - 01:05:57] Grazie mille.
+[01:06:25 - 01:06:27] Grazie mille.
+[01:06:55 - 01:06:57] Grazie mille.
+[01:07:25 - 01:07:27] Grazie mille.
+[01:07:55 - 01:07:57] Grazie mille.
+[01:08:25 - 01:08:27] Grazie mille.
+[01:08:55 - 01:08:57] Grazie mille.
+[01:09:25 - 01:09:27] Grazie mille.
+[01:09:55 - 01:09:57] Grazie mille.
+[01:10:25 - 01:10:27] Grazie mille.
+[01:10:55 - 01:10:57] Grazie mille.
+[01:11:25 - 01:11:27] Grazie mille.
+[01:11:55 - 01:11:57] Grazie mille.
+[01:12:25 - 01:12:27] Grazie mille.
+[01:12:55 - 01:12:57] Grazie mille.
+[01:13:25 - 01:13:27] Grazie mille.
+[01:13:55 - 01:13:57] Grazie mille.
+[01:14:25 - 01:14:27] Grazie mille.
+[01:14:55 - 01:14:57] Grazie mille.
+[01:15:25 - 01:15:27] Grazie mille.
+[01:15:55 - 01:15:57] Grazie mille.
+[01:16:25 - 01:16:27] Grazie mille.
+[01:16:55 - 01:16:57] Grazie mille.
+[01:17:25 - 01:17:27] Grazie mille.
+[01:17:55 - 01:17:57] Grazie mille.
+[01:18:25 - 01:18:27] Grazie mille.
+[01:18:55 - 01:18:57] Grazie mille.
+[01:19:25 - 01:19:27] Grazie mille.
+[01:19:55 - 01:19:57] Grazie mille.
+[01:20:25 - 01:20:27] Grazie mille.
+[01:20:55 - 01:20:57] Grazie mille.
+[01:21:25 - 01:21:27] Grazie mille.
+[01:21:55 - 01:21:57] Grazie mille.
+[01:22:25 - 01:22:27] Grazie mille.
+[01:22:55 - 01:22:57] Grazie mille.
+[01:23:25 - 01:23:27] Grazie mille.
+[01:23:55 - 01:23:57] Grazie mille.
+[01:24:25 - 01:24:27] Grazie mille.
+[01:24:55 - 01:24:57] Grazie mille.
+[01:25:25 - 01:25:27] Grazie mille.
+[01:25:55 - 01:25:57] Grazie mille.
+[01:26:25 - 01:26:27] Grazie mille.
+[01:26:55 - 01:26:57] Grazie mille.
+[01:27:25 - 01:27:27] Grazie mille.
+[01:27:55 - 01:27:57] Grazie mille.
+[01:28:25 - 01:28:27] Grazie mille.
+[01:28:55 - 01:28:57] Grazie mille.
+[01:29:25 - 01:29:27] Grazie mille.
+[01:29:55 - 01:29:57] Grazie mille.
+[01:30:25 - 01:30:27] Grazie mille.
+[01:30:55 - 01:30:57] Grazie mille.
+[01:31:25 - 01:31:27] Grazie mille.
+[01:31:55 - 01:31:57] Grazie mille.
+[01:32:25 - 01:32:27] Grazie mille.
+[01:32:55 - 01:32:57] Grazie mille.
+[01:32:57 - 01:32:59] Grazie mille.
+[01:32:59 - 01:33:01] Grazie mille.
+[01:33:01 - 01:33:03] Grazie mille.
+[01:33:03 - 01:33:05] Grazie mille.
+[01:33:05 - 01:33:07] Grazie mille.
+[01:33:07 - 01:33:09] Grazie mille.
+[01:33:09 - 01:33:11] Grazie mille.
+[01:33:11 - 01:33:13] Grazie mille.
+[01:33:13 - 01:33:15] Grazie mille.
+[01:33:15 - 01:33:17] Grazie mille.
+[01:33:17 - 01:33:19] Grazie mille.
+[01:33:19 - 01:33:21] Grazie mille.
+[01:33:21 - 01:33:23] Grazie mille.
+[01:33:23 - 01:33:25] Sottotitoli e revisione a cura di QTSS
+[01:33:53 - 01:33:55] Sottotitoli e revisione a cura di QTSS
+[01:34:23 - 01:34:25] Sottotitoli e revisione a cura di QTSS
+[01:34:53 - 01:34:55] Sottotitoli e revisione a cura di QTSS
+[01:35:23 - 01:35:25] Sottotitoli e revisione a cura di QTSS
+[01:35:53 - 01:35:55] Sottotitoli e revisione a cura di QTSS
+[01:36:23 - 01:36:25] Sottotitoli e revisione a cura di QTSS
+[01:36:53 - 01:36:55] Sottotitoli e revisione a cura di QTSS
+[01:37:23 - 01:37:25] Sottotitoli e revisione a cura di QTSS
+[01:37:53 - 01:37:55] Sottotitoli e revisione a cura di QTSS
+[01:38:23 - 01:38:25] Sottotitoli e revisione a cura di QTSS
+[01:38:53 - 01:38:55] Sottotitoli e revisione a cura di QTSS
+[01:39:23 - 01:39:25] Sottotitoli e revisione a cura di QTSS
+[01:39:53 - 01:39:55] Sottotitoli e revisione a cura di QTSS
+[01:40:23 - 01:40:25] Sottotitoli e revisione a cura di QTSS
+[01:40:53 - 01:40:55] Sottotitoli e revisione a cura di QTSS
+[01:41:23 - 01:41:25] Sottotitoli e revisione a cura di QTSS
+[01:41:53 - 01:41:55] Sottotitoli e revisione a cura di QTSS
+[01:42:23 - 01:42:25] Sottotitoli e revisione a cura di QTSS
+[01:42:53 - 01:42:55] Sottotitoli e revisione a cura di QTSS
+[01:43:23 - 01:43:25] Sottotitoli e revisione a cura di QTSS
+[01:43:53 - 01:43:55] Sottotitoli e revisione a cura di QTSS
+[01:44:23 - 01:44:25] Sottotitoli e revisione a cura di QTSS
+[01:44:53 - 01:44:55] Sottotitoli e revisione a cura di QTSS
+[01:45:23 - 01:45:25] Sottotitoli e revisione a cura di QTSS
+[01:45:53 - 01:45:55] Sottotitoli e revisione a cura di QTSS
+[01:46:23 - 01:46:25] Sottotitoli e revisione a cura di QTSS
+[01:46:53 - 01:46:55] Sottotitoli e revisione a cura di QTSS
+[01:47:23 - 01:47:25] Sottotitoli e revisione a cura di QTSS
+[01:47:53 - 01:47:55] Sottotitoli e revisione a cura di QTSS
+[01:48:23 - 01:48:25] Sottotitoli e revisione a cura di QTSS
+[01:48:53 - 01:48:55] Sottotitoli e revisione a cura di QTSS
+[01:49:23 - 01:49:25] Sottotitoli e revisione a cura di QTSS
+[01:49:53 - 01:49:55] Sottotitoli e revisione a cura di QTSS
+[01:50:23 - 01:50:25] Sottotitoli e revisione a cura di QTSS
+[01:50:53 - 01:50:55] Sottotitoli e revisione a cura di QTSS
+[01:51:23 - 01:51:25] Sottotitoli e revisione a cura di QTSS
+[01:51:53 - 01:51:55] Sottotitoli e revisione a cura di QTSS
+[01:52:23 - 01:52:25] Sottotitoli e revisione a cura di QTSS
+[01:52:53 - 01:52:55] Sottotitoli e revisione a cura di QTSS
+[01:53:23 - 01:53:25] Sottotitoli e revisione a cura di QTSS
+[01:53:53 - 01:53:55] Sottotitoli e revisione a cura di QTSS
+[01:54:23 - 01:54:25] Sottotitoli e revisione a cura di QTSS
+[01:54:53 - 01:54:55] Sottotitoli e revisione a cura di QTSS
+[01:55:23 - 01:55:25] Sottotitoli e revisione a cura di QTSS
+[01:55:53 - 01:55:55] Sottotitoli e revisione a cura di QTSS
+[01:56:23 - 01:56:25] Sottotitoli e revisione a cura di QTSS
+[01:56:53 - 01:56:55] Sottotitoli e revisione a cura di QTSS
+[01:57:23 - 01:57:25] Sottotitoli e revisione a cura di QTSS
+[01:57:53 - 01:57:55] Sottotitoli e revisione a cura di QTSS
+[01:58:23 - 01:58:25] Sottotitoli e revisione a cura di QTSS
+[01:58:53 - 01:58:55] Sottotitoli e revisione a cura di QTSS
+[01:59:23 - 01:59:25] Sottotitoli e revisione a cura di QTSS
+[01:59:53 - 01:59:55] Sottotitoli e revisione a cura di QTSS
+[02:00:23 - 02:00:25] Sottotitoli e revisione a cura di QTSS
+[02:00:53 - 02:00:55] Sottotitoli e revisione a cura di QTSS
+[02:01:23 - 02:01:25] Sottotitoli e revisione a cura di QTSS
+[02:01:53 - 02:01:55] Sottotitoli e revisione a cura di QTSS
+[02:02:23 - 02:02:25] Sottotitoli e revisione a cura di QTSS
+[02:02:53 - 02:02:55] Sottotitoli e revisione a cura di QTSS
+[02:03:23 - 02:03:25] Sottotitoli e revisione a cura di QTSS
+[02:03:53 - 02:03:55] Sottotitoli e revisione a cura di QTSS
+[02:04:23 - 02:04:25] Sottotitoli e revisione a cura di QTSS
+[02:04:53 - 02:04:55] Sottotitoli e revisione a cura di QTSS
+[02:05:23 - 02:05:25] Sottotitoli e revisione a cura di QTSS
+[02:05:53 - 02:05:55] Sottotitoli e revisione a cura di QTSS
+[02:06:23 - 02:06:25] Sottotitoli e revisione a cura di QTSS
+[02:06:53 - 02:06:55] Sottotitoli e revisione a cura di QTSS
+[02:07:23 - 02:07:25] Sottotitoli e revisione a cura di QTSS
+[02:07:53 - 02:07:55] Sottotitoli e revisione a cura di QTSS
+[02:08:23 - 02:08:25] Sottotitoli e revisione a cura di QTSS
+[02:08:53 - 02:08:55] Sottotitoli e revisione a cura di QTSS
+[02:09:23 - 02:09:25] Sottotitoli e revisione a cura di QTSS
+[02:09:53 - 02:09:55] Sottotitoli e revisione a cura di QTSS
+[02:10:23 - 02:10:25] Sottotitoli e revisione a cura di QTSS
+[02:10:53 - 02:10:55] Sottotitoli e revisione a cura di QTSS
+[02:11:23 - 02:11:25] Sottotitoli e revisione a cura di QTSS
+[02:11:53 - 02:11:55] Sottotitoli e revisione a cura di QTSS
+[02:12:23 - 02:12:25] Sottotitoli e revisione a cura di QTSS
+[02:12:53 - 02:12:55] Sottotitoli e revisione a cura di QTSS
+[02:13:23 - 02:13:25] Sottotitoli e revisione a cura di QTSS
+[02:13:53 - 02:13:55] Sottotitoli e revisione a cura di QTSS
+[02:14:23 - 02:14:25] Sottotitoli e revisione a cura di QTSS
+[02:14:53 - 02:14:55] Sottotitoli e revisione a cura di QTSS
+[02:15:23 - 02:15:25] Sottotitoli e revisione a cura di QTSS
+[02:15:53 - 02:15:55] Sottotitoli e revisione a cura di QTSS
+[02:16:23 - 02:16:25] Sottotitoli e revisione a cura di QTSS
+[02:16:53 - 02:16:55] Sottotitoli e revisione a cura di QTSS
+[02:17:23 - 02:17:25] Sottotitoli e revisione a cura di QTSS
+[02:17:53 - 02:17:55] Sottotitoli e revisione a cura di QTSS

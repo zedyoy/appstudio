@@ -1,0 +1,312 @@
+# 2lezione
+
+- File: `C:\Users\Admin\Videos\ARCHITETTURA E CALCOLATORI\2lezione.mp4`
+- Durata: 00:49:54
+- Trascrizione: `02_2lezione.json`
+
+## Argomenti probabili
+- porte_logiche (206): and, or, not, nor, nand
+- conversioni (154): binario, ottale, esadecimale, conversione, base, virgola
+- microarchitettura (9): alu
+- memoria_bus (8): ram, rom
+
+## Trascrizione
+
+[00:00:00 - 00:00:29] Scusate, professore, io vedo le slide ma non la sento male, ho fatto anche un
+[00:00:29 - 00:00:38] fast per vedere ancora se fosse la mia connessione di casa, perché vedo anche le slide, non le
+[00:00:38 - 00:00:41] vedo bene, come se mancasse il segnale.
+[00:00:41 - 00:00:51] Ho provato a togliere il video per migliorare, però, ok io adesso si vedo le slide e la
+[00:00:51 - 00:00:55] sento bene, scusate il disturbo professore.
+[00:00:55 - 00:00:59] Buonasera, io vedo bene, la sento bene.
+[00:00:59 - 00:01:10] Ok, grazie, interrompete pure, non vi fate problemi, allora dicevo quindi iniziamo a
+[00:01:10 - 00:01:21] vedere, non lo sentito, dicevo che non vedo le slide, però credo sia un problema mio di
+[00:01:21 - 00:01:24] connessione, perché sto tornando a casa e poi mi ricollego.
+[00:01:24 - 00:01:41] Va bene, allora provo ad andare avanti, allora iniziamo a vedere, dicevo, con la codifica
+[00:01:41 - 00:01:51] binaria come si possono rappresentare i numeri, in generale la codifica dei numeri in binario
+[00:01:51 - 00:01:58] segue più o meno alle regole della codifica decimale, questo perché entrambi si ha la
+[00:01:58 - 00:02:06] codifica binaria che la codifica decimale, sono le codifiche dei sistemi meglio di numerazione
+[00:02:06 - 00:02:07] posizionali.
+[00:02:07 - 00:02:16] Riprendiamo un attimo il concetto di sistema di numerazione, in generale possiamo dire
+[00:02:16 - 00:02:24] che è un insieme di simboli, le classiche cifre che siamo abituati anche nel sistema
+[00:02:24 - 00:02:34] decimale, con appunto delle regole di interpretazioni di questi simboli che permettono di interpretare,
+[00:02:34 - 00:02:44] di assegnare un valore numerico concettuale, un valore numerico teorico che vogliamo rappresentare
+[00:02:44 - 00:02:51] tramite una sequenza di questi simboli che abbiamo a disposizione, abbiamo detto nel
+[00:02:51 - 00:02:57] binario che i simboli che abbiamo a disposizione sono lo 0 e lo 1, però in generale noi abbiamo
+[00:02:57 - 00:03:03] dei simboli a disposizione che dipendono da la base del sistema di numerazione, in generale
+[00:03:03 - 00:03:10] qualunque siano i simboli che noi possiamo utilizzare, combinandoli opportunamente riusciamo
+[00:03:10 - 00:03:13] a rappresentare, a codificare un valore numerico.
+[00:03:13 - 00:03:25] Ora, i sistemi di diciamo di numerazione esistono diversi, i classici semplici sono un sistema
+[00:03:25 - 00:03:33] numerico romano, quello decimale che usiamo noi normalmente, col binario che vedremo,
+[00:03:33 - 00:03:39] sono diversi sistemi che ovviamente permettono di rappresentare i numeri, sistemi che in
+[00:03:39 - 00:03:45] qualche modo hanno però regole diverse e quindi potete immaginare che un obsesso valore
+[00:03:45 - 00:03:50] numerico teorico che vogliamo codificare nel momento in cui non andiamo a codificare
+[00:03:50 - 00:03:57] i sistemi diversi avranno una rappresentazione diversa, cioè avranno un insieme di simboli
+[00:03:57 - 00:04:03] che possono anche essere simili a volte i simboli, però vengono interpretati diversamente
+[00:04:03 - 00:04:08] a seconda del sistema. E quindi, per esempio, la slide ha lo stesso
+[00:04:08 - 00:04:15] numero, lo stesso valore numerico 50 che noi vogliamo rappresentare, se non andiamo
+[00:04:15 - 00:04:25] a codificare nel sistema decimale ovviamente è la scifra, cioè la stringa 5 e 0, i simboli
+[00:04:25 - 00:04:34] 5 e 0 sono quelli utilizzati nel sistema decimale, nel sistema romano è la lettra L, nel sistema
+[00:04:34 - 00:04:42] binario invece sono la stringa 1 1 0 0 1 0, sono quindi codifiche diverse, simboli o
+[00:04:42 - 00:04:47] stringe diverse per rappresentare però lo stesso concetto, la stessa informazione.
+[00:04:47 - 00:04:59] Diciamo prima che il sistema binario è un sistema non posizionale, scusatemi, mentre
+[00:04:59 - 00:05:04] ovviamente quello romano è in classico e sempre sistema non posizionale, cioè cosa
+[00:05:04 - 00:05:12] vuol dire? Che quando un sistema non è posizionale, il valore rappresentato da uno dei simboli
+[00:05:12 - 00:05:18] può essere indipendente dalla posizione in cui lo mettiamo, in classico esempio era
+[00:05:18 - 00:05:26] il simbolo L del sistema numerico romano codifica, diciamo, il valore numerico 50 a prescindere
+[00:05:26 - 00:05:34] da come lo posizioniamo all'interno della stringa che andiamo a costruire, viceversa
+[00:05:34 - 00:05:44] in un sistema posizionale come quello decimale e come quello binario invece il valore codificato,
+[00:05:44 - 00:05:52] il valore rappresentato da una cifra, dalla singola cifra, dipende da dove posizioniamo
+[00:05:52 - 00:06:03] quella cifra e quindi allo stesso modo in cui nel sistema decimale la cifra 3 vale 3 come
+[00:06:03 - 00:06:10] unità se la posizioniamo come prima a destra, vale 30 se la posizioniamo nella posizione
+[00:06:10 - 00:06:16] delle decine, 300 se la posizioniamo nella posizione delle centinaia e così via, allo
+[00:06:16 - 00:06:24] stesso modo avviene nel sistema binario ovviamente la cifra 3 non c'è nel sistema
+[00:06:24 - 00:06:32] binario però la cifra 1 avrà peso in base alla posizione. La stringa che vediamo qua
+[00:06:32 - 00:06:43] rappresentata 1 3 3 5 vedete lo stesso 3 ha valore numerico diverso a seconda che lo posizioniamo
+[00:06:43 - 00:06:50] nella posizione di peso 1 o nella posizione di peso 2 questo vuol dire che il sistema è posizionale
+[00:06:50 - 00:06:59] appunto ripeto che il valore rappresentato dalla singola cifra dipende da dove posizioniamo la
+[00:06:59 - 00:07:15] cifra all'interno della stringa ovviamente. E ovviamente data una stringa di simboli per
+[00:07:15 - 00:07:26] calcolare il valore numerico rappresentato da quella stringa possiamo sempre applicare questa
+[00:07:26 - 00:07:34] formula generale c'è andare a fare la sommatoria dei valori rappresentati dalle stingole cifre
+[00:07:34 - 00:07:47] prendo conto delle posizioni. Questa sommatoria noi in qualche modo l'applichiamo ogni volta che
+[00:07:47 - 00:07:56] andiamo a interpretare una stringa decimale perché sappiamo che valore dare ad ogni cifra in
+[00:07:56 - 00:08:07] base alla posizione sia unità se decina se centinaia e così via. E qual è questa sommatoria?
+[00:08:07 - 00:08:19] Bisogna vedere moltiplicare il valore della cifra iesima di con i bisogna pesarlo il suo valore
+[00:08:19 - 00:08:28] per assare il suo valore vuol dire moltiplicarlo per 10 elevato alla posizione in cui si trova
+[00:08:28 - 00:08:34] e da qui verrà ovviamente che se noi la posizioniamo vedete qui c'è la rappresentazione con la
+[00:08:34 - 00:08:43] virgola quindi la stringa generica la stringa generale decimale che rappresenta un numero
+[00:08:43 - 00:08:52] generico che non conosciamo avremo dei simboli a sinistra della virgola e dei simboli a destra
+[00:08:52 - 00:08:58] della virgola questo in generale. I simboli a sinistra della virgola vedete sono indicati col
+[00:08:58 - 00:09:10] pedice crescente da 0 a salire questo caso abbiamo n cifre a sinistra della virgola mentre i simboli
+[00:09:10 - 00:09:19] a destra della virgola sono indicati col pedice e va da meno uno a decrescere e questo caso abbiamo
+[00:09:19 - 00:09:29] k simboli generici dopo la virgola e ovviamente sapete benissimo che quando andiamo a calcolare
+[00:09:29 - 00:09:37] il valore numerico in questo caso il 100 jadecimale di suo considera però capire questa formula ci
+[00:09:37 - 00:09:45] tornerà utile perché quando cambieremo il sistema varrà sempre questa formula ovviamente dove la
+[00:09:45 - 00:09:51] base non sarà più 10 ma sarà la base del particolare sistema di numerazione e quindi
+[00:09:51 - 00:10:01] di con 0 essendo unitava moltiplicato per 1 e in effetti 10 elevato a 0 fa 1 di col 1 essendo
+[00:10:01 - 00:10:09] nella posizione delle decimeme moltiplicato per 10 e in effetti 10 elevato a uguale 1 fa 10 e così via.
+[00:10:10 - 00:10:18] Quindi ricordate di questa sommatoria per calcolare il valore numerico rappresentato da una
+[00:10:18 - 00:10:24] stringa un sistema di numerazione posizionale tornerà utile perché qui la stiamo scrivendo
+[00:10:24 - 00:10:34] banalmente per il sistema decimale in cui la base di numerazione è 10 però come vedremo in
+[00:10:34 - 00:10:42] seguito quando cambia la base basta adattare la formula alla nuova base su cui andiamo a
+[00:10:42 - 00:10:59] ragionare e sarà ancora valida questa formula. E quindi possiamo dire che come ho già detto che il
+[00:10:59 - 00:11:08] peso della isima cifra dipende quindi dalla base del sistema di numerazione e dalla posizione
+[00:11:08 - 00:11:19] ovviamente se cambiamo il sistema ricordiamoci che cambia la base di numerazione quindi vuol
+[00:11:19 - 00:11:27] dire quanti simboli abbiamo a disposizione e poi ovviamente dobbiamo conoscere quali sono i simboli
+[00:11:27 - 00:11:36] utilizzabili in un sistema di numerazione su una certa base generica e ovviamente conoscer il valore
+[00:11:36 - 00:11:44] associato alla singola al singolo simbolo alla singola cifra in modo da poter applicare la
+[00:11:44 - 00:11:53] formula di prima. I sistemi che vedremo in questo corso sono ovviamente quello decimale che già
+[00:11:53 - 00:12:01] conoscette perfettamente quello binario in cui ovviamente binario abbiamo detto tante volte
+[00:12:01 - 00:12:09] la base è due, il fatto che la base è due vuol dire che ci sono due simboli quali sono questi
+[00:12:09 - 00:12:19] simboli 0 e 1 poi vedremo il sistema numerico su base ottale quindi la base 8 i simboli sono 8
+[00:12:19 - 00:12:28] quali sono questi simboli, tipicamente i simboli sono presi diciamo uguali a quelli del sistema
+[00:12:28 - 00:12:40] decimale finché possibile quindi nel caso binario da 0 a 1 e nel caso ottale da 0 a 7 già qui potete
+[00:12:40 - 00:12:51] osservare che i simboli arrivano sempre alla base meno 1 vedete quindi la singola cifra appartiene
+[00:12:51 - 00:13:02] all'intervallo chiuso 0 v meno 1 dove b è la base e questo fate sempre l'associazione al
+[00:13:02 - 00:13:09] sistema decimale anche nel sistema decimale voi sapete benissimo che ci sono 10 cifre singole
+[00:13:09 - 00:13:18] che possiamo utilizzare da 0 a 9 se io da 9 aggiungo 1 non c'ho una cifra sola si una
+[00:13:18 - 00:13:26] cifra singola per il valore numerico 10 ma devo costruire la stringa 1 o 0 quindi quando si arriva
+[00:13:26 - 00:13:33] alla fine delle cifre disponibili sia diciamo il riporto si inizia a incrementare la stringa
+[00:13:33 - 00:13:43] perché bisogna ricominciare nella codifica nel sistema numerico e 16 male invece cosa
+[00:13:43 - 00:13:56] vuol dire la base e 16 base 16 vuol dire che sono 15 non scusa sono 16 simboli a disposizione nell'alphabeto
+[00:13:56 - 00:14:06] del sistema di codifica e ovviamente mi servono 16 simboli singoli a cui associare un valore
+[00:14:06 - 00:14:14] numerico e ovviamente abbiamo detto che finché posso utilizzo gli stessi del sistema decimale e
+[00:14:14 - 00:14:23] in effetti vedete nell'esate cimale o le cifre da 0 a 9 adesso però mi mancano 6 cifre nuove e per
+[00:14:23 - 00:14:32] convenzione vengono utilizzate le prime 6 lettere dell'alphabeto perché ovviamente io abbiamo
+[00:14:32 - 00:14:39] detto anche prima non c'ho la cifra 1 o 0 sono due cifre a me me ne serve una sola e quindi per
+[00:14:39 - 00:14:49] convenzione il valore numerico 10 viene rappresentato nel sistema 16 male con il simbolo a il valore
+[00:14:49 - 00:14:57] numerico 11 viene rappresentato col simbolo b e cosi vi affino ad effe ovviamente sono 16
+[00:14:57 - 00:15:06] simboli quindi come come simboli vado si va da 0 a 9 e poi le prime lettere dell'alphabeto come
+[00:15:06 - 00:15:13] simboli ma noi sappiamo che dobbiamo associare ad ogni simbolo un valore numerico e quindi da 0 a 9
+[00:15:13 - 00:15:19] è facile perché coincide il simbolo col valore numerico decimale che siamo abituati a conoscere
+[00:15:19 - 00:15:27] dobbiamo solo ricordarci che le prime sette dell'alphabeto devono rappresentare cioè o meglio
+[00:15:27 - 00:15:35] rappresentano i valori numerici da 10 a 15 perché ovviamente a me ne servono sono 16 valori quindi
+[00:15:35 - 00:15:47] da 0 a 15 come valore numerico rappresentati con il sistema con la singola cifra e 16 male
+[00:15:47 - 00:15:56] posso rappresentare 16 valori numerici quali valori numerici da 0 a 15 con quali simboli da
+[00:15:56 - 00:16:07] 0 a 9 e poi da f quindi è finito diciamo quali sono i simboli che valoriano adesso dovrebbe essere
+[00:16:07 - 00:16:20] abbastanza semplice a volte quando diciamo vediamo qualche esercizio comunque c'è qualche slide
+[00:16:20 - 00:16:30] troverete dei pedici e perché se c'è qualche ambiquità ad esempio la stringa 1 1 1 ovviamente
+[00:16:30 - 00:16:37] questi simboli il simbolo 1 abbiamo detto stai in tutti i sistemi un quello decimale in quello
+[00:16:37 - 00:16:47] binario tale se decimale quindi potrebbe essere non chiaro a quale c'è questo nu questa stringa in
+[00:16:47 - 00:16:55] quale sistema di numerazione è stata codificata per se c'è qualche ambiquità a volte si può
+[00:16:55 - 00:17:05] esplicitare la base del numero e quindi potete trovare scritto 1 1 con due pedici vuol dire
+[00:17:05 - 00:17:12] che una stringa binaria valoremente 1 1 con con pedici 10 vuol dire che questa è una stringa
+[00:17:12 - 00:17:17] decimale e così via quindi è solo una cosa di notazione che potete trovare in qualche slide
+[00:17:21 - 00:17:32] allora proviamo a fare altra cosa noi siamo abituati a leggere i numeri già pensando
+[00:17:32 - 00:17:37] omegli siamo abituati a leggere le stringhe decimali già pensando al valore numerico
+[00:17:37 - 00:17:51] no 50 remila un milione così via perché siamo intuitivamente per come siamo abituati a leggere
+[00:17:51 - 00:17:57] la stringa a decodificarla al volo capire il valore numerico e leggere il valore numerico
+[00:17:57 - 00:18:05] però in generale quando noi andiamo a leggere una stringa 2 0 0 con pedice 5 quindi quello
+[00:18:05 - 00:18:13] sarebbe una stringa un sistema di numerazione base 5 non possiamo leggere a 200 perché 200
+[00:18:13 - 00:18:20] è un valore numerico non è la stringa quindi abituiamoci a leggere le stringhe simbolo per
+[00:18:20 - 00:18:32] simbolo quello è 1 1 0 0 1 0 binario che equivale equivale a 2 0 0 su base 5 che equivale a 5 0 su base
+[00:18:32 - 00:18:40] 10 queste stringhe rappresentano lo stesso valore numerico quale valore numerico ovviamente
+[00:18:40 - 00:18:47] essendo cicolo decimale subito facciamo 50 altrimenti dobbiamo vedere come si calcola il
+[00:18:47 - 00:18:54] valore numerico di una stringa sul base diversa da 10 e fiantisci poi l'ho identificato prima si farà
+[00:18:54 - 00:19:04] tramite quella sommatoria che abbiamo visto anche prima cioè questo passaggio da una base
+[00:19:04 - 00:19:11] qualsiasi alla base 10 calcolare il valore numerico di una stringa in sistema numerico
+[00:19:11 - 00:19:20] posizionale sul base qualsiasi possiamo sempre calcolare il valore numerico applicando quella
+[00:19:20 - 00:19:31] sommatoria e quindi abbiamo sempre dal dal concetto generale abbiamo una stringa generica
+[00:19:31 - 00:19:40] formata sul base b vedete non noto a qualunque sia la base cosa sappiamo cosa possiamo dire possiamo
+[00:19:40 - 00:19:49] dire che se noi abbiamo una stringa codificata diciamo composta da i cifre in una base qualsiasi
+[00:19:49 - 00:19:57] b possiamo dire che qualunque cifra di questa stringa appartiene all'interpallo zero di meno
+[00:19:57 - 00:20:08] uno ok calcolare il valore numerico decimale rappresentato da una stringa prima a base
+[00:20:08 - 00:20:16] qualsiasi dobbiamo svolgere la sommatoria dei prodotti tra i valori delle cifre singole
+[00:20:16 - 00:20:25] pesati quindi moltiplicati per i pesi di le cifre ma il peso della cifra abbiamo detto
+[00:20:25 - 00:20:33] dipende dalla base e della posizione quindi nello specifico sarà che ci con zero qualsiasi
+[00:20:33 - 00:20:38] così dando una stringa intero numero intero quindi solo la parte sinistra della virgola
+[00:20:38 - 00:20:44] la parte sinistra della virgola se ricordate abbiamo indicata con i pedici che da zero
+[00:20:44 - 00:20:54] vanno a salire la cifra meno significativa e cito di zero la cifra più significativa e i meno
+[00:20:54 - 00:21:03] uno quella con pedice e c con pedice i meno uno se ricordate il fatto che la cifra è meno
+[00:21:03 - 00:21:08] significativa vuol dire proprio che quella che ha meno peso e in effetti nella sommatoria vedete
+[00:21:08 - 00:21:16] adesso è moltiplicata per b elevato a zero dove b è la base ovviamente c1 lo moltipliciamo per b
+[00:21:16 - 00:21:28] alla 1 c2 per b alla 2 e così via facciamo la somma e troveremo il valore numerico in base 10 di
+[00:21:28 - 00:21:35] questa stringa qualunque sia qualunque sia quindi non vi spaventate la conversione di un numero
+[00:21:35 - 00:21:43] codificato su una base qualsiasi è facilissimo e banalmente questa sommatoria dove dovete
+[00:21:43 - 00:21:52] semplicemente sostituire ai coefficienti i valori numerici della singola cifra e poi
+[00:21:52 - 00:22:01] moltiplicarli per la base elevata all'esponente in base alla posizione vediamo banalmente qualche
+[00:22:01 - 00:22:10] esempio se il numero ha solo tre cifre semplicemente sarà questa sommatoria sui tre coefficienti c2
+[00:22:10 - 00:22:22] c1 c0 quindi 152 su base b sto ancora ragionando sulla base b generica sarà semplicemente 1
+[00:22:22 - 00:22:31] per b alla seconda più 5 per b più 2 per b alla 0 quindi questa stringa 152 qualunque sia la base la
+[00:22:31 - 00:22:40] risolvete svolgendo questa sommatoria sia questo esempio la base 8 basta sostituire posso di
+[00:22:40 - 00:22:49] di mettere 8 e quindi viene 1 per 8 alla seconda più 5 per 8 più 2 più 2 per 8 alla 0
+[00:22:49 - 00:23:02] svolge svolge dei calcoli e viene 106 quindi 152 in ottale rappresenta il valore numerico
+[00:23:02 - 00:23:09] 106 decimale se invece della base c'è se invece di ottale quella stessa stringa
+[00:23:09 - 00:23:16] fosse essa decimale che lo posso fare perché ovviamente condivido nei simboli no al crescere
+[00:23:16 - 00:23:24] della base base 8 più piccola di 16 quindi vado bene il contrario non sempre lo posso fare però in
+[00:23:24 - 00:23:31] questo caso il problema non c'è cioè 152 sono tre cifre che appartengono sia l'alfabeto della
+[00:23:31 - 00:23:39] codifica ottale che all'alfabeto della codifica 16 male però quando potete osservare dall'esempio
+[00:23:39 - 00:23:50] la stessa cifra in ottale diciamo vale cioè viene pesata scusate mi sulla base di 8 mentre
+[00:23:50 - 00:23:56] in essa decimale vedete viene pesata sulla base di 16 quindi la stessa stringa ha valori molto
+[00:23:56 - 00:24:04] differenti vedete si tripliche il valore prima era 106 adesso se invece fosse esa decimale diventa
+[00:24:04 - 00:24:15] 338 proprio perché sto aumentando il peso e quindi il valore derivante dalla singola cifra
+[00:24:15 - 00:24:27] per la parte frazionale quindi nel caso in cui vi trova e doveste trovare con una stringa base
+[00:24:27 - 00:24:34] il bilgenelica ma che possiede diciamo composta sia da una parte intera che da una parte frazionale
+[00:24:34 - 00:24:41] non vi dovete spaventare perché si applica sempre la sommatoria è solo che la dovete
+[00:24:41 - 00:24:51] estendere anche ai simboli della parte frazionale che ricordando di che la parte frazionaria ha i
+[00:24:51 - 00:24:58] pesi e quindi gli esponenti nella base che utilizzate per calcolare i valori che vanno a
+[00:24:58 - 00:25:07] decrescere b a meno 1 b a meno 2 e così via ricordate che se voi scrivete i pedici in questo
+[00:25:07 - 00:25:15] modo con i scosate in coefficienti questo modo quindi col pedice che va da 0 a salire nella
+[00:25:15 - 00:25:22] parte intera e vada meno 1 a decrescere una parte frazionaria stesso il pedice poi vi suggerirà
+[00:25:22 - 00:25:34] l'esponente da dare alla base dello specifico la sommatoria per calcolare il valore rumelito
+[00:25:34 - 00:25:42] di una stringa reale in questo caso nel senso che abbiamo sia la parte intera che frazionaria
+[00:25:42 - 00:25:50] qualunque sia la base e semplicemente della sommatoria la sommatoria di prima sui coefficienti della
+[00:25:50 - 00:25:57] parte intera più adesso anche i coefficienti della parte frazionaria e quindi c per i c meno
+[00:25:57 - 00:26:09] 1 per b a meno 1 più c per i c meno 2 per b a meno 2 e così via e se ci pensate è proprio
+[00:26:09 - 00:26:15] la stessa cosa che fate nel sistema decimale in cui andate a pesare i decimi i centesimi
+[00:26:15 - 00:26:26] e i millesimi e così via cioè a sommare con un esempio molto semplice quindi sempre
+[00:26:26 - 00:26:33] semplificando consideriamo una stringa di tre cifre di cui in questo caso abbiamo una sola
+[00:26:33 - 00:26:44] cifra intera e due cifre parte frazionaria quindi la stringa nella base b qualunque è c0 virgola c
+[00:26:44 - 00:26:52] meno 1 c meno 2 questa stringa qualunque sia b la posso cioè posso calcolare il valore
+[00:26:52 - 00:27:00] rappresentato con la sommatoria c0 per b a 0 più c meno 1 per b a meno 1 più c meno 2 per b a meno
+[00:27:00 - 00:27:10] 2 e ovviamente il caso in cui vado a sostituire con un caso reale quindi un numero è una base
+[00:27:10 - 00:27:20] loro semplicemente sostituite e risolvere l'esercizio quindi se la mia stringa interesse 4 virgola 7
+[00:27:20 - 00:27:29] 5 su base il v generica la sommatoria diventa 4 per b a 0 più 7 per b a meno 1 più 5 per b a
+[00:27:29 - 00:27:41] meno 2 e il caso sia ottale vedete diventa 4 per 8 alla 0 più 7 per 8 alla meno 1 più 5 per 8
+[00:27:41 - 00:27:50] alla meno 2 quindi cambiare la base cambia la valore numerico della base quindi come vado a
+[00:27:50 - 00:28:02] pesare le cifre questa sommatoria dal luogo al valore numerico 4 virgola 95 31 25 quindi la stringa la
+[00:28:02 - 00:28:14] stringa otta alle 4 virgola 7 5 rappresente il numero 4 virgola 95 31 25 la stessa stringa ma
+[00:28:14 - 00:28:25] interpretata come stringa eserciziale in questo caso mentre nella parte intera cresce al crescere
+[00:28:25 - 00:28:33] della base ovviamente cresceva il valore numerico rappresentato qui avviene il contrario che
+[00:28:33 - 00:28:44] ovviamente la parte frazionaria va a essere diciamo a decrescere crescendo la base perché
+[00:28:44 - 00:28:52] queste sono esponenti negativi quindi sarebbe uno su 16 uno su 16 alla seconda quindi sta il
+[00:28:52 - 00:29:00] denominatore la base qui se la base cresce decresce il valore associato alla singola stringa
+[00:29:00 - 00:29:10] frazionaria nello specifico 4 virgola 75 su base eserciziale diventa 4 a parte intera la fine
+[00:29:10 - 00:29:16] viene vale il valore numerico dell'unità è sempre lo stesso no perché la base è sempre
+[00:29:16 - 00:29:22] elevata a 0 quindi non viene alterato quello che cambia ovviamente sono le altre cifre e quindi
+[00:29:22 - 00:29:34] abbiamo 4 più 7 fatto 16 più 5 fatto 16 alla seconda svolgendo i calcoli 4 virgola 45 70 31 25
+[00:29:34 - 00:29:40] penso non dovrebbe essere complicato
+[00:29:40 - 00:29:52] nel caso di sistema binario qui abbiamo visto diciamo il caso generico su base bi generica
+[00:29:52 - 00:30:00] abbiamo visto qualche esempio su ottale e su eserciziale adesso vediamo qualche esempio
+[00:30:00 - 00:30:07] ancora più semplice nel caso in cui ragioniamo soltanto sul sistema binario
+[00:30:07 - 00:30:13] la generale sostanno sul sistema binario vuol dire che tutte le sommatorie che abbiamo visto
+[00:30:13 - 00:30:24] finora saranno sommatorie che coinvolgono le potenze del 2 quindi nel caso in cui la stringa da
+[00:30:24 - 00:30:31] convertire cioè la stringa di cui vogliamo trovare il valore numerico rappresentato avrà
+[00:30:31 - 00:30:37] che cosa che ogni singola stringa ogni singola cifra scusatemi a partire all'intervallo 0 1
+[00:30:37 - 00:30:48] ovviamente essendo binario e quando vado a scrivere la sommatoria avremo ci i meno 1 per 2
+[00:30:48 - 00:30:55] i meno 1 più ci i meno 2 per 2 elevato a i meno 2 così via fino a c0 2 a 0 quindi uguale a prima
+[00:30:55 - 00:31:02] semplicemente la base non è più generica ma è fissata a 2 perché stiamo ragionando
+[00:31:02 - 00:31:11] nel sistema binario il fatto che questi siano tutte somme delle potenze del 2 ci verrà poi
+[00:31:11 - 00:31:19] utile quando andremo a calcolare cioè a dimostrare come codificare dei numeri in binario però per
+[00:31:19 - 00:31:27] adesso prestiamo sul il passaggio da binario a decimale poiché abbiamo imparato a farlo sulla
+[00:31:27 - 00:31:36] base generica sappiamo ovviamente farlo anche nel caso binario basta sostituire a b il valore 2
+[00:31:36 - 00:31:48] qualsiasi esempio queste stringe sono stringe binarie ovviamente qui è molto semplice perché
+[00:31:48 - 00:31:58] essendo un numero binario le cifre o sono 0 o sono 1 ma la cifra 0 che qua ve lo scritta però
+[00:31:58 - 00:32:07] ovviamente dovendo fare una sommatoria e la somma è poi la somma fa come elemento
+[00:32:07 - 00:32:15] nello 0 sappiamo che i calcoli si simplificheranno molto perché possiamo concentrarci soltanto
+[00:32:15 - 00:32:25] sulle cifre di valgono 1 mette a calcolare il valore della potenza in base alla posizione delle
+[00:32:25 - 00:32:34] cifre dei simboli 0 diciamo va bene teoricamente però nella pratica potete evitarlo perché tanto
+[00:32:34 - 00:32:43] non contribuiscono alla somma e in effetti se osserviamo questa stringa 0 1 0 0 1 1 0 1
+[00:32:43 - 00:32:50] ovviamente svolgendo la somma la sommatoria che abbiamo visto prima io posso scrivere 0 per 2
+[00:32:50 - 00:32:59] alla settima 1 per 2 alla sesta 0 per 2 alla quinta e così via fino a 1 per 2 alla 0 ok do un
+[00:32:59 - 00:33:07] peso su base 2 alle singole alle singole cifre ma sappiamo benissimo che i contributi delle
+[00:33:07 - 00:33:15] cifre 0 sono nulli quindi volendo possiamo direttamente andarci a calcolare semplicemente questi 4
+[00:33:15 - 00:33:26] 1 presenti nella stringa che valore hanno il primo sarà 2 alla sesta cioè 64 il secondo 1
+[00:33:26 - 00:33:37] sarà 2 alla terza cioè 8 2 alla seconda 4 che 1 per 2 alla 0 fa 1 ovviamente e quindi 64 8 4
+[00:33:37 - 00:33:44] più 1 viene 77 questa stringa binaria rappresenta il valore numerico decimale 77
+[00:33:44 - 00:34:00] ovviamente quest'altro esempio anche più semplice più corta 1 0 1 0 1 0 anche qua possiamo svolge
+[00:34:00 - 00:34:06] cioè scrivere tutta la sommatoria per esercizio abbiamo quindi tutte le potenze del 2 che vanno da
+[00:34:06 - 00:34:16] 2 a 0 a 2 alla quinta perché sono 6 cifre però quelle che contribuiscono alla somma finale
+[00:34:16 - 00:34:29] sono le cifre diverse da 0 quindi 1 per 2 alla quinta sarebbe 32 1 per 2 alla terza e 8 1 per 2 2
+[00:34:29 - 00:34:40] 8 più 2 10 più 32 42 quindi questa stringa 1 0 1 0 1 0 in binario rappresenta il numero 42
+[00:34:40 - 00:34:54] in decimale abbiamo già parlato forse di questo concetto ovviamente nel momento in cui noi abbiamo
+[00:34:54 - 00:34:59] visto prima che uno stesso valore numerico ovviamente può essere codificato i sistemi
+[00:34:59 - 00:35:07] diversi sistemi codifiche diciamo diciamo diversi sistemi di numerazione diversi
+[00:35:07 - 00:35:17] cosa cambia che ovviamente nel momento in cui andiamo a a cambiare base verso l'alto quindi
+[00:35:17 - 00:35:27] ad esempio usiamo il sistema 16 male oppure usiamo un sistema con minor numero di di simboli ad
+[00:35:27 - 00:35:32] esempio il sistema binario cosa cambia che ovviamente il numero di simboli a disposizione
+[00:35:32 - 00:35:42] impatta su quanto poi viene lunga la stringa per codificare lo stesso numero abbiamo visto prima
+[00:35:42 - 00:35:51] banalmente con l'esempio del valore numerico 10 il valore numerico 10 in decimale necessita di
+[00:35:51 - 00:36:00] due simboli 1 0 quindi la stringa decimale per rappresentare 10 a lunghezza 2 ma lo stesso
+[00:36:00 - 00:36:08] valore numerico se lo vado a codificare non decimale ma in pesa decimale abbiamo detto prima che
+[00:36:08 - 00:36:19] posso usare il simbolo a quindi la stringa esendicimale che codifica il valore 10 a lunghezza 1 mi
+[00:36:19 - 00:36:30] bastano meno cifre in generale posso dire che nel passaggio da un sistema numerico su base mi
+[00:36:30 - 00:36:38] generica se passa un sistema numerico con una base maggiore tipicamente diminuiranno
+[00:36:38 - 00:36:47] diminueranno la lunghezza della stringa in questa base in questa codifica in base maggiore necessaria
+[00:36:47 - 00:36:55] per rappresentarlo stesso numero viceversa se passa un sistema con base minore quindi con
+[00:36:55 - 00:37:02] un minore numero di simboli a disposizione tipicamente la stringa crescerà e questo la
+[00:37:02 - 00:37:11] lunghezza della stringa e questo lo possiamo vedere con l'esempio del sistema minario o
+[00:37:11 - 00:37:21] stesso numero che in decimale ha una che so richiede anche 10 non richiede i 10 abbiamo detto
+[00:37:21 - 00:37:36] sono due simboli e due cifre in decimale 10 rappresentato in binario richiede 4 bit perché
+[00:37:36 - 00:37:43] su 3 bit faccio 2 alla terza 8 non arrivo ancora a 10 mi serve un quarto bit quindi la stringa
+[00:37:43 - 00:37:55] passa da 2 a 4 e in generale tipicamente diciamo con queste dei numeri si vede che più o meno
+[00:37:55 - 00:38:04] la lunghezza delle stringe binari per rappresentare gli stessi valori decimali è circa 3 virgola 3
+[00:38:04 - 00:38:18] questo 3 virgola 3 deliva da localito in base 2 di 10 se vi ricordate quando abbiamo la
+[00:38:18 - 00:38:25] volta scorsa abbiamo detto come faccio a calcolare quanti bit mi servono per rappresentare il numero
+[00:38:25 - 00:38:32] di informazioni desiderate di bisogna fare localito in base 2 del numero di informazioni quindi se
+[00:38:32 - 00:38:39] voglio rappresentare le prime 10 cifre decimale più o meno mi accorrono 3 virgola 3 bit ovviamente
+[00:38:39 - 00:38:49] non saranno 3 virgola 3 perché posso fare 3 virgola 3 saranno 4 però è importante capire
+[00:38:49 - 00:38:55] questo concetto che ovviamente meno simboli o a disposizione più su allungano le stringe più
+[00:38:55 - 00:39:02] simboli o a disposizione più si accorre in effetti il sistema esadecimale nel mondo
+[00:39:02 - 00:39:08] dei computer dei calcolatori è stato proprio introdotto per rappresentare in maniera più
+[00:39:08 - 00:39:15] sintetica le striglie binarie ovviamente nel computer diciamo nel mondo dei calcolatori è
+[00:39:15 - 00:39:22] tutto binario le informazioni restano binarie però a volte le troviamo scritte in esadecimale
+[00:39:22 - 00:39:30] perché è più sintetico scrivere la stringa in esadecimale quando vedremo il sistema di codifica
+[00:39:30 - 00:39:39] esadecimale nello specifico vedremo appunto una tecnica per determinare facilmente una
+[00:39:39 - 00:39:46] codifica in esadecimale cioè la stringa esadecimale che rappresenta il numero è proprio quello di
+[00:39:46 - 00:39:54] passare dal binario vedremo il legame come riesce a sintetizzare rispetto al binario
+[00:39:54 - 00:40:06] ovviamente nel caso in cui la stringa da decodificar cioè la stringa che dobbiamo
+[00:40:06 - 00:40:12] convertire in decimale sia anche la parte frazionaria non vi spaventate non cambia niente
+[00:40:12 - 00:40:19] semplicemente come prima facciamo la sommatoria sulle potenze negative della base la base è 2 e
+[00:40:19 - 00:40:31] quindi avremo 2-1 2-2 2-3 così via presta il vantaggio di poter semplificare spesse
+[00:40:31 - 00:40:39] volentieri perché le cifre sono o 1 o 0 quindi non dico il 50% della volta però spesse volentieri
+[00:40:39 - 00:40:47] abbiamo cifre che valgono 0 quindi possiamo non calcolarle volendo le calcolare adesso qui
+[00:40:47 - 00:40:57] diciamo capire come funziona 1,01 cosa sarà 1 per 2 alla 0 più 0 per 2 alla meno 1 più 1 per 2
+[00:40:57 - 00:41:09] alla meno 2 quindi questa stringa rappresenta il valore decimale 1,25 quindi 1,01 il binario
+[00:41:09 - 00:41:19] rappresenta 1,25 decimale nell'altro esempio qui abbiamo due cifre nella parte intera quindi
+[00:41:19 - 00:41:25] avremo 1 per 2 alla 1 0 per 2 alla 0 parte frazionaria 1 per 2 alla meno 1 0 per 2 alla
+[00:41:25 - 00:41:33] meno 2 1 per 2 alla meno 3 e qua volendo quando dovete fare i calcoli diciamo concentrare solo
+[00:41:33 - 00:41:42] sulle cifre diverse da 0 quindi fate facilmente la conversione in decimale è pari a 2 più 0,5
+[00:41:42 - 00:41:50] perché il primo 1 dopo la virgola sarebbe 2 alla meno 1 ma 2 alla meno 1 sarebbe un mezzo quindi
+[00:41:50 - 00:42:07] 0,5 più 0,125 perché 0,25 con le due 2 alla meno 3 che sarebbe 1 su 8 fatela
+[00:42:07 - 00:42:16] insomma viene che a stringa 1 0,101 in binario rappresenta il numero decimale 2,625
+[00:42:25 - 00:42:31] altra cosa da tenere a mente quando noi stiamo iniziando a vedere come passare da una base
+[00:42:31 - 00:42:41] all'altra come convertire un numero codificato in una base in una codifica diversa dobbiamo
+[00:42:41 - 00:42:51] tener conto che diciamo delle proprietà numeriche che sono che riconosciamo diciamo in un numero in
+[00:42:51 - 00:42:59] un certo in una certa base tipicamente non si conservano o comunque possono non conservarsi
+[00:42:59 - 00:43:09] nel momento in cui questo numero lo rappresentiamo in un'altra base quali proprietà il fatto che
+[00:43:09 - 00:43:16] un numero è divisibile per un altro in una base può essere vero in un'altra no il risultato di
+[00:43:16 - 00:43:24] una divisione che in una base può essere esatto in un'altra può essere periodico o viceversa
+[00:43:24 - 00:43:33] che tutte queste proprietà che noi riconosciamo nelle operazioni in una base ovviamente valgono
+[00:43:33 - 00:43:41] per quella base quindi cambiamo base dobbiamo vedere cosa troviamo quindi nel passaggio
+[00:43:41 - 00:43:55] da una base all'altra alcune proprietà non si conservano questo concludo ci sono domande tutto
+[00:43:55 - 00:44:23] chiaro ok allora se non avete dubbio domande vi libero e vi auguro buonaserata

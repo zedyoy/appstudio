@@ -1,0 +1,343 @@
+# lezione8
+
+- File: `C:\Users\Admin\Videos\ARCHITETTURA E CALCOLATORI\lezione8.mp4`
+- Durata: 00:49:19
+- Trascrizione: `08_lezione8.json`
+
+## Argomenti probabili
+- porte_logiche (316): and, or, not, nor, nand, xor, boole, sop
+- memoria_bus (36): memoria, bus, indirizzo, ram, rom
+- microarchitettura (25): alu, controllo
+- conversioni (12): conversione, base
+- clock_prestazioni (3): tempo
+
+## Trascrizione
+
+[00:00:00 - 00:00:17] I centinaio di porte si vanno a migliaia di piedini, o vari centinaio per restare nell'organe
+[00:00:17 - 00:00:23] per centinaio. Quindi questi sono vari problemi che tra i tanti problemi anche questo è uno
+[00:00:23 - 00:00:28] dei problemi di cui devono tener conto i divi progettisti quando vanno a realizzare questi
+[00:00:28 - 00:00:35] circuiti, cercherà di capire di come organizzare le porte, come organizzare i piedini, come
+[00:00:35 - 00:00:49] disporre il collegamento a questi piedini. E infatti si ragiona sempre non soltanto sul chip
+[00:00:49 - 00:00:54] di come deve essere fatto, ma anche il supporto, come deve essere fatto, che è il supporto
+[00:00:54 - 00:01:01] dove andiamo a inserire il chip. Maggliamo su una scheda madre, tipicamente c'è il soket,
+[00:01:01 - 00:01:07] il supporto dove si va a inserire il chip, che va a chiudere, diciamo il collegamento
+[00:01:07 - 00:01:15] con i piedini e va a utilizzare le porte all'interno di un circuito. I chip più piccoli tipicamente
+[00:01:15 - 00:01:25] avevano un desupporto o meglio, erano organizzati con questa forna, vedete a due linee di pin
+[00:01:25 - 00:01:32] da un lato e dall'altro, e quindi prevedevano dei supporti opportuni a organizzare e poi
+[00:01:32 - 00:01:43] mettiamo a coppia anche per dove si andava ad alloggiare il pin. Ok. E questi più o meno
+[00:01:43 - 00:01:51] diciamo questa tipologia di supporto e di chip andava bene, diciamo da 14 pin a 68, diciamo
+[00:01:51 - 00:02:04] da decine di pin. A crescere delle esigenze, quindi aumentava ovviamente con l'evoluzione
+[00:02:04 - 00:02:10] tecnologica l'integrazione e aumentava sempre più, quindi si riescono a mettere sempre più
+[00:02:10 - 00:02:18] porte nello stesso spazio, però poi aumentano i pin, abbiamo detto, e quindi se c'è stata
+[00:02:18 - 00:02:27] un'evoluzione anche nel formato dei chip e dei supporti associati. Questi supporti,
+[00:02:27 - 00:02:34] i PGA, Ping Grid Arrays, vedete, i pin non sono più distribuiti su due linee, ma sono distribuiti
+[00:02:34 - 00:02:44] sul fondo del chip e si vanno ovviamente a inserire in un alloggiamento corrispondente
+[00:02:44 - 00:02:54] sulla scheda madre. Nei momenti in cui sono aumentati, non si deve aumentare il numero
+[00:02:54 - 00:03:01] di pin, cosa vuol dire, che poi i pin sono così tanti e diciamo è diminuto sempre più
+[00:03:01 - 00:03:10] lo spazio che separa i vari pin, quindi sono stati poi introdotti anche dei meccanismi
+[00:03:10 - 00:03:20] che guidano l'inserimento poi del chip all'interno del socket opportuno, per evitare diciamo o
+[00:03:20 - 00:03:26] ridurre diciamo il rischio che poi andandolo a fare al mano, si può forzare qualche pin
+[00:03:26 - 00:03:32] di PGA o si spezza, quindi le scheda madre hanno iniziato a introdurre appunto associati
+[00:03:32 - 00:03:39] a queste tipologie di socket, tipicamente delle levette che vanno ad abbassare esercitando
+[00:03:39 - 00:03:47] una pressione distribuita in maniera più o meno riforme sul chip in modo da riuscire
+[00:03:47 - 00:03:57] a riuscire a prenderlo senza danneggiarlo. Tipicamente questi chip poi hanno delle indicazioni
+[00:03:57 - 00:04:04] cioè sono deformati, ad esempio in figura vedete, è tagliato su un lato, un lato obbligo
+[00:04:04 - 00:04:11] proprio perché per indicare poi anche la posizione in cui deve essere posizionato appunto nel socket
+[00:04:11 - 00:04:18] socket in modo da non sbagliare l'orientamento quando lo si va a
+[00:04:18 - 00:04:29] inserire. Ulteriore evoluzione sono i sopporti LGL and RIP Rays dove diciamo
+[00:04:29 - 00:04:38] i pin sono così piccole e vicini che non sono più distinguibili
+[00:04:38 - 00:04:48] singolarmente come nei PGA ma sono divisi in questi piccoli pad che riusciamo a
+[00:04:48 - 00:04:53] vedere queste piccoli rettangole con queste piccole superfici in realtà poi
+[00:04:53 - 00:05:03] sono dei pin vicinisci tra di loro che proprio per sempre con lo stesso
+[00:05:03 - 00:05:11] obiettivo non andare a inserire tutti i pin nel sopetto senza evitando di
+[00:05:11 - 00:05:16] rompere di danneggiarli e ovviamente non ci devono anche neanche essere
+[00:05:16 - 00:05:22] interferenze poi tra un pin quello a 10 cioè quello più vicino o il più
+[00:05:22 - 00:05:29] prossimo quindi poi sono previste anche dei meccanismi di isolamento tra i pin a
+[00:05:29 - 00:05:39] 10 e anche qui ovviamente socket ha fatto in modo che l'inserimento è
+[00:05:39 - 00:05:50] guidato quindi solo una certa posizione si può posizionare qui tra l'altro più
+[00:05:50 - 00:05:58] che pin è come se fosse si ribatta un po' il concetto perché piuttosto che
+[00:05:58 - 00:06:03] da avere dei pin che si vanno a inserire nel socket qui è come se avessimo
+[00:06:03 - 00:06:09] delle piastrine dove ovviamente poi all'interno ci sarà un pezzetto di
+[00:06:09 - 00:06:18] collegamento però non è più il pin delle famiglie precedenti che adesso
+[00:06:18 - 00:06:22] invece come se emergesse da sotto la scheda madre va più del contatto con
+[00:06:22 - 00:06:34] questi piattine, questi pad. Abbiamo detto che l'orientamento all'installazione è
+[00:06:34 - 00:06:43] diciamo tipicamente guidato dalla forma di pin o dell'alloggiamento in modo che non
+[00:06:43 - 00:06:51] si possa fare un inserimento in rato o perché manca un pin da un lato
+[00:06:51 - 00:07:00] perché la forma non è diciamo completamente simmetrica quindi si riesce a inserire il
+[00:07:00 - 00:07:08] cippo solo posizionandolo nella maniera corretta e poi abbiamo detto la pressione
+[00:07:08 - 00:07:15] soprattutto nei cippo moderni, quando stiamo vedendo proprio dei processori avviene non è
+[00:07:15 - 00:07:20] demandata diciamo alla spinta dell'utente dell'umano che va a esercitare la spinta ma ci
+[00:07:20 - 00:07:27] sono tipicamente delle levette che guidano e che esercitano la forza per l'inserimento.
+[00:07:27 - 00:07:37] Allora quando si parla di porte logici diciamo fino a adesso noi ci siamo solo preoccupati di
+[00:07:37 - 00:07:47] vedere diciamo il funzionamento logico di una porta cioè che uscita presenta quando in
+[00:07:47 - 00:07:53] corrispondenza che è un'opportuna configurazione degli ingressi però potete immaginare che
+[00:07:53 - 00:08:01] nel mondo cioè reale fisico niente avviene instantaneamente ma bisogna andare poi a
+[00:08:01 - 00:08:08] analizzare come sempre lo vedremo quando analizzeremo la simplinizzazione della
+[00:08:08 - 00:08:16] attività dalla CPU, dell'ALO tramite del PROC però potete immaginare che quando non abbiamo
+[00:08:16 - 00:08:22] sempre detto poniamo in ingresso un segnale vediamo in uscita quale è l'uscita corrispondente,
+[00:08:22 - 00:08:29] questa cosa non avviene istantaneamente certificamente un tempo di propagazione
+[00:08:29 - 00:08:40] del segnale diciamo attraverso la porta, attraverso le porte in generale attraverso il chip e si è
+[00:08:40 - 00:08:47] il tempo di commutazione di un segnale dal basso all'alto viceversa e quindi avremo un generale
+[00:08:47 - 00:08:55] possiamo dire un ritardo dovuto alla porta stessa, ovviamente si parla di piccolissimi
+[00:08:55 - 00:09:02] intervalli di tempo di picosecondi o danno secondi che ovviamente diventano significativi
+[00:09:02 - 00:09:08] dobbiamo andare a considerare quando ovviamente i tempi in gioco sono di quest'ordine
+[00:09:15 - 00:09:21] no accennato prima ovviamente l'evoluzione della tecnologia hanno spunto molto sulla
+[00:09:21 - 00:09:32] integrazione e miniaturizzazione dei circuiti ad esempio un chip vedete può contenere fino a
+[00:09:32 - 00:09:46] 500 milioni di porte in end però cosa succede è che dovendo avere tutti i pin diventerebbe
+[00:09:46 - 00:09:58] complicato no perché dovrei avere un diciamo la distanza tra i pin se fosse di un millimetro
+[00:09:58 - 00:10:07] sarebbe cioè un circuito gigantesco quindi non è che si utilizzano solo porte in end per
+[00:10:07 - 00:10:14] realizzare poi tutti i circuiti ma bisogna andare a vedere anche come progettazione come rendere
+[00:10:14 - 00:10:23] più efficiente la distribuzione e la realizzazione dei circuiti. Allora insieme a vedere qualche
+[00:10:23 - 00:10:34] circuito fondamentale e vediamo ad esempio il multiplexer allora multiplexer sono un
+[00:10:34 - 00:10:43] primo esempio di circuito combinatorio dove in generale noi possiamo dire che i circuiti
+[00:10:43 - 00:10:48] digitali vengono classificate in due famiglie fondamentali che sono circuiti combinatori e
+[00:10:48 - 00:10:59] circuiti sequenziali. I circuiti combinatori sono circuiti in cui non c'è una memoria non
+[00:10:59 - 00:11:07] viene preso in contradiazione diciamo eventuali i valori precedenti rispetto a un certo istante
+[00:11:07 - 00:11:13] ma l'unica cosa che importa in una rete combinatore un circuito combinatorio è quanto vale l'input
+[00:11:13 - 00:11:25] in questo momento quindi le circuiti combinatori l'uscite sono funzione solo e soltanto dell'ingresso
+[00:11:25 - 00:11:36] ok appunto se dicono senza memoria memoryless. Nei circuiti sequenziali aspetta mi fermo
+[00:11:36 - 00:11:43] un attimo se sono fatto la memoria cosa vuol dire nello specifico vuol dire che se io ho un
+[00:11:43 - 00:11:50] circuito gli do una certa configurazione di ingresso a bicino una certa configurazione di
+[00:11:50 - 00:11:57] un certo tipo o in uscita per esempio 0 oppure 1 nel momento in cui vada a cambiare la
+[00:11:57 - 00:12:06] configurazione di ingresso l'uscita nuova non dipenderà da fatto che io prima avevo messo
+[00:12:06 - 00:12:11] quell'altra configurazione quindi io prima avevo messo una configurazione che mi aveva
+[00:12:11 - 00:12:20] generato 0 oppure una configurazione che mi ha generato 1 è indifferente per l'uscita
+[00:12:20 - 00:12:27] attuale che dipendi soltanto dalla configurazione che vado a dare ora in questo momento ci sono
+[00:12:27 - 00:12:36] invece altri circuiti altre tipologie circuiti così dicono sequenziali sono circuiti che invece
+[00:12:36 - 00:12:46] il fatto che prima io avessi inserito una configurazione che mi dava 0 in uscita mi in
+[00:12:46 - 00:12:55] qualche modo mi va a cambiare l'uscita o meglio mi può influenzare l'uscita attuale che non dipende
+[00:12:55 - 00:13:03] più soltanto dalla configurazione che gli do ora in questo momento ma può cambiare il suo
+[00:13:03 - 00:13:10] comportamento comportamento a seconda che nella configurazione presente gli avevo fatto
+[00:13:10 - 00:13:18] generare 0 oppure 1 quindi circuiti digitali si dividono in revi combinatori circuiti combinatori
+[00:13:18 - 00:13:25] in cui l'uscita dipende sempre solo e soltanto dall'ingresso attuale e circuiti sequenziali in
+[00:13:25 - 00:13:31] cui invece l'uscita precedente diciamo di una configurazione precedente poi in qualche modo
+[00:13:31 - 00:13:38] influenzare il comportamento del circuito in questo momento quando gli vado a cambiare e
+[00:13:38 - 00:13:49] di mette una nuova configurazione il circuito multiplexer dicevo è appunto circuito combinatorio
+[00:13:49 - 00:13:56] anche qua vediamo un'implementazione con le forte fondamentali che abbiamo studiato c'è
+[00:13:56 - 00:14:08] quello sequenziale che dipende pure dallo stato giusto si dallo stato si dallo stato
+[00:14:08 - 00:14:13] proprio per capire che cos'è questo stato facciamo l'esempio che ho fatto che l'uscita
+[00:14:13 - 00:14:20] precedente poi in qualche modo influenzare quello che arriva in questo momento ovviamente l'uscita
+[00:14:20 - 00:14:29] precedente è come se il circuito avesse uno stato che contiene questa informazione poi in cosa
+[00:14:29 - 00:14:37] si si presenti questo stato poi dipende da questo sequenziale che di volta in volta quindi si
+[00:14:37 - 00:14:44] parliamo di uno stato associato al circuito poi bisogna vedere questo stato se ha una forma che
+[00:14:44 - 00:14:50] può coincidere con l'uscita precedente ovviso e persa però è importante capire che oltre agli
+[00:14:50 - 00:14:56] ingressi c'è qualche altra cosa che può influenzare l'uscita attuale questa qualche altra
+[00:14:56 - 00:15:09] cosa dipende del cosa è successo in precedenza non so se mi sono spiegato ok il circuito di
+[00:15:09 - 00:15:15] combinatori invece solo qualunque cosa succede un attimo prima se io gli cambio l'ingresso
+[00:15:15 - 00:15:24] cambia l'uscita senza a meno a meno del ritardo della porta di cui ho parlato prima se io gli metto
+[00:15:24 - 00:15:31] una configurazione dell'ingresso la tabella del verità tiene conto solo dell'ingresso mi dice a
+[00:15:31 - 00:15:38] questo ingresso ci deve essere una particolare uscita e quindi subito dopo il ritardo diciamo
+[00:15:38 - 00:15:47] la propagazione va a quell'uscita basta e nello specifio multiplex vedete un circuito
+[00:15:47 - 00:15:58] combinatorio che riceve un numero di ingressi in ingresso appunto scusa delle un numero di linee
+[00:15:58 - 00:16:06] di ingresso in input che sono questi di 0 di 1 di 2 di 3 qua rappresentati diciamo sulla
+[00:16:06 - 00:16:14] destra schematicamente ovviamente è indicato in questo modo questo trapezio rivolto con
+[00:16:14 - 00:16:23] la base diciamo inferiore rivolta verso l'uscita a base minore e una uscita quindi l'obiettivo
+[00:16:23 - 00:16:31] del multiplexer è quello di in qualche modo veicolare in auto tutto il circuito soltanto uno
+[00:16:31 - 00:16:40] tra le linee in ingresso soltanto una tra le linee ingresso questa scelta di quale ingresso
+[00:16:40 - 00:16:49] andare a veicolare in output viene decisa da ulteriori ingressi che però vengono chiamate
+[00:16:49 - 00:17:00] linee di controllo che sono questi c0 e c1 questi due linee di controllo c0 e c1 vanno a determinare
+[00:17:00 - 00:17:05] quale degli ingressi deve uscire quindi il multiplexer è un circuito combinatorio che
+[00:17:05 - 00:17:14] presenta un uscita e più ingressi in uscita riporta solo uno degli ingressi quindi riporta
+[00:17:14 - 00:17:21] lo stesso valore che ha in ingresso quale linee avviene selezionata in base a queste linee
+[00:17:21 - 00:17:28] di controllo ovviamente potete già immaginare se queste linee di controllo devono identificare
+[00:17:28 - 00:17:37] univocamente uno solo degli ingressi vuol dire che su quattro cioè per scegliere in maniera un'ifoca
+[00:17:37 - 00:17:45] uno dei quattro ingressi mi serviranno per forza almeno due linee di controllo perché io devo
+[00:17:45 - 00:17:53] decodificare diciamo i quattro valori distinti consigli come associo a questi quattro valori
+[00:17:53 - 00:17:59] non è importante, è importante che io riesca a codificare quattro valori distinti e quindi
+[00:17:59 - 00:18:07] posso immaginare che diciamo a tabella di verità di questo circuito mi dirà che ad ogni combinazione
+[00:18:07 - 00:18:17] un'ivoca delle linee c0 e c1 soltanto uno degli ingressi deve essere riportato in uscita vediamo
+[00:18:17 - 00:18:24] una possibile implementazione questa sulla sinistra questa sulla sinistra effettivamente fa
+[00:18:24 - 00:18:32] quello che diciamo che stiamo dicendo vediamo vedete queste hanno c'è Luigi che brutta
+[00:18:32 - 00:18:51] che ti sto facendo allora vediamo questa implementazione a una or a quattro ingressi
+[00:18:51 - 00:19:00] e sceglie questa or cioè o meglio questa ora a quattro ingressi veicola l'autoput di queste
+[00:19:00 - 00:19:08] end quindi confrongendo c'è ragionando un attimo su questa parte resta dell'implementazione
+[00:19:08 - 00:19:21] la orve noi sappiamo che vale uno non appena uno degli ingressi è alto ok quindi per
+[00:19:21 - 00:19:34] poter diciamo veicolare uno degli ingressi mi immagino che queste end devono valere uno c'è
+[00:19:34 - 00:19:41] solo una di queste end deve essere alta mentre le altre devono essere basse in questo modo io non
+[00:19:41 - 00:19:48] ho una combinazione degli ingressi in uscita ma ho valentmente un ingresso per volta o meglio
+[00:19:48 - 00:19:56] un percorso per volta quindi queste end di nome di end di abilitazione proprio perché vanno ad
+[00:19:56 - 00:20:06] abilitare uno dei percorsi verso l'uscita in uscita in genere abbiamo una or che va diciamo a me insieme
+[00:20:06 - 00:20:13] i percorsi possibili quest'end di abilitazione effettivamente vanno ad abilitare l'ingresso
+[00:20:13 - 00:20:23] perché in input ad ogni end vedete c'è l'ingresso che voglio far passare più dei valori presi dalle
+[00:20:23 - 00:20:36] linee di controllo ora la end sarà alta in uscita solo se tutti i segnali sono arti questo cosa
+[00:20:36 - 00:20:47] vuol dire che se basta che un valore di ingresso ad una end che è zero è in uscita o zero quindi
+[00:20:47 - 00:20:58] poiché queste end vedete sono collegate ai segnali c con zero sono collegate se ci fate caso andando
+[00:20:58 - 00:21:07] a realizzare le quattro possibili combinazioni dei valori c0 e c1 cosa voglio dire vedete la prima
+[00:21:07 - 00:21:16] end in alto è collegata alla notte di c0 e alla notte di c1 cioè la negazione dei segnali di
+[00:21:16 - 00:21:32] controllo e questo sarebbe zero zero quindi fa passare di zero la abilità quando è zero zero
+[00:21:32 - 00:21:43] quindi cosa voglio dire che in tutti gli altri casi quando o c0 o c1 è alto in ingresso alla end più
+[00:21:43 - 00:21:53] in alto ci sarà uno zero ok quindi l'unico caso in cui la end in alto ha i segnali di controllo valgono
+[00:21:53 - 00:22:07] uno e uno è quando c0 c con uno valgono zero ok e di conseguenza la seconda end invece è collegata
+[00:22:07 - 00:22:18] a c0 negato c1 quindi abilita c0 quale a zero c1 quale a uno tutti gli altri combinazioni risolte
+[00:22:18 - 00:22:24] da zero ovviamente se uno di questi due fili che viene da giù vale zero mi manda a zero
+[00:22:24 - 00:22:35] tutta la end e quindi quella è particolare e non contribuisce all'uscita nell'unico caso su quattro
+[00:22:35 - 00:22:47] in cui una particolare end viene riceve in input uno e uno dai segnali di controllo ovviamente fa
+[00:22:47 - 00:22:55] passare il corrispondente segnale di input che o vale uno o vale zero non ci interessa l'idea cioè
+[00:22:55 - 00:23:00] quello che dovete capire ovviamente la end che lo fa passare perché se vale uno va in end con
+[00:23:00 - 00:23:05] gli altri uno e quindi vale uno in uscita se vale a zero vince lui che vale a zero e vale a zero in
+[00:23:05 - 00:23:13] uscita ma quello è l'obiettivo della end e fa passare il segnale di ingresso quindi vi trovate
+[00:23:13 - 00:23:25] che queste quattro end sono abilitate soltanto una per volta e questo questo concetto tornerà
+[00:23:25 - 00:23:32] spesso nei circuiti che vedremo il fatto che per esempio quando vedremo l'alu quando vedremo le
+[00:23:32 - 00:23:42] memoria in uscita al circuito sia spesso vedete una una or che va a mettere insieme vari percorsi
+[00:23:42 - 00:23:53] del circuito e per abilitare solo uno dei percorsi si usano quest end che deve essere che vengono
+[00:23:53 - 00:24:00] poi controllate pilotate da altri segnale che sono segnale di controllo e quindi qua per riassumere
+[00:24:00 - 00:24:09] multiplexer è un circuito che mi va a selezionare tra possibili segnali in ingresso quale fa passare
+[00:24:09 - 00:24:15] e questa selezione avvenne tra tramite dei segnali di controllo si dice che gli ingressi diciamo
+[00:24:15 - 00:24:24] sono controllati da questo c0 e c1 qua in questo caso questo è un multiplexer 4 a 1 proprio perché
+[00:24:24 - 00:24:34] a quattro ingressi è una uscita c'è come se fosse diciamo in rubine io sto dicendo in rubine
+[00:24:34 - 00:24:39] cioè c'è quattro ingressi per giuto punto tipo mi serve l'acqua del che mi arriva di qua
+[00:24:39 - 00:24:51] da l'altra parte e con c1 e c2 faccio passare e com'è listo quei jardini zen giapponesi
+[00:24:51 - 00:24:59] tu hai quattro canali che portano l'acqua e poi il bastoncino di bamboo che sceglie quale
+[00:24:59 - 00:25:08] far andare in uscita postando il bastoncino ne porti solo uno in uscita e in base diciamo ai
+[00:25:08 - 00:25:14] valori di c0 e c1 vai a determinare l'angolazione del bastoncino in modo che vai a scegliere uno
+[00:25:14 - 00:25:28] solo dei canali di ingresso e questo è un multiplexer si va che questo già ve l'ho detto quindi
+[00:25:28 - 00:25:33] le porte di abilitazione portano il segnale verso l'orro che ovviamente la ora non fatto che
+[00:25:33 - 00:25:48] riportare poi il valore in uscita una cosa che si può fare con il multiplexer è implementare
+[00:25:48 - 00:25:59] una qualunque funziona già o meglio una funzione buleana qualsiasi su n variabili in che modo
+[00:25:59 - 00:26:07] immaginiamo di avere questa funzione quindi tre variabili in ingresso e m diciamo il nome di
+[00:26:07 - 00:26:18] questa funzione che quella figura indicata con f come si fa bisogna impensare ai segnali di controllo
+[00:26:18 - 00:26:25] come le variabili di ingresso della funzione che si vuole andare a implementare noi abbiamo
+[00:26:25 - 00:26:32] detto osto scossa che una funzione buleana è definita dalla sua tabella di verità dove per
+[00:26:32 - 00:26:41] ogni configurazione di ingresso io ad a specificare cosa voglio in uscita in uscita 0 o 1 quindi le
+[00:26:41 - 00:26:48] variabili di ingresso di una funzione buleana in qualche modo selezionano quale deve essere
+[00:26:48 - 00:26:55] l'uscita ed assomigliamo un po quello che fa il multiplexer in multiplexer segnali di controllo
+[00:26:55 - 00:27:03] di un multiplexer selezionano diciamo quale deve essere l'uscita in base all'ingresso questo cosa
+[00:27:03 - 00:27:11] vuol dire che poi nell'ingresso ci devo mettere i valori associati ai vari ai vari mi intermini
+[00:27:11 - 00:27:20] praticamente quindi una funzione buleana di tre variabili a otto mi intermini cioè otto rig
+[00:27:20 - 00:27:28] della tabella per implementarla tramite un multiplexer devo utilizzare multiplexer da
+[00:27:28 - 00:27:34] otto a uno quindi un numero di ingressi pare al numero di mi intermini della funzione che
+[00:27:34 - 00:27:48] voglio implementare e ovviamente otto ingressi controllati da tre linee di controllo come collego
+[00:27:48 - 00:27:56] gli ingressi li collego banalmente o a bcc o a zero cioè o a valore alto o a valore basso in base a
+[00:27:56 - 00:28:03] quale è la funzione quindi con lo stesso multiplexer che io ho comprato io posso implementare
+[00:28:03 - 00:28:11] qualunque funzione tra quelli esistenti su tre variabili semplicemente cambiando il modo in
+[00:28:11 - 00:28:18] cui collego i segnali di ingresso perché cambiando ovviamente il modo di un collego
+[00:28:18 - 00:28:22] i segnali di ingresso cambia il valore dell'uscita della funzione corrispondente a
+[00:28:22 - 00:28:29] quel mi intermini quindi cambia la funzione questo esempio specifico che voglio implementare la
+[00:28:29 - 00:28:40] funzione che ha in uscita 00001 0111 vado a collegare di con 0 a massa di con 1 a massa di
+[00:28:40 - 00:28:49] con 2 a massa di con 3 a bc di con 4 a massa di con 5 6 e 7 a bcc è chiaro
+[00:28:59 - 00:29:09] sono tutte le uscite che si vogliono realizzare in base a quella configurazione in funzione
+[00:29:09 - 00:29:16] dei di a bcc che sono dei ingressi come controllo e quindi sono come se fosse i
+[00:29:16 - 00:29:24] letterali e i midtermini con 1 0 1 0 ma scegliendo il valore di a bcc scelgo il mi intermini
+[00:29:24 - 00:29:32] e negli ingressi in base a come le ho collegati definisco il valore che la funzione assume in
+[00:29:32 - 00:29:43] quel mi intermini altro modo in cui diciamo si può usare la multiplexer ad esempio nella
+[00:29:43 - 00:29:52] conversione da parallelo a stadeale ma chiamiamo da avere un bus un bus parallelo in cui diciamo
+[00:29:52 - 00:30:01] abbiamo più linee di dati diciamo in parallelo che arrivano per trasformare una con una connessione
+[00:30:01 - 00:30:09] diciamo una trasmissione parallela in stadeale io posso fare devo mandare una linea alla
+[00:30:09 - 00:30:15] volta di quelle parallele le devo mandare in stade quindi devo selezionare una linea alla
+[00:30:15 - 00:30:33] volta lo posso fare appunto tramite un multiplexer il demultiplexer invece fa
+[00:30:33 - 00:30:41] l'operazione diciamo inversa a un ingresso che può mandare su più linee di uscita
+[00:30:41 - 00:30:49] anche in questo caso ci sono dei segnali di controllo che vanno a determinare
+[00:30:49 - 00:30:59] tale possibile uscite dove deve andare in ingresso quindi anche qua se abbiamo quattro uscite avremo
+[00:30:59 - 00:31:08] due segnali di controllo abbiamo otto uscite tre segnali di controllo e così via la diciamo la
+[00:31:08 - 00:31:15] schematizzazione il simbolo è ribaltato quindi c'ho la base minore in ingresso alla base
+[00:31:15 - 00:31:25] maggiore del trapezio in uscita e andiamo a indicare 1 2.4 ad esempio un demux un ingresso quattro uscite
+[00:31:25 - 00:31:40] vediamo altri circuiti fondamentali che torneranno utili nel corso il decodificatore
+[00:31:40 - 00:31:54] stiamo sempre parlando di circuiti combinatori a n ingressi e 2 alla n uscite dove una solo
+[00:31:54 - 00:32:03] dell'uscite assume valore 1 e viene tipicamente utilizzato per utilizzare diciamo un'allocazione di
+[00:32:03 - 00:32:15] memoria in che senso la memoria tipicamente organizzata che voi avete più celle diciamo più righe
+[00:32:16 - 00:32:23] possibili diciamo più le celle in cui possiamo mettere i dati se io devo leggere un dato in memoria
+[00:32:23 - 00:32:34] ovviamente tra tutte le celle possibili devo selezionarne una sola e le altre devo deserzionarci
+[00:32:34 - 00:32:41] e le devo in modo che il dato che venga ad appendare memoria sono solo quella della cella di
+[00:32:41 - 00:32:46] interesse e definitivamente questo lo andiamo a fare indicando l'indirizzo della cella di memoria
+[00:32:46 - 00:32:53] ovviamente l'indirizzo sarà specificato da una combinazione di bits combinazione di valori
+[00:32:53 - 00:33:03] questa combinazione di valori deve abilitare solo una una cella una un'area di memoria e quindi
+[00:33:03 - 00:33:11] potete immaginarlo come un circuito decodificatore diceva in ingresso una combinazione di
+[00:33:11 - 00:33:20] di valori di valori che deve interpretare decodificare e scegliere quale in uscita andare
+[00:33:20 - 00:33:28] a abilitare tra quelle possibili quindi in uscita io non ho come prima una ripetizione dell'ingresso
+[00:33:28 - 00:33:37] ma abilitò metto in alto soltanto una tra quelle possibili come andando a interpretare la
+[00:33:37 - 00:33:42] configurazione la combinazione di valori in ingresso cioè decodifico perché interpreto
+[00:33:42 - 00:33:48] l'ingresso e gli do un valore in uscita in base agiamo appunto al valore dell'ingresso
+[00:33:48 - 00:34:00] diamo anche qua una possibile implementazione in questo decodificatore io c'ho due valori
+[00:34:00 - 00:34:10] di ingresso che mi vanno a specificare quindi quattro possibili valori codificati in uscita
+[00:34:10 - 00:34:19] però io non ho né c0 né c1 ma ho l'abilitazione di una delle possibili uscite quindi due ingressi
+[00:34:19 - 00:34:28] due alla n quindi quattro uscite queste quattro uscite devono essere altea una alla volta quindi
+[00:34:28 - 00:34:37] se di zero è alta l'altra devono essere basse così via anche questo vedete basato sul concetto di
+[00:34:37 - 00:34:45] prima cioè delle end che devono essere abilitate o meno qua sparisce la ora che va a mettere
+[00:34:45 - 00:34:52] insieme i segnali perché io non devo scegliere poi tra l'end ma le devo abilitare cioè devo
+[00:34:52 - 00:34:59] riportare in uscita il valore di abilitazione o meno di quella linea e anche qua abbiamo vedete le
+[00:34:59 - 00:35:08] due porte notte che mi vanno a realizzare c0 negato e c1 negato e quindi queste quattro
+[00:35:08 - 00:35:13] possibili configurazioni le vado a riportare alle quattro porte l'end quindi la porta end di
+[00:35:13 - 00:35:24] sopra è collegata a c0 negato c1 negato quindi sarà alta solo quando in ingresso o zero zero la
+[00:35:24 - 00:35:37] seconda è collegata a c0 negato e c1 quindi sarà alta soltanto quando c0 vale 0 e c1 vale 1 in
+[00:35:37 - 00:35:50] tutti gli altri casi quella end vale 0 trovate che questo circuito si comporta così questo avrà
+[00:35:50 - 00:36:05] come tabela di verità 0 0 e poi di 0 di 0 1 0 0 quando c0 c1 vale 0 1 in uscita o 0 1 0 0 quando
+[00:36:05 - 00:36:14] c0 c1 vale 1 o 0 in uscita o 0 0 1 0 quando c0 c1 vale 1 o 1 in uscita avrò 0 0 0 1
+[00:36:20 - 00:36:28] come se avessimo accaduto un circuito per accendere le lampadine
+[00:36:28 - 00:36:41] però va bene senza stati che se io che se io ce l'ho tutte e due giù magari tutto c'è di
+[00:36:41 - 00:36:51] 0 no per esempio c'è 0 0 0 no qua c'è sempre una abilitata diciamo c'è sempre una abilitata
+[00:36:51 - 00:37:05] mentre 0 1 magari accendo la camera da letto c'è 1 0 la cucina prova già a pensare al fatto
+[00:37:05 - 00:37:10] che dicevo prima della memoria immagini che qua sono 4 celle di memoria c'è una memoria composta
+[00:37:10 - 00:37:19] solo 4 celle e io sto dando in ingresso l'indirizzo della celle per sezionare ad esempio da quale
+[00:37:19 - 00:37:27] celle voglio leggere voglio leggere dalla prima celle in ingresso c0 o 0 e questo circuito mi
+[00:37:27 - 00:37:33] abilita solo alla prima celle gli altri me le metterà a 0 quindi non saranno abilitate e quindi
+[00:37:33 - 00:37:38] io sul bus andrò a prendere solo il valore della prima celle questo è proprio quello che fa
+[00:37:38 - 00:37:44] l'indirizzo di memoria l'indirizzo di memoria viene decodificato per andare ad abilitare la
+[00:37:44 - 00:37:59] celle opportuna comparatore invece serve per comparare diciamo due string di bit di
+[00:37:59 - 00:38:08] uguale numero di bit ovviamente in questo esempio sto comparando due string da quattro bit e
+[00:38:08 - 00:38:18] ovviamente le due string di bit sanno uguali se sono uguali bit a bit e quindi questo viene fatto
+[00:38:18 - 00:38:24] andato a mettere le coppie di bit quindi devono essere uguali i bit meno significativi quindi a
+[00:38:24 - 00:38:31] 0 e di 0 poi a 1 e b1 a 2 e b2 quindi a coppia i bit della stessa posizione delle due string
+[00:38:31 - 00:38:41] devono essere uguali questa comparazione bit a bit viene fatta con l'axor che l'axor ovviamente
+[00:38:41 - 00:38:58] cioè se ricordate vale 1 solo se i due bit diciamo sono e sono valgolo 1 ma non insieme quindi
+[00:38:58 - 00:39:11] l'axor vale 1 solo se a 0 è la ora esclusiva si sono diversi vale 1 solo se sono diversi ok
+[00:39:11 - 00:39:18] ovviamente questa non è la comparazione tra i 0 perché poi c'è l'altro pezzo che la fa
+[00:39:18 - 00:39:29] diventare la comparazione l'axor tra a 0 e b0 vale 1 solo se sono diversi ok quindi sono uguali
+[00:39:29 - 00:39:44] quando devo negare l'axor ok cosa voglio dire che la questa xor varrà a 0 quando sono uguali ok
+[00:39:49 - 00:39:57] quindi io c'ho quattro xor che mi fanno la comparazione tra le coppia di bit e se le coppia di bit
+[00:39:58 - 00:40:02] sono tutte uguali queste xor mi buttano fuori tutte e 0
+[00:40:05 - 00:40:11] ovviamente si conci la nuova alla fine bravo questo è semplicemente la negazione della or
+[00:40:13 - 00:40:17] e quindi in uscita avrò il segnale è alto per indicare se sono uguali
+[00:40:19 - 00:40:24] ma perché l'axor mi da si sono uguali però con il valore basso e quindi perciò c'è l'axor c'è la
+[00:40:24 - 00:40:34] nor scusate mi alla fine ovviamente la la ormettensì c'è la norma e insieme tutti gli output
+[00:40:35 - 00:40:46] e solo se sono tutti zeri in uscita avrò la negazione quindi 1 se una sola di queste xor da 1
+[00:40:47 - 00:40:53] in uscita perché quella è una nor sarebbe la negazione della ormettensì però la 1 fa diventare
+[00:40:53 - 00:41:00] tutto 1 e la negazione poi di 1 in 0 quindi basta che una sola xor sia alta
+[00:41:00 - 00:41:09] tutta la comparazione va a 0 se invece tutte sono basse l'uscita diciamo è alta
+[00:41:09 - 00:41:19] poi ci sono questi pl a invece che sono sempre circuiti combinatori stiamo parlando
+[00:41:21 - 00:41:28] sono circuiti programmabili programmabili da che punto di vista vedete sono delle schede che
+[00:41:28 - 00:41:35] escono che vuole acquistate diciamo con un certo numero di ingressi ed uscita
+[00:41:35 - 00:41:48] che sono in qualche modo collegabili tra di loro attraverso queste porte e sono programmabili nel
+[00:41:48 - 00:41:58] senso che poi andando a intervenire su questo circuito su questa scheda che si acquista si può
+[00:41:58 - 00:42:06] andare a decidere effettivamente quale quale collegamento attivare o meno vedete per esempio
+[00:42:06 - 00:42:17] i con 0 è collegabile a tutte queste porte e sia negato che in maniera diretta quindi immaginate
+[00:42:17 - 00:42:27] c'è una matrice di e o meglio la matrice e la matrice che supporta diciamo il collegamento tra
+[00:42:27 - 00:42:33] tutti gli ingressi con tutte queste porte e andando la programmare io vado a selezionare
+[00:42:33 - 00:42:40] effettivamente quale miseria quale abilitare di questo collegamento a questo punto di vista diciamo
+[00:42:40 - 00:42:46] sono circuiti programmabili poi l'uscita di queste e allora volta vedete sono collegabili a tutte
+[00:42:46 - 00:42:57] queste porte or che poi sono le uscite a che serve sto circuito che ovviamente sempre col
+[00:42:57 - 00:43:08] solito discorso che una funzione booleana è implementabile tramite le or dei min termini ok
+[00:43:09 - 00:43:19] questo vuol dire che io posso acquistando diciamo questa questo plh a 3 ingressi e 4 uscite io
+[00:43:19 - 00:43:30] posso realizzare su ogni uscita una qualunque funzione booleana di 3 ingressi quindi concentrati
+[00:43:30 - 00:43:37] un attimo sulla singola uscita per esempio o con 0 o con 0 non è altro che la or di questi
+[00:43:37 - 00:43:43] possibili valori che io devo andare a scegliere quali tra questi quando vado a programmare plh
+[00:43:43 - 00:43:53] a scegliere quello di interesse ma questi valori non sono altro che l'uscita della end su gli ingressi
+[00:43:53 - 00:44:02] anche si scelte opportunamente quindi ad esempio se io vado a collegare i con 0 negato i con 1
+[00:44:02 - 00:44:11] diretto con 2 diretto sulla prima ende vuol dire che io in uscita se vado a collegare
+[00:44:11 - 00:44:20] questa prima ende con la or di o con 0 mi sto portando il min termine i con 0 negato i con 1
+[00:44:20 - 00:44:35] i con 2 per il min termine per la colonna si poi colore si questo su ogni funzione su ogni
+[00:44:35 - 00:44:40] funzione di uscita cioè su ogni uscita quindi se ho quattro uscite posso implementare quattro
+[00:44:40 - 00:44:46] funzioni ognuna di esse può essere una qualunque funzione booleana su tre variabili ingressi
+[00:44:46 - 00:44:58] questa programmazione diciamo viene fatta una tantum nel senso che esce il circuito così poi
+[00:44:58 - 00:45:07] si vanno a bruciare questi fusibili in modo da fare quelli che non servono proprio dopo non
+[00:45:07 - 00:45:15] posso tornare indietro che io vado a determinare vediamo se c'è l'esempio qua vedete acquisto il
+[00:45:15 - 00:45:23] PLA poi vado a bruciare i collegamenti che non mi servono quelli che restano mi andranno a
+[00:45:23 - 00:45:28] realizzare le funzioni di mio interesse ovviamente poi me lo tengo così non posso ripristinare il
+[00:45:28 - 00:45:38] fusibile bruciato in questo esempio vediamo ragioniamo sempre su o con 0 o con 0 ho bruciato
+[00:45:38 - 00:45:46] tutti questi vuol dire che ho con 0 e composta solo da due min termini quindi diciamo la linea
+[00:45:46 - 00:45:54] della matrice della or mi va a selezionare di quanti min termini e composta la funzione
+[00:45:54 - 00:46:02] di quanti diciamo min termini compaiono nell'espressione algebrica della funzione che voglio
+[00:46:02 - 00:46:12] andare a implementare quali ho bruciati tutti tra le due questi due quali sono sono il primo sarebbe
+[00:46:12 - 00:46:21] i con 0 negato i con 1 i con 2 l'altro è i con 0 diretto i con 1 negato i con 2
+[00:46:21 - 00:46:32] nella uscita o con 1 invece le ho bruciati tutti tra ne uno quindi un'unico in termine quale i
+[00:46:32 - 00:46:42] con 0 i con 1 i con 2 decato nella o con due o due min termini nella o con tre ne ho tre perché
+[00:46:42 - 00:46:56] ho bruciato non lasciate attivi solo tre quali sono i con 0 i con 1 negato i con 2 i con 0 i con 1 i con
+[00:46:56 - 00:47:10] 2 negato i con 0 negato i con 1 negato i con 2 chiaro semplicemente diciamo una configurazione di
+[00:47:10 - 00:47:18] porte ende or che posso andare a utilizzare per attivare dei collegamenti di si attivarne degli
+[00:47:18 - 00:47:26] altri degli altri in modo da realizzare l'implementazione di una funzione bulea in questo caso di quattro
+[00:47:26 - 00:47:39] funzioni bulea ovviamente questo mi permette diciamo di implementare facilmente più funzioni quindi
+[00:47:39 - 00:47:45] potranno essere diciamo più efficienti dal punto di vista dello spazio diciamo che vado a occupare
+[00:47:45 - 00:47:50] però poi sono vincolato a questa tipologia di di funzione non è che posso fare
+[00:47:53 - 00:48:01] chissà quale circuito rispetto a progettare ne uno ad hoc riesco diciamo a implementare
+[00:48:01 - 00:48:05] facilmente questa tipologia questa famiglia di circuito
+[00:48:05 - 00:48:17] mi fermo qua prima che che mi chiudono la connessione sono domande
+[00:48:17 - 00:48:33] vabbè ragazzi vi saluto ci vediamo più tardi per un'altra lezione grazie mille però fa più tardi

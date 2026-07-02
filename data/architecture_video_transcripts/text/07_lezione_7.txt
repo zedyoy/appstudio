@@ -1,0 +1,349 @@
+[00:00:00 - 00:00:02] Sottotitoli a cura di QTSS.
+[00:00:30 - 00:00:32] Sottotitoli a cura di QTSS.
+[00:01:00 - 00:01:02] Sottotitoli a cura di QTSS.
+[00:01:30 - 00:01:32] Sottotitoli a cura di QTSS.
+[00:02:00 - 00:02:02] Sottotitoli a cura di QTSS.
+[00:02:30 - 00:02:32] Sottotitoli a cura di QTSS.
+[00:02:32 - 00:02:34] Sottotitoli a cura di QTSS.
+[00:03:00 - 00:03:02] Sottotitoli a cura di QTSS.
+[00:03:30 - 00:03:32] Sottotitoli a cura di QTSS.
+[00:04:00 - 00:04:02] Sottotitoli a cura di QTSS.
+[00:04:30 - 00:04:32] Sottotitoli a cura di QTSS.
+[00:05:00 - 00:05:02] Sottotitoli a cura di QTSS.
+[00:05:30 - 00:05:32] Sottotitoli a cura di QTSS.
+[00:06:00 - 00:06:02] Sottotitoli a cura di QTSS.
+[00:06:02 - 00:06:04] Sottotitoli a cura di QTSS.
+[00:06:04 - 00:06:06] Sottotitoli a cura di QTSS.
+[00:06:06 - 00:06:08] Sottotitoli a cura di QTSS.
+[00:06:08 - 00:06:10] Sottotitoli a cura di QTSS.
+[00:06:10 - 00:06:12] Sottotitoli a cura di QTSS.
+[00:06:12 - 00:06:14] Sottotitoli a cura di QTSS.
+[00:06:14 - 00:06:16] Sottotitoli a cura di Qands.
+[00:06:16 - 00:06:18] Sottotitoli a cura di QTSS.
+[00:06:18 - 00:06:20] Sottotitoli a cura di QTSS.
+[00:06:20 - 00:06:22] Sottotitoli a cura di QTSS.
+[00:06:22 - 00:06:24] Sottotitoli a cura di QTSS.
+[00:06:24 - 00:06:26] Sottotitoli a cura di QTSS.
+[00:06:26 - 00:06:28] Sottotitoli a cura di QTSS.
+[00:06:28 - 00:06:35] un piccolo disturbo, diciamo partiamo sempre dalla tabla di verità, funzione
+[00:06:35 - 00:06:40] generica, booleana, qui in questo caso stiamo considerando su tre variabili,
+[00:06:40 - 00:06:45] però come detto considereremo sempre oche variabili di ingresso per
+[00:06:45 - 00:06:52] semplicità, soprattutto poi questo metodo che vediamo è grafico, quindi è
+[00:06:52 - 00:06:57] facile da utilizzare, a senso utilizzarlo, finché le variabili di ingresso sono poche,
+[00:06:57 - 00:07:02] due, tre, quattro, dopo iniziano a screscere le variabili di ingresso delle
+[00:07:02 - 00:07:08] funzioni che si vogliono minimizzare, si usano altri metodi che non vediamo.
+[00:07:09 - 00:07:14] Quindi tabla di verità come al solito vuol dire rappresentare per ogni
+[00:07:14 - 00:07:19] configurazione possibile degli ingressi il valore che assume la funzione, quindi
+[00:07:19 - 00:07:26] definisco in maniera univoca la funzione, cioè definisco ogni punto, per ogni punto
+[00:07:26 - 00:07:33] del dominio definisco qual è il punto del codominio associato, abbiamo detto
+[00:07:33 - 00:07:40] che da una funzione possiamo calcolare una espressione, una rappresentazione
+[00:07:40 - 00:07:46] algebrica tramite la forma canonica che abbiamo chiamato SOAP proprio perché è
+[00:07:46 - 00:07:54] una somma di prodotti, quali prodotti? La somma dei prodotti in cui la funzione
+[00:07:54 - 00:08:02] assume valore alto, ad esempio questa funzione di esempio a vedete tre righe
+[00:08:02 - 00:08:07] della tabla di verità in cui ha valore alto uno, questo ci dice che la sua
+[00:08:07 - 00:08:16] forma canonica SOAP sarà composta da la somma di tre valori, di tre termini,
+[00:08:16 - 00:08:22] ognuno calcolato in corrispondenza della riga in cui vale uno, come si calcono
+[00:08:22 - 00:08:29] questi valori, innanzitutto possiamo dire i singoli valori che si chiamano
+[00:08:29 - 00:08:35] letterali, nel momento in cui andiamo a combinare tra loro, letterali che in
+[00:08:35 - 00:08:39] questo esempio è onigato con abbia e cino, il momento in cui va da fare un
+[00:08:39 - 00:08:47] prodotto tra i letterali delle variabili di ingresso, rese o in maniera diretta o
+[00:08:47 - 00:08:53] negata, non è importante, un qualunque prodotto di questi letterali lo chiameremo
+[00:08:53 - 00:09:03] mintermine, quindi un prodotto fatto da abbia e c, moltiplicate o direttamente
+[00:09:03 - 00:09:08] quindi presi abbia e c o le varie combinazioni uno negato e uno non
+[00:09:08 - 00:09:14] negato e così via saranno tutti i mintermini e ovviamente come al solito
+[00:09:14 - 00:09:18] le combinazioni sono tre variabili, le possibili combinazioni sono due alla
+[00:09:18 - 00:09:26] terza o tu avremo un mintermine distinto per ogni possibile riga della
+[00:09:26 - 00:09:32] tabla di erità, come si rendono, come si costruiscono questi mintermini
+[00:09:32 - 00:09:41] andando a prendere la variabile, la singola variabile in forma diretta se nella
+[00:09:41 - 00:09:45] configurazione di quella riga la variabile ha valore alto, la prendiamo
+[00:09:45 - 00:09:52] in formula negata se invece ha valore basso, quindi la prima riga in cui
+[00:09:52 - 00:09:59] descrive quanto vale la funzione quando gli ingressi valgono 0000 vuol dire che
+[00:09:59 - 00:10:04] il mintermine associato a questa prima riga è a negato per b negato per c
+[00:10:04 - 00:10:11] negato dove per b intendo sempre l'end buleano mentre il prodotto è la or
+[00:10:11 - 00:10:18] buleano ok ci lo dimentichiamo e così via, quindi il primo mintermine m0 è
+[00:10:18 - 00:10:24] tutti negati, l'ultimo mintermine m7 sono invece tutti presi direttamente a bc
+[00:10:24 - 00:10:30] ok quindi ho definito quali sono tutti i possibili prodotti tutti i possibili
+[00:10:30 - 00:10:35] mintermini associati a questa funzione, la forma canonica abbiamo detto è la
+[00:10:35 - 00:10:46] somma dei mintermini in cui la funzione vale 1 quindi sarà m1 più m5 più m6
+[00:10:46 - 00:10:56] ho detto in maniera equivalente m1 or m5 o m6 ci troviamo che questo
+[00:10:56 - 00:11:01] rappresenta la funzione, la funzione è alta quando uno di questi è alto quindi
+[00:11:01 - 00:11:09] or m1 o m5 o m6 sarà bassa quando nessuno di loro è alto, andando a
+[00:11:09 - 00:11:15] sostituire apporso di m1 m5 m6 il mintermine associato possiamo dire che
+[00:11:15 - 00:11:19] in forma algebrica questa funzione che qui abbiamo rappresentato come una
+[00:11:19 - 00:11:24] tabella di verità, in forma algebrica l'endolo a scrivere come a negato b
+[00:11:24 - 00:11:34] negato c più a b negato c più a b c negato e questa è la forma sop
+[00:11:36 - 00:11:42] abbiamo detto che l'obiettivo è minimizzare, vedere o meglio, cercare se
+[00:11:42 - 00:11:47] esiste una forma equivalente a questo in cui però o riduco il numero di
+[00:11:47 - 00:11:52] retterari o riduco le somme in qualche modo qualunque semplificazione riesca a
+[00:11:52 - 00:11:58] fare o meglio qualunque riduzione riesco a fare se è equivalente, vuol dire che sto
+[00:11:58 - 00:12:03] riducendo il numero di pote che andrò a utilizzare nell'implementazione
+[00:12:08 - 00:12:12] ora lo biele come dire la questa minimizzazione si può perseguire
+[00:12:12 - 00:12:21] tramite diversi metodi, un metodo anche cioè immediato che potrei fare quello di
+[00:12:21 - 00:12:28] andare a ragionare sulle proprietà buleane, andare a cercare di semplificare ad esempio
+[00:12:28 - 00:12:33] ricordando le varie proprietà dell'algebrica, dell'algebra buleana
+[00:12:33 - 00:12:46] però in questa fase, in questa fase, scusate, sento una ripetizione, saccate i
+[00:12:46 - 00:12:52] microfoni se non dovete chiedermi qualcosa, questa minimizzazione si può
+[00:12:52 - 00:12:57] perseguire in maniera algebrica andando ad applicare le proprietà dell'algebra
+[00:12:57 - 00:13:02] buleana oppure adesso vediamo come farlo in maniera grafica, molto più semplice
+[00:13:02 - 00:13:09] immediata con le mappe di Carnot, allo innanzitutto abbiamo capito come si
+[00:13:10 - 00:13:15] costruiscemiti una mappa di Carnot e che cos'è appunto una mappa di Carnot
+[00:13:15 - 00:13:23] abbiamo detto è una rappresentazione grafica e semplicemente andrebbe a costruire una tabella
+[00:13:23 - 00:13:31] tipo una tabella appunto in cui andiamo a distribuire in maniera ordinata le celli
+[00:13:31 - 00:13:38] diciamo di questa tabella e assucieremo ad ogni cella diciamo una certa una
+[00:13:38 - 00:13:43] particolare combinazione delle variabili di input della funzione che vogliamo
+[00:13:43 - 00:13:52] andare a sempliciare come al solito se ho n variabili la mappa di Carnot avrà un
+[00:13:52 - 00:13:59] numero di celle molti blocce legato a una potenza del 2, 2 alla n, vediamo un'esempio
+[00:13:59 - 00:14:05] molto più immediato da capire, se abbiamo una funzione di tre variabili
+[00:14:05 - 00:14:13] di ingresso come l'esempio precedente abbiamo detto 2 alla terza, 8 celle quindi la tabella
+[00:14:13 - 00:14:22] di c'è la mappa di Carnot e vedete una tabella così costruita in cui vado a fare devono
+[00:14:22 - 00:14:31] vado a presentare 8 celle e adesso vediamo come associare ad ogni cella una particolare
+[00:14:31 - 00:14:37] combinazione delle variabili di ingresso c'è uno dei min termini alla fine perché abbiamo
+[00:14:37 - 00:14:41] detto dei min termini non sono altro che le vari combinazioni delle variabili di ingresso
+[00:14:41 - 00:14:50] ovviamente io qua ho distribuito diciamo ho fatto una tabella con due righe e 4 colonne
+[00:14:50 - 00:14:57] potevo fare in maniera equivalente una tabella una mappa di Carnot con 4 righe e 2 colonne
+[00:14:57 - 00:15:03] importante è avere le 8 celle che mi servono però in questo caso c'è la tralettera quindi
+[00:15:03 - 00:15:14] doveva fare così per forza a volendo io se faccio a sopra e metto bc a sinistra e scavere una cosa
+[00:15:14 - 00:15:24] equivalente a replica sì importante è avere il numero di celle che ci servono ok fatto ciò
+[00:15:24 - 00:15:30] dobbiamo poi associare ad ogni cella una combinazione degli ingressi qua dobbiamo
+[00:15:30 - 00:15:37] stare attenti perché quando scegliamo la combinazione degli ingressi associata ad ogni
+[00:15:37 - 00:15:44] cella la facciamo in un modo particolare che è una scelta diciamo furba che ci tornerà utile
+[00:15:44 - 00:15:51] dopo qual è questa scelta quella di fare in modo che vedete questi numeri integrati cioè
+[00:15:51 - 00:15:57] rappresentati ovviamente sono i vari valori possibili delle variabili di ingresso quindi in
+[00:15:57 - 00:16:03] questa rappresentazione ho scelto di rappresentare le variabili a e b sulle colonne e la variabile
+[00:16:03 - 00:16:12] c sulle righe ok ora sulle colonne in particolare mentre c ovviamente è facile a due valori
+[00:16:12 - 00:16:18] possibili quindi avrò due righe una riga associata al valore 0 di c e una riga associata al valore 1
+[00:16:18 - 00:16:30] di c dobbiamo stare attenti invece quando abbiamo due due variabili perché quale quest'ordine che
+[00:16:30 - 00:16:37] dobbiamo seguire che è utile perché poi dopo lo sfrutteremo quello di avere che le le colonne
+[00:16:37 - 00:16:44] le colonne adiacenti devono rappresentare diciamo un min termine una possibile combinazione delle
+[00:16:44 - 00:16:53] variabili in esso che differiscono soltanto per un bit per un valore quindi se io qua metto
+[00:16:53 - 00:17:00] 0 0 la prima colonna vedete il secondo colonna la seconda colonna l'unica differenza è che cambia
+[00:17:00 - 00:17:10] il valore di b quindi da 0 0 vado a 0 1 ora perché bisogna stare attenti perché per abitudine uno
+[00:17:10 - 00:17:16] tende a fare la rappresentazione vedete come la facciamo la tabella di verità no che io faccio
+[00:17:16 - 00:17:25] 0 0 0 1 1 0 1 1 e questo lo faccio per abitudine però questa rappresentazione dei min termini
+[00:17:25 - 00:17:31] non ha questa proprietà che invece desidero perché vedete nella seconda riga e la nella terza
+[00:17:31 - 00:17:40] riga ho due min termini che però la distanza cioè differiscono non solo per il cambiamento del
+[00:17:40 - 00:17:44] valore di una variabile ma sono due variabili che cambiano contemporaneamente e non è quello che
+[00:17:44 - 00:17:52] voglio fare io invece voglio che voglio mettere diciamo i min termini voglio mettere in ordine in
+[00:17:52 - 00:18:01] modo che scambia che cambia solo un valore e per questo dopo 0 1 si mette 1 1 in modo che la distanza
+[00:18:01 - 00:18:08] tra i due c'è la differenza tra le due colonne e soltanto il valore di via e questo poi ovviamente
+[00:18:09 - 00:18:16] mi torna anche all'ultimo dalla terza la quarta la zona o soltanto che cambia il valore di b questa
+[00:18:16 - 00:18:23] diciamo disposizione prende il nome di codice grei e la diciamo una cosa a cui dobbiamo stare
+[00:18:23 - 00:18:29] attenti quando andiamo a costruire una mappa di carlo quindi possiamo farla non così facciamo
+[00:18:29 - 00:18:33] so qua solo a b e ci li mettiamo a sinistra non è importante importante che però quando
+[00:18:33 - 00:18:39] voi scriviamo le combinazioni dei debit dei valore delle variabili adesso seguiamo questo
+[00:18:39 - 00:18:48] codice crei quindi quindi se avessi voluto duplicare la la o la b avrebbe dovuto alternarli in questo
+[00:18:48 - 00:18:59] processo 0 0 poi 0 1 giusto ma dove alternare duplicare due sulla c no ma io duplicare no
+[00:18:59 - 00:19:08] io intendevo che se l'abbila tolgo dalla colonna e lo metto ci avrei le coppie sulle righe e sulla
+[00:19:08 - 00:19:17] colonna avrei solo 0 1 ah sì bebe l'avrebbe avrebbe fatto lì come se rotassi la tabella
+[00:19:17 - 00:19:22] avrebbe fatto una simetrica c'è una simetrica tra virgolette perché la simetrica è in genere
+[00:19:22 - 00:19:28] quadrata la diagonale ma beh comunque fa fa la sempre così perché io lo faccio sempre così
+[00:19:28 - 00:19:37] era giusto per ragionare su su un'importanza di rispettare il numero di celle e su rispettare
+[00:19:37 - 00:19:44] la diacenza tra i min termini difficilmente la troveresti al contrario in genere uno mette
+[00:19:44 - 00:19:51] diciamo prima la la colonna in più poi quando sei a 4 la fai 4 c'è 2 per 2 sì anche perché
+[00:19:51 - 00:19:58] si le in genere noi occidentale che cosa leggiamo da sinistra a destra sì sì sì non ho
+[00:19:58 - 00:20:05] quindi era pur parli e quindi va bene farla scegli un modo per farla in cui ti ritrovi
+[00:20:05 - 00:20:13] ti abitio a quello va bene così c'è importante però capire che ogni celle rappresenta un min
+[00:20:13 - 00:20:19] termine e io per scelta perché voglio fare una scelta furba che dopo mi tornerà utile distribuisco
+[00:20:19 - 00:20:28] i min termini in modo che siano a 10 e sono a 10 e non solo per come le vedo quindi la prima
+[00:20:28 - 00:20:35] colonna con la seconda la terza la terza con la quarta però devi immaginare che diciamo le
+[00:20:35 - 00:20:42] colonne diciamo come se fosse circolare nel senso che la quarta colonna è a 10 anche alla prima
+[00:20:43 - 00:20:50] e in effetti vedi cambia solo di un di un bit no tra 1 0 e 0 1 di nuovo l'unica
+[00:20:50 - 00:20:59] differenzia che cambia il valore di a e questo vale anche per le righe adesso qua non si non si
+[00:20:59 - 00:21:10] rileva se fossero state 4 righe quando lo vedremo nelle prossime slide vale che come se fosse
+[00:21:10 - 00:21:16] accartuocciata su se stessa sia sulle righe che sulle colonne no quindi ricordiamoci questo
+[00:21:16 - 00:21:22] concetto abbiamo ci torno sarà più chiaro andando avanti ecco qua in questo esempio io
+[00:21:22 - 00:21:30] so la funzione di quattro variabili la mappa di carno 2 alla quarta 16 celle distribuite 2
+[00:21:30 - 00:21:37] per 2 anche qua vedete le configurazioni sulle righe le vado a distribuire col codice gray quindi
+[00:21:37 - 00:21:47] 0 0 0 1 1 1 1 0 e anche qua posso dire qua si vede meglio che la prima riga è a 10 anche
+[00:21:47 - 00:21:52] l'ultima riga come se fosse un cilindro 3 di 3 di cia
+[00:21:59 - 00:22:04] questo è riportato quello che vi ho detto vediamo che ci facciamo con questa tabella
+[00:22:04 - 00:22:10] non l'abbiamo costruita o per tre variabili ingresso per quattro variabili ingresso la
+[00:22:10 - 00:22:16] costruiamo vediamo che ci facciamo immaginiamo di avere questa funzione di tre variabili
+[00:22:16 - 00:22:23] di ingresso la sua forma sop è la sop la somma diciamo dei tremmi in termini
+[00:22:24 - 00:22:34] cosa ci faccio ho costruito la mappa di carno andiamo a scrivere diciamo 1 1 nella
+[00:22:34 - 00:22:41] cella corrispondente al min termine che appare nella forma canonica quindi il primo min termine che
+[00:22:41 - 00:22:48] sarebbe a negato b negato c che sarebbe questo della seconda riga della tabella 0 0 1 lo vado a
+[00:22:48 - 00:22:58] scrivere dove nella tabella c'è nella mappa di carno ho la configurazione 0 0 1 e cioè qui prima
+[00:22:58 - 00:23:08] colonna seconda riga il secondo min termine è quello in sesta riga e cioè la configurazione
+[00:23:08 - 00:23:18] 1 0 1 lo vado a scrivere nella mappa di carno dove c'è 1 0 1 quindi quarta riga seconda c'è
+[00:23:18 - 00:23:27] quarta colonna seconda riga ultimo min termine cioè a vicinegato lo vado a mettere in cioè quello
+[00:23:27 - 00:23:36] della penultima riga 1 1 0 cioè 1 1 0 quindi terza colonna prima riga quindi ricordiamo ci
+[00:23:36 - 00:23:45] sembra che questi numeretti diciamo rappresentano il min termine con i valori se c'è 0 sarebbe a
+[00:23:45 - 00:23:56] negato b negato se c'è 1 è la variabile l'ingresso presa direttamente ora cosa facciamo l'obiettivo
+[00:23:56 - 00:24:09] è di andare a riconoscere all'interno della mappa di carno se ci sono min termini adiacenti perché
+[00:24:09 - 00:24:18] questo perché vediamo in questo esempio noi abbiamo che il min termine che abbiamo messo qui in
+[00:24:18 - 00:24:24] fondo a destra questo 1 ognuno è un min termine abbiamo detto è adiacente a quello che sta in
+[00:24:24 - 00:24:32] prima colonna adiacente vuol dire che differiscono soltanto di del valore di una variabile l'ingresso
+[00:24:32 - 00:24:40] in questo caso per il valore di a in effetti se io mi li vado a scrivere questo min termine è a
+[00:24:40 - 00:24:52] b negato c quest'altro è a negato b c ma io mi dico mi devo sempre ricordare che la funzione che
+[00:24:52 - 00:24:59] sto cercando di minimizzare non è altro che la somma dei min termini rappresentati da questi 1
+[00:24:59 - 00:25:10] quindi io nella nell'espressione diciamo algebrica tengo scritto a negato b negato c più a b negato
+[00:25:10 - 00:25:18] c a che serve riconoscere i min termine adiacenti perché se due min termini sono
+[00:25:18 - 00:25:28] adiacenti nella mappa di carno che in cui sono rappresentati col codice grei vuol dire che hanno
+[00:25:28 - 00:25:38] nella espressione algebrica in comune almeno un letterale che si presenta diciamo in con
+[00:25:38 - 00:25:46] valore diverso mentre gli altri sono uguali in effetti vedete b negato c è uguale nei due
+[00:25:46 - 00:25:53] min termini cambia solo il valore di a e questo nell'agia buleana come avvene anche
+[00:25:53 - 00:26:03] nell'algebra no che già conoscete quella classica decimale diciamo vuol dire che io posso mettere
+[00:26:03 - 00:26:14] in evidenza b negato c e a scrivere b negato c per a più a negato diamo se lo scritto qui ok
+[00:26:17 - 00:26:26] vedete in fondo posso scrivere a negato più a che moltiplica b negato c
+[00:26:29 - 00:26:41] ora a negato più a sarebbe o 0 più 1 o 1 più 0 una proprietà fondamentale dell'agipa buleana
+[00:26:41 - 00:26:47] dice che una variabile più il suo negato fa 1 e se fa 1
+[00:26:57 - 00:27:04] da la moltiplicazione e quindi semplicemente b negato c quindi vedete qua c'è scritto in
+[00:27:04 - 00:27:09] maniera generica se io sono in termine generico di n variabili se questi sono due min termini
+[00:27:09 - 00:27:15] scusate per generici di n variabili se sono adiacenti sulla mappa di cerno vuol dire che
+[00:27:15 - 00:27:25] posso metteranno diciamo n meno 1 letterali uguali e sono un letterale che si differenzia
+[00:27:25 - 00:27:37] perché appare in forma diventa e negata e quindi lo posso mettere in evidenza e semplificare quindi
+[00:27:37 - 00:27:44] la somma di due min termini adiacenti si riduce al un unico non è più un min termine un unica
+[00:27:44 - 00:27:52] diciamo prodotto di letterali che non sono più n ma sono n meno 1 perché uno lo semplificato e
+[00:27:52 - 00:28:01] l'ho eliminato quindi tornando alla funzione d'esempio che aveva la somma di tre min termini
+[00:28:01 - 00:28:08] fu che due sono adiacenti e me ne accorco diciamo se non ho l'occhio sulla formalgebrica lo metto in
+[00:28:08 - 00:28:14] forma grafica sulla mappa di cerno me ne accorco qui ma io so che se due min termini sono adiacenti
+[00:28:14 - 00:28:21] sulla mappa di cerno li posso semplificare in effetti scrivo soltanto b negato c più ovviamente
+[00:28:21 - 00:28:30] abbi meno c negato c negato che quello di prima in generale come si scrive il min termine cioè
+[00:28:30 - 00:28:40] il min termine semplificato come si identifica come devo rappresentare questa somma abbiamo letto
+[00:28:40 - 00:28:48] si vanno a prendere diciamo questo raggruppamento che possiamo chiamare di questi due uno si
+[00:28:48 - 00:28:59] semplifica andando a scrivere il valore delle variabili di cui coperte diciamo dal
+[00:28:59 - 00:29:09] raggruppamento che non cambiano valore quindi questo raggruppamento ciò che ci vale sempre uno e
+[00:29:09 - 00:29:19] quindi prenderò ci in forma di tetta mentre a e b o che a cambia e quindi non la prendo b
+[00:29:19 - 00:29:27] invece rimane vale sempre zero in tutto il raggruppamento in forma negata e quindi questo
+[00:29:27 - 00:29:34] raggruppamento diventa b negato c quindi o dal punto di vista algebrica lo posso dimostrare
+[00:29:34 - 00:29:41] oppure applicando questa regola della mappa di carno arrivo a dire che questi due min termine si
+[00:29:41 - 00:29:52] semplificano in b negato c quindi ripeto graficamente io il raggruppamento lo faccio diventare un
+[00:29:52 - 00:29:59] raggruppamento di min termine e decenti sulla mappa di carno si semplifica nel prodotto
+[00:29:59 - 00:30:08] dei letterali coperti dal reggruppamento prendendo soltanto i letterali che non cambiano
+[00:30:08 - 00:30:15] valore nel reggruppamento e prendendoli come al solito in maniera diretta se il valore che
+[00:30:15 - 00:30:20] non cambia e uno in maniera negata se il valore che non cambia e zero
+[00:30:20 - 00:30:32] no vediamo qualche esempio però se avete dubbi già adesso
+[00:30:32 - 00:30:42] allora vediamo un esempio su una funzione qua ci manca di questa funzione di quattro variabili
+[00:30:42 - 00:30:50] comunque il raggruppamento doveva essere tutti molti di due giusto si sempre della potenza di
+[00:30:50 - 00:31:00] due della potenza di due si e il gruppamento muoviamo quali sono le linee guida da utilizzare
+[00:31:00 - 00:31:05] perché noi possiamo anche trovare come in questo caso più potenziali raggruppamenti noi iniziamo
+[00:31:05 - 00:31:12] a dire che questa funzione di quattro variabili quattro variabili quindi se in la scrive in
+[00:31:12 - 00:31:24] forma sop esce così 1 2 3 4 5 6 min termini voglio dire 6 1 sulla mappa di carno ok ora
+[00:31:24 - 00:31:32] vediamo che io potrei fare un raggruppamento come ho fatto prima mettendo due un insieme
+[00:31:33 - 00:31:37] ovviamente il raggruppamento minimo è l'uno da solo che non riesco a raggruppare con nessuno
+[00:31:37 - 00:31:44] poi posso fare il raggruppamento da due come abbiamo visto qui raggruppamento da due che
+[00:31:44 - 00:31:49] esiste anche qua no per esempio questi due che stanno a sinistra isolati li potrei raggruppare
+[00:31:49 - 00:31:55] tra loro allo stesso modo questi altri due uno che stanno di quali potrei raggruppare da loro
+[00:31:55 - 00:32:03] ma la regola è quella di cercare di fare raggruppamenti quanto più grandi possibili perché
+[00:32:03 - 00:32:12] più il raggruppamento è grande più si semplifica diciamo i prodotti coinvolti in quel raggruppamento
+[00:32:12 - 00:32:20] e quindi qua piuttosto che fare due raggruppamenti da due isolati faccio un raggruppamento da quattro
+[00:32:20 - 00:32:26] come abbiamo visto prima questi due uno sono a diecenti a quegli altri perché la prima e la
+[00:32:26 - 00:32:35] quarta colonna sono i decenti tra loro dove per la decenza consideriamo sempre la definizione diciamo
+[00:32:35 - 00:32:44] di a decenza come il valore dei letterali solo un letterale cambia e in effetti la prima e
+[00:32:44 - 00:32:53] quarta colonna cambia solo il valore di a e raggruppando li raggruppo a quattro ora dal
+[00:32:53 - 00:33:00] punto di vista grafico se voglio applicare la regola che vi ho detto prima in cui dico gli uno
+[00:33:00 - 00:33:07] compresi in un raggruppamento qualsiasi si semplificano nel prodotto tra i letterali che non
+[00:33:07 - 00:33:14] cambiano vediamo quali sono i letterali che non cambiano qua abbiamo a e b che nella prima
+[00:33:14 - 00:33:21] colonna è 0 0 nella sua colonna da colonna è 1 0 quindi a cambia quindi a sicurano lo prendo posso
+[00:33:21 - 00:33:33] prendere b in maniera decata c e di abbiamo che c cambia e di no di in maniera diretta quindi
+[00:33:33 - 00:33:38] questo raggruppamento per definizione diciamo per come funziona la mappa di carno si deve
+[00:33:38 - 00:33:49] semplificare nel prodotto b negato di volendo io potrei aggiungere alla stessa soluzione andando
+[00:33:49 - 00:33:56] a lavorare diciamo sulle proprietà algebriche questa che vedete in fondo a testa noi attro che la
+[00:33:56 - 00:34:04] dimostrazione algebrica che effettivamente la somma di questi 4 1 equivale a b negato di
+[00:34:04 - 00:34:11] e vediamola insieme questo perché perché ovviamente questi sono tutti i indermini che vado
+[00:34:11 - 00:34:21] a sommare quindi abbiamo a negato b negato ci negato di che sarebbe 0 0 0 1 quindi il primo
+[00:34:21 - 00:34:31] 1 qui poi abbiamo a negato b negato ci di questo 1 di sotto più a b negato ci negato di
+[00:34:31 - 00:34:39] questo altro 1 e più a b negato ci di e quindi nella prima ricco qua mi sono scritto semplicemente
+[00:34:39 - 00:34:48] la somma dei 4 1 cioè dei 4 in termini e adesso andiamo a lavorare di messa in evidenza e altro
+[00:34:48 - 00:34:54] diciamo con l'algera buleana ed esempio mi accorco che posso mettere in evidenza
+[00:34:54 - 00:35:06] ci negato e ci tra a b negato di e a b negato di cioè questi primi due in termini e lo stesso
+[00:35:06 - 00:35:15] posso fare di qua e quindi ottengo una semplificazione semplicemente perché ci negato più ci quale 1
+[00:35:15 - 00:35:23] quindi posso eliminare e arrivo ad a negato b di più a b negato di anche qua posso mettere
+[00:35:23 - 00:35:33] un letterale di evidenza cioè in evidenza non metto metto metto b negato di in evidenza e quindi
+[00:35:33 - 00:35:41] ho a negato più a che moltiplica b negato di anche qua si semplifica di b negato di come
+[00:35:41 - 00:35:46] abbiamo detto prima ovviamente seguendo la strada grafica della mappa di carno facciamo
+[00:35:46 - 00:35:52] molto prima molto più immediato piuttosto di andarlo a fare algebraicamente però è importante
+[00:35:52 - 00:36:00] capire l'equivalenza tra le due strade poi l'obiettivo della mappa di carno ovviamente
+[00:36:00 - 00:36:06] coprire tutti gli 1 cercare cioè di fare dei raggruppamenti che abbraccino tutti gli 1 che
+[00:36:06 - 00:36:11] stanno sulla mappa di carno qua abbiamo ancora questi due 1 se li lascio da soli vuol dire che
+[00:36:11 - 00:36:19] io non riesco a semplificare ultimamente però per fortuna esiste un altro raggruppamento ed è
+[00:36:19 - 00:36:26] questo qui che mi permette vedete io non li lascio da soli e nemmeno li prendo a due perché
+[00:36:26 - 00:36:33] potevo raggruppare l'uno di sopra con quello di sotto ma io finché posso ingrandirmi è sempre
+[00:36:33 - 00:36:40] meglio posso prendere più volte gli stessi uno se è funzionale no come qui quindi queste
+[00:36:40 - 00:36:46] questa coppia di uno io li sfrutto da un lato per coprire questi qua e dall'altro per coprire
+[00:36:46 - 00:36:54] questi qua quindi vedete non devo fare per forza dei quadrati posso fare anche direttangoli
+[00:36:54 - 00:37:04] importante che sia una potenza del 2 quindi questo raggruppamento di 4 1 e questo in cosa
+[00:37:04 - 00:37:12] c'è in cosa viene in cosa si semplifica di nuovo vada a vedere tutti gli uno che formano
+[00:37:12 - 00:37:20] il raggruppamento che valori hanno delle variabili di ingresso quindi qui o ab vale 1 0 e non cambiano
+[00:37:20 - 00:37:26] mai nessuno dei due quindi li devo prendere per forza li devo prendere a in forma diretta e b
+[00:37:26 - 00:37:36] negato gli altri invece c e d passano da 0 0 1 si fanno tutte le possibili combinazioni quindi
+[00:37:36 - 00:37:48] nessuno dei due posso prendere e quindi questi 4 1 si semplificano in b negato anche qua c'è
+[00:37:48 - 00:37:53] la dimostrazione algebrica in cui si mette in evidenza una volta a due a due c'è i vari
+[00:37:53 - 00:37:59] mi intermini coinvolti e si riesce a dimostrare la stessa cosa che la somma di questi 4 1 c'è la
+[00:37:59 - 00:38:09] somma di questi 4 mi intermini e a b negato mettendo insieme le due cose io posso dire che la
+[00:38:09 - 00:38:16] funzione buliana di partenza che dalla forma canonica vedete mi se la andasse a implementare mi
+[00:38:16 - 00:38:24] comporterebbe un bel po di collegamenti e di porte logiche invece con la minimizzazione io mi trovo
+[00:38:24 - 00:38:38] una stessa funzione scritta in forma equivalente che però coinvolge diciamo che richiede meno
+[00:38:38 - 00:38:45] operazioni semplicemente qua ci faccio una or tra due e e in input tallendo ci metteranno
+[00:38:45 - 00:38:52] i segnali di conseguenze diciamo ok apprezzate quindi cioè a che serve sta minimizzazione no
+[00:38:52 - 00:39:01] trovare una forma algebrica equivalente ma più semplice vuol dire che poi quando il poi
+[00:39:01 - 00:39:07] la va a implementare io mi faccio guidare dalla forma algebrica e un utilizzerò meno porte
+[00:39:07 - 00:39:13] anche porte meno complicate perché qua avrei utilizzato delle ende a quarti ingressi una
+[00:39:13 - 00:39:21] ora sei ingressi mentre qua posso banalmente utilizzare una or a due ingressi e due ende a due
+[00:39:21 - 00:39:43] ingressi è tutto chiaro ok qui alcune linee guida che bevo placenato prima quindi
+[00:39:44 - 00:39:50] cercare di fare la colpamenti che ovviamente devono essere tutti di uno a diecenti quindi non
+[00:39:50 - 00:39:58] devono includere cele uote devono essere devono includere potenze di due diciamo un numero
+[00:39:58 - 00:40:02] di elementi che devono essere potenze due quindi lo colpamenti di uno quando non riesco a fare
+[00:40:02 - 00:40:08] niente di due di quattro di otto più grande faccio meglio è perché più grandi li faccio più
+[00:40:08 - 00:40:17] variazioni delle vere delle ingresso riesco a coprire più variazioni delle vere ingresso riesco
+[00:40:17 - 00:40:22] a coprire più sarà grande la semplificazione cioè meno letterali andrò a includere nella forma
+[00:40:22 - 00:40:38] finale abbiamo qualche altro esempio prima di concludere sempre una funzione di quattro
+[00:40:38 - 00:40:48] variabili ingresso quindi qua abbiamo 1 2 3 4 5 6 7 8 min termini che valgono 1 quindi avrò
+[00:40:48 - 00:40:55] otto min termini cioè otto min termini in quella funzione assume valore 1 quindi avrò nella forma
+[00:40:55 - 00:41:06] sop 8 min termini che fanno parte diciamo della della forma sop e maniera violente 8 1 che devo
+[00:41:06 - 00:41:12] andare a distribuire sulla mappa di carno faccio la mappa di carno 2 per 2 in questo caso e vado
+[00:41:12 - 00:41:23] a mettere gli 1 qua ce ne sono 3 0 0 0 1 sarebbe 0 0 0 1 sarebbe questo qui seconda riga prima
+[00:41:23 - 00:41:32] colonna 0 0 1 1 terza riga prima colonna 0 1 0 0 questo qui prima riga seconda colonna
+[00:41:32 - 00:41:46] gli altri uno ovviamente sempre sempre dovata bella di verità 1 0 0 1 1 0 0 1 questo 1 0 1 1
+[00:41:46 - 00:41:59] questo qui 1 1 0 0 questo 1 1 0 1 è 1 1 1 1 l'ultimo sta qua e poi rinziamo a
+[00:41:59 - 00:42:11] ragionare su si raggruppamenti qua ad esempio abbiamo fatto un raggruppamento per questi
+[00:42:11 - 00:42:20] 4 1 un altro che abbraccia questi qua di della prima colonna con questi della seconda dall'ultima
+[00:42:20 - 00:42:31] colonna e questi qua sempre c'è da a 2 da soli ne riesco a semplificarli ulteriormente quindi
+[00:42:31 - 00:42:41] riesco ad identificare in questo caso tre gruppi tre gruppamenti due da quattro è uno da due
+[00:42:41 - 00:42:51] però partiamo da quello più piccolo questi due questo raggruppamento da due oltre dire che
+[00:42:51 - 00:42:59] c e d non cambiano quindi li devo prendere per forza cambia soltanto il valore di a quindi riesco
+[00:42:59 - 00:43:09] a elitere solo il letterale a questo gruppamento mi dà quindi b ci negato di negato quello rosa
+[00:43:09 - 00:43:17] due per due vuol dire che riesco a semplificare una variabile sulle righe una sulle colonne da questo
+[00:43:17 - 00:43:25] qua sulle righe sulle righe si riesco a semplificare c perché cambia quindi mi porto solo di sulle
+[00:43:25 - 00:43:37] colonne semplifico la e mi porto b quindi il raggruppamento rosa e b negato di quello blu
+[00:43:37 - 00:43:46] io letto è di nuovo due per due quindi avrò una semplificazione tra c e d e una tra e b
+[00:43:46 - 00:43:58] allo c e d cambia c quindi mi prendo di tra e b cambia b quindi prendo a e quindi ad creare
+[00:43:58 - 00:44:06] raggruppamenti mi identificano tre molti piazioni tra letterali e quindi la funzione di partenza
+[00:44:06 - 00:44:16] passa da diciamo non ce l'ho qui la somma comunque erano una erano ottomi in termini in
+[00:44:16 - 00:44:25] or tra loro si riduce invece a una or tra delle molti piazioni che non sono a quattro come prima
+[00:44:25 - 00:44:33] ma ce n'è una tre e due a due quindi ho semplificato se il numero di orro da effettuare che diciamo la
+[00:44:33 - 00:44:37] complessità dell'end sui letterali che le variabili ingresso
+[00:44:45 - 00:44:52] vado direttamente a ragionare sulla tabella qui abbiamo degli uno così disposti
+[00:44:52 - 00:45:06] in cui in nuovo prendo un raggruppamento 2 per 2 queste da 4 1 e questi da 4 1 quindi
+[00:45:06 - 00:45:13] qua avevo 3 6 sempre 8 mi intermini in quella funzione vale 1 me ne riporto sulla tabella e
+[00:45:13 - 00:45:21] cerco di raggrupparli facendo sempre meno raggruppamenti rossibili ma più grandi possibili
+[00:45:21 - 00:45:27] di raggruppamenti che si estendono vedete su tutta una ricca o su tutta una colota mi permettono
+[00:45:27 - 00:45:34] di eliminare tutte quelle variabili delle per esempio quello rosa si estende su tutte le
+[00:45:34 - 00:45:39] righe quindi i letterali delle le delle righe non li non li avrò ne la semplificazione infatti
+[00:45:39 - 00:45:46] quello rosa è semplicemente a binegato che mi traduce la rappresentazione della colonna in
+[00:45:46 - 00:45:55] cui si trova vedete 1 0 a binegato quello arancione si estende su tutta su tutte le
+[00:45:55 - 00:46:02] colonne quindi a e b non se li porta si trova sulla riga 1 1 quindi si porta c d
+[00:46:05 - 00:46:12] quello 2 per 2 classico abbiamo da un lato ci prendiamo a in forma diretta dall'altro ci
+[00:46:12 - 00:46:20] in forma diretta quindi abbiamo che i tre raggruppamenti diventano cd più a binegato più a c
+[00:46:20 - 00:46:31] vediamo velocemente anche l'ultimo esempio sono sbaglio qua abbiamo sempre tanti 1
+[00:46:31 - 00:46:43] qui abbiamo 1 2 3 4 5 6 7 8 9 10 1 quindi 10 mi interming una funzione vale 1 e vedete come
+[00:46:43 - 00:46:50] sono disposti facciamo quello nero sempre 2 per 2 prendendo la prima con la quarta colonna
+[00:46:50 - 00:46:54] quello
+[00:47:00 - 00:47:08] rosa invece tra la prima riga e l'ultima riga quello blu violetto lo stesso gli due uno centrali
+[00:47:08 - 00:47:15] e così via e quello arancione invece non riesco a estenderlo più di due e me lo devo tenere a 2
+[00:47:15 - 00:47:22] quindi alla fine ho identificato quattro raggruppamenti
+[00:47:30 - 00:47:38] qua per esempio non faccio il raggruppamento della prima riga perché poi comunque ha
+[00:47:38 - 00:47:44] dovuto fare quello rosa e quello violetto per prendere questi due quindi diciamo sarebbe
+[00:47:44 - 00:47:50] stato in più quello della prima riga ovviamente dove fare sempre meno raggruppamenti possibili
+[00:47:50 - 00:47:56] quindi questi sono quelli che sono riuscito ad identificare quattro raggruppamenti di cui
+[00:47:56 - 00:48:07] 3 da 4 1 e 1 da 2 quello da 2 cioè quello arancione mi darà a negato bc perché riesco
+[00:48:07 - 00:48:15] solo a semplificare la c che qui cioè la di che qui cambia valore gli altri no quelli rosa
+[00:48:15 - 00:48:22] invece c'è gli altri raggruppamenti essendo due per due c'è da 4 1 mi daranno due letterali
+[00:48:22 - 00:48:40] moltiplicati allo quello rosa e ha negato di negato quello blu violetto e b di negato vediamo sempre
+[00:48:40 - 00:48:47] i valori che cambiano e li togliamo e c'etteriamo quelli che non cambiano quello nero qua cambia
+[00:48:47 - 00:48:56] la d quindi prendo la c negata qui cambia ai cambia la quindi prendo la b negata e quindi la
+[00:48:56 - 00:49:04] funzione finale equivalente a quella divertenza ma semplificata e ha negato bc più ha negato di
+[00:49:04 - 00:49:19] negato più b di negato più b negato c negato ok non ci sono più esempi quindi
+[00:49:19 - 00:49:41] chiaro ci sono domande ma beh se non ci sono domande allora termino qui e vi saluto ci sentiamo la
+[00:49:41 - 00:49:51] prossima lezione rivederci buona giornata a tutti
