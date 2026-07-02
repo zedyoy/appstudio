@@ -2115,6 +2115,15 @@ body.light-theme .question-card .question-text * {
     color: #0f172a !important;
 }
 
+.question-card .question-text .code-question,
+.question-card .question-text .code-question *,
+body.light-theme .question-card .question-text .code-question,
+body.light-theme .question-card .question-text .code-question * {
+    background: #020617 !important;
+    color: #ffffff !important;
+    text-shadow: none !important;
+}
+
 .question-text img {
     max-width: 100%;
     border-radius: 8px;

@@ -1817,6 +1817,7 @@ function looksLikeCodeLine(line) {
     if (!trimmed) return false;
     return /^(if|elif|else|for|while|def|class|try|except|finally|with|print|return|import|from|[A-Za-z_]\w*\s*=)/.test(trimmed)
         || /^[A-Za-z_]\w*\([^)]*\)\s*(->|:|=)/.test(trimmed)
+        || /^[A-Za-z_]\w*\(.*[,:=]/.test(trimmed)
         || (/[:=(){}\[\];]/.test(trimmed) && /\b(print|range|len|input|self|True|False|None)\b/.test(trimmed));
 }
 

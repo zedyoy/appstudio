@@ -16,6 +16,18 @@ import tempfile
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-secret-change-me")
 
+
+@app.context_processor
+def inject_static_version():
+    def static_version(filename):
+        path = os.path.join(app.static_folder, filename)
+        try:
+            return str(int(os.path.getmtime(path)))
+        except OSError:
+            return "1"
+
+    return {"static_version": static_version}
+
 # Cerco i DB qui:
 # - ./data (consigliato)
 
