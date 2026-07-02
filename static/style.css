@@ -2610,6 +2610,36 @@ body.light-theme .source-note small {
     font-size: 0.86rem;
 }
 
+.source-note-full {
+    white-space: pre-wrap;
+    line-height: 1.45;
+}
+
+.source-note-toggle {
+    margin-top: 8px;
+    border: 1px solid rgba(96, 165, 250, 0.55);
+    border-radius: 999px;
+    background: rgba(30, 64, 175, 0.28);
+    color: #bfdbfe;
+    padding: 5px 9px;
+    font-size: 0.78rem;
+    cursor: pointer;
+}
+
+.source-note-toggle:hover {
+    background: rgba(37, 99, 235, 0.42);
+}
+
+body.light-theme .source-note-toggle {
+    background: #dbeafe;
+    color: #1d4ed8;
+    border-color: #93c5fd;
+}
+
+body.light-theme .source-note-toggle:hover {
+    background: #bfdbfe;
+}
+
 .error-reason-panel {
     margin-top: 8px;
     display: flex;

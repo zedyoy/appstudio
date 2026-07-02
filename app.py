@@ -676,6 +676,7 @@ def find_study_sources(subject_key, query_text, limit=3):
                 "source_title": row["source_title"],
                 "topic": row["topic"],
                 "excerpt": compact_excerpt(row["content"]),
+                "full_text": repair_text(row["content"]).strip(),
                 "page_start": row["page_start"],
                 "page_end": row["page_end"],
                 "score": score,
@@ -2120,10 +2121,12 @@ def architecture_manifest_payload():
 
 
 def architecture_note_row_to_payload(row):
+    full_text = repair_text(row["content"])
     return {
         "source_title": repair_text(row["source_title"]),
         "topic": repair_text(row["topic"]),
-        "excerpt": compact_excerpt(repair_text(row["content"]), max_chars=520),
+        "excerpt": compact_excerpt(full_text, max_chars=520),
+        "full_text": full_text.strip(),
         "page_start": row["page_start"],
         "page_end": row["page_end"],
         "score": row["score"] if "score" in row.keys() else 0,
@@ -4472,7 +4475,6 @@ def study_note(id):
     )
 
     clean_question = decode_quiz_text(payload.get("testo", ""))
-    correct_short = compact_excerpt(decode_quiz_text(correct_text), 180)
     selected_short = compact_excerpt(decode_quiz_text(selected_text), 150)
     focus_terms = [
         term
@@ -4484,11 +4486,16 @@ def study_note(id):
     ]
     focus_word = focus_terms[0] if focus_terms else "concetto"
 
-    why = f"La risposta corretta e: {correct_short}. Il punto da riconoscere e '{focus_word}'."
+    mistake = ""
+    why = f"Il punto da riconoscere e '{focus_word}': richiama la regola collegata prima di leggere le opzioni."
     if selected_text:
+        mistake = (
+            f"Hai scelto: {selected_short}. Il tranello era riconoscere il concetto '{focus_word}' "
+            "prima di confrontare le opzioni."
+        )
         why = (
-            f"Hai scelto: {selected_short}. La corretta e: {correct_short}. "
-            f"La differenza da fissare e il concetto '{focus_word}'."
+            f"La differenza da fissare e il concetto '{focus_word}'. "
+            "Quando la domanda cambia una parola o un simbolo, quella parola decide la risposta."
         )
 
     if source_excerpt:
@@ -4498,7 +4505,17 @@ def study_note(id):
     else:
         example = "Esempio: copri le opzioni, richiama la regola in una frase e poi scegli la risposta che la rispetta meglio."
 
-    memory_tip = f"Parola-spia: {focus_word}. Quando la vedi, richiama prima la regola e poi leggi le opzioni."
+    if is_programming_subject(subject_key):
+        memory_tip = (
+            f"Domande simili: cerca la parola-spia '{focus_word}', poi esegui il codice riga per riga. "
+            "Se cambiano valori, operatori o indentazione, cambia anche il ramo che viene eseguito."
+        )
+    else:
+        memory_tip = (
+            f"Domande simili: cerca la parola-spia '{focus_word}'. "
+            "Se cambiano simboli, percentuali, variabili o definizioni, non rispondere a memoria: "
+            "prima chiediti cosa rappresenta quel dato nella domanda."
+        )
 
     return jsonify(
         {
@@ -4506,6 +4523,7 @@ def study_note(id):
             "correct_text": correct_text,
             "selected_text": selected_text,
             "distractors": wrong_texts,
+            "mistake": mistake,
             "why": why,
             "example": example,
             "memory_tip": memory_tip,

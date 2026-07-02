@@ -2361,9 +2361,14 @@ function startVoiceDictation(textarea, button, status) {
 
     recognition.onerror = (event) => {
         if (status) {
-            status.textContent = event.error === "not-allowed"
-                ? "Permesso microfono negato."
-                : "Dettatura interrotta. Riprova.";
+            const needsHttps = typeof window !== "undefined" && !window.isSecureContext;
+            if (event.error === "not-allowed") {
+                status.textContent = needsHttps
+                    ? "Microfono bloccato: usa la versione HTTPS o autorizza il browser."
+                    : "Microfono bloccato: autorizzalo dal browser e riprova.";
+            } else {
+                status.textContent = "Dettatura interrotta. Riprova.";
+            }
         }
     };
 
@@ -2373,7 +2378,7 @@ function startVoiceDictation(textarea, button, status) {
         }
         button.classList.remove("listening");
         button.textContent = "Detta";
-        if (status && !status.textContent.includes("negato")) {
+        if (status && !status.textContent.includes("bloccato")) {
             status.textContent = textarea.value.trim()
                 ? "Trascrizione inserita."
                 : "Premi Detta e parla.";
@@ -2444,6 +2449,64 @@ function appendActiveExplanationPrompt(parent) {
     parent.appendChild(wrap);
 }
 
+function sourcePageLabel(source) {
+    if (!source) return "";
+    if (source.page_start && source.page_end && source.page_start !== source.page_end) {
+        return `pp. ${source.page_start}-${source.page_end}`;
+    }
+    if (source.page_start) return `p. ${source.page_start}`;
+    return "";
+}
+
+function appendExpandableSourceNote(parent, source) {
+    if (!source) return;
+
+    const item = document.createElement("article");
+    item.className = "source-note";
+
+    const meta = document.createElement("strong");
+    const page = sourcePageLabel(source);
+    meta.textContent = `${source.topic || "Fonte collegata"}${page ? ` - ${page}` : ""}`;
+    item.appendChild(meta);
+
+    if (source.source_title) {
+        const origin = document.createElement("small");
+        origin.textContent = source.source_title;
+        item.appendChild(origin);
+    }
+
+    const excerptText = source.excerpt || "";
+    const fullText = (source.full_text || "").trim();
+    const hasFullText = fullText && fullText.length > excerptText.length + 20;
+
+    const excerpt = document.createElement("p");
+    excerpt.textContent = excerptText || fullText || "";
+    item.appendChild(excerpt);
+
+    if (hasFullText) {
+        const full = document.createElement("p");
+        full.className = "source-note-full";
+        full.textContent = fullText;
+        full.hidden = true;
+
+        const toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.className = "source-note-toggle";
+        toggle.textContent = "Mostra tutto";
+        toggle.addEventListener("click", () => {
+            const expanded = full.hidden;
+            full.hidden = !expanded;
+            excerpt.hidden = expanded;
+            toggle.textContent = expanded ? "Mostra meno" : "Mostra tutto";
+        });
+
+        item.appendChild(full);
+        item.appendChild(toggle);
+    }
+
+    parent.appendChild(item);
+}
+
 async function loadStudyNote(questionId, selectedAnswerId = null) {
     const panel = document.getElementById("studyPanel");
     if (!panel) return;
@@ -2461,12 +2524,14 @@ async function loadStudyNote(questionId, selectedAnswerId = null) {
     title.textContent = "Spiegazione rapida";
     panel.appendChild(title);
 
-    const sections = [
-        ["Risposta corretta", note.correct_text || ""],
+    const sections = [];
+    if (note.mistake) {
+        sections.push(["Dove hai sbagliato", note.mistake]);
+    }
+    sections.push(
         ["Perche", note.why || note.focus || ""],
-        ["Esempio", note.example || ""],
         ["Trucchetto", note.memory_tip || note.hint || ""]
-    ];
+    );
     sections.forEach(([label, value]) => {
         const block = document.createElement("div");
         block.className = "study-answer compact-explanation";
@@ -2487,27 +2552,9 @@ async function loadStudyNote(questionId, selectedAnswerId = null) {
         const sourceWrap = document.createElement("div");
         sourceWrap.className = "source-notes";
         const sourceTitle = document.createElement("h4");
-        sourceTitle.textContent = note.python_lab ? "Esempio dalla dispensa" : "Esempio diretto";
+        sourceTitle.textContent = note.python_lab ? "Dalla dispensa" : "Fonte collegata";
         sourceWrap.appendChild(sourceTitle);
-
-        const item = document.createElement("article");
-        item.className = "source-note";
-
-        const meta = document.createElement("strong");
-        const page =
-            source.page_start && source.page_end && source.page_start !== source.page_end
-                ? `pp. ${source.page_start}-${source.page_end}`
-                : source.page_start
-                    ? `p. ${source.page_start}`
-                    : "";
-        meta.textContent = `${source.topic}${page ? ` - ${page}` : ""}`;
-
-        const excerpt = document.createElement("p");
-        excerpt.textContent = source.excerpt;
-
-        item.appendChild(meta);
-        item.appendChild(excerpt);
-        sourceWrap.appendChild(item);
+        appendExpandableSourceNote(sourceWrap, source);
 
         panel.appendChild(sourceWrap);
     }
@@ -3763,22 +3810,7 @@ function renderArchitectureResult(payload, earnedXp) {
         sources.appendChild(sourceTitle);
 
         payload.source_notes.slice(0, 2).forEach((source) => {
-            const item = document.createElement("div");
-            item.className = "source-note";
-
-            const name = document.createElement("strong");
-            name.textContent = source.source_title || "Video Architettura";
-
-            const meta = document.createElement("small");
-            meta.textContent = source.topic || "Estratto collegato";
-
-            const excerpt = document.createElement("p");
-            excerpt.textContent = source.excerpt || "";
-
-            item.appendChild(name);
-            item.appendChild(meta);
-            item.appendChild(excerpt);
-            sources.appendChild(item);
+            appendExpandableSourceNote(sources, source);
         });
     }
 
