@@ -2131,6 +2131,12 @@ body.light-theme .question-card .question-text .code-question * {
     display: block;
 }
 
+body:not(.light-theme) .question-image,
+body:not(.light-theme) .answer-image {
+    filter: brightness(0) invert(1);
+    opacity: 1;
+}
+
 .code-question {
     width: 100%;
     margin: 8px 0 2px;

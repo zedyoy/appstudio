@@ -1910,6 +1910,14 @@ function appendFormattedText(parent, value, paragraphTag = "p") {
     parent.appendChild(pre);
 }
 
+function imageDataSrc(base64Value) {
+    const value = String(base64Value || "");
+    if (value.startsWith("iVBOR")) return `data:image/png;base64,${value}`;
+    if (value.startsWith("/9j/")) return `data:image/jpeg;base64,${value}`;
+    if (value.startsWith("R0lG")) return `data:image/gif;base64,${value}`;
+    return `data:image/png;base64,${value}`;
+}
+
 function normalizeCodeIndent(lines) {
     const useful = lines.filter((line) => line.trim());
     if (!useful.length) return [];
@@ -1986,7 +1994,8 @@ function renderQuestionPayload(question, forExam) {
         domandaText.innerHTML = "";
         if (question.immagine) {
             const img = document.createElement("img");
-            img.src = `data:image/jpeg;base64,${question.immagine}`;
+            img.src = imageDataSrc(question.immagine);
+            img.className = "question-image";
             img.alt = "Immagine della domanda";
             domandaText.appendChild(img);
         }
@@ -2005,7 +2014,8 @@ function renderQuestionPayload(question, forExam) {
 
         if (risposta.immagine) {
             const img = document.createElement("img");
-            img.src = `data:image/jpeg;base64,${risposta.immagine}`;
+            img.src = imageDataSrc(risposta.immagine);
+            img.className = "answer-image";
             img.alt = "Immagine risposta";
             container.appendChild(img);
         }
