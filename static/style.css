@@ -2819,24 +2819,34 @@ body.light-theme .btn.ghost:hover {
 /* FOOTER DOMANDA – separato dalle risposte */
 .question-footer {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: 1fr;
     align-items: stretch;
-    gap: 8px;
+    gap: 9px;
     margin-top: 12px;
     padding-top: 10px;
     border-top: 1px solid rgba(148, 163, 184, 0.35);
 }
 
-.nav-buttons,
-.save-buttons {
+.next-action {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.next-action .btn {
+    min-width: min(100%, 360px);
+    min-height: 46px;
+    justify-content: center;
+}
+
+.secondary-actions {
     display: flex;
     align-items: stretch;
     gap: 8px;
     width: 100%;
 }
 
-.nav-buttons .btn,
-.save-buttons .btn {
+.secondary-actions .btn {
     flex: 1 1 0;
     justify-content: center;
 }
@@ -3238,8 +3248,12 @@ body.light-theme .login-form input {
         grid-template-columns: 1fr;
     }
 
-    .nav-buttons,
-    .save-buttons {
+    .next-action .btn {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .secondary-actions {
         flex-direction: column;
         width: 100%;
     }
