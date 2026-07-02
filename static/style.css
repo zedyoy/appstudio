@@ -2102,11 +2102,8 @@ body.light-theme .playlist-pill.active {
 }
 
 .question-card .question-text,
-.question-card .question-text p,
-.question-card .question-text span,
-.question-card .question-text pre,
-.question-card .question-text code {
-    color: #f8fafc;
+.question-card .question-text * {
+    color: #f8fafc !important;
 }
 
 body.light-theme .question-text {
@@ -2114,9 +2111,8 @@ body.light-theme .question-text {
 }
 
 body.light-theme .question-card .question-text,
-body.light-theme .question-card .question-text p,
-body.light-theme .question-card .question-text span {
-    color: #0f172a;
+body.light-theme .question-card .question-text * {
+    color: #0f172a !important;
 }
 
 .question-text img {
@@ -2509,23 +2505,6 @@ body.light-theme .study-panel .study-hint {
     resize: vertical;
 }
 
-.voice-dictation {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: wrap;
-}
-
-.voice-dictation-btn.listening {
-    background: rgba(14, 165, 233, 0.22);
-    border-color: rgba(56, 189, 248, 0.9);
-    color: #e0f2fe;
-}
-
-.active-explanation .voice-dictation-status {
-    color: #bfdbfe;
-}
-
 body.light-theme .active-explanation {
     background: #eff6ff;
     border-color: rgba(37, 99, 235, 0.25);
@@ -2544,16 +2523,6 @@ body.light-theme .active-explanation textarea {
     background: #f8fafc;
     color: #0f172a;
     border-color: #cbd5e1;
-}
-
-body.light-theme .voice-dictation-btn.listening {
-    background: #dbeafe;
-    border-color: #2563eb;
-    color: #1e3a8a;
-}
-
-body.light-theme .active-explanation .voice-dictation-status {
-    color: #1d4ed8;
 }
 
 .source-notes {
